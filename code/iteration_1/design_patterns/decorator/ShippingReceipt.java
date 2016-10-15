@@ -6,7 +6,6 @@ public class ShippingReceipt extends ReceiptDecorator {
 
 	@Override
 	public String printReceipt() {
-		//return "Added shipping cost of \u20ac5.00";
 		return super.printReceipt() + " Footer ";
 	}
 }
