@@ -42,6 +42,11 @@ public class testFactory {
 			
 		}
 		reader.close();
+				
+		for(int i = 0; i < componentList.size(); i++){
+			Component c = componentList.get(i);
+			System.out.println(c.getComponentDetails());
+		}
 		
 		
 		System.out.println("SUo");
