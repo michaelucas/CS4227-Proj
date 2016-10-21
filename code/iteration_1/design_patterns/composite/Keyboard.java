@@ -1,10 +1,13 @@
-package compositeSoFar;
+package Component;
+
+import Component.Component;
+
 public class Keyboard extends Component {
     private String keySwitchType;
     private boolean backlit;
 
-    public Keyboard(int componentId, String componentName, int stock, String typeOfComponent, String keySwitchType, boolean backlit) {
-        super(componentId, componentName ,stock, typeOfComponent);
+    public Keyboard(int componentId, String componentName, int stock, double price, String typeOfComponent, String keySwitchType, boolean backlit) {
+        super(componentId, componentName ,stock, price, typeOfComponent);
         this.keySwitchType = keySwitchType;
         this.backlit = backlit;
     }
