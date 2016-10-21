@@ -1,10 +1,13 @@
-package compositeSoFar;
+package Component;
+
+import Component.Component;
+
 public class MemoryDrive extends Component {
     private int driveCapacity;
     private boolean SSD;
 
-    public MemoryDrive(int componentId, String componentName, int stock, String typeOfComponent, int driveCapacity, boolean SSD) {
-        super(componentId, componentName ,stock, typeOfComponent);
+    public MemoryDrive(int componentId, String componentName, int stock, double price, String typeOfComponent, int driveCapacity, boolean SSD) {
+        super(componentId, componentName ,stock,  price, typeOfComponent);
         this.driveCapacity = driveCapacity;
         this.SSD = SSD;
     }
