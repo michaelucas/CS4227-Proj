@@ -1,12 +1,14 @@
-package compositeSoFar;
+package Component;
+
+import Component.Component;
 
 public class GPU extends Component {
 
     private String memory;
     private int displayPorts;
 
-    public GPU(int componentId, String componentName, int stock, String typeOfComponent, String memory, int displayPorts) {
-        super(componentId, componentName, stock, typeOfComponent);
+    public GPU(int componentId, String componentName, int stock, double price, String typeOfComponent, String memory, int displayPorts) {
+        super(componentId, componentName, stock, price, typeOfComponent);
         this.memory = memory;
         this.displayPorts = displayPorts;
     }
