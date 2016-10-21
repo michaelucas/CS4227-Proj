@@ -1,7 +1,5 @@
 package Component;
 
-import Component.Component;
-
 public class GPU extends Component {
 
     private String memory;
