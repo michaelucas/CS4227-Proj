@@ -1,11 +1,11 @@
-package compositeSoFar;
+package Component;
 
 public class CPU extends Component {
     private String series;
     private String CPUSocketType;
 
-    public CPU(int componentId, String componentName, int stock, String typeOfComponent, String series, String CPUSocketType) {
-        super(componentId, componentName ,stock, typeOfComponent);
+    public CPU(int componentId, String componentName, int stock, double price, String typeOfComponent, String series, String CPUSocketType) {
+        super(componentId, componentName ,stock, price, typeOfComponent);
         this.series = series;
         this.CPUSocketType = CPUSocketType;
     }
