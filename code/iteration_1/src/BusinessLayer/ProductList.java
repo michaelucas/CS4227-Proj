@@ -12,7 +12,8 @@ package BusinessLayer;
 import java.util.ArrayList;
 import java.util.Scanner;
 import BusinessLayer.Product.*;
-import UserInterfaceLayer.ProductListUI;
+import UserInterfaceLayer.*;
+import DataControl.*;
 
 public class ProductList {
 
