@@ -10,7 +10,7 @@
 package UserInterfaceLayer;
 
 import DecoratorReceipt.CreateReceipt;
-// !!!! NEED TO INCLUDE IMPORT PATH WHERE COMPUTER SYSTEM CLASS IS LOCATED !!!!
+import BusinessLayer.CompositeProduct.*;
 
 public class ReceiptUI {
 
