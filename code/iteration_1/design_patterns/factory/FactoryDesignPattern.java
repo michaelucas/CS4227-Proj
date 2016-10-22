@@ -41,5 +41,8 @@ public class FactoryDesignPattern {
 		return new RAM(componentId, componentName, stock, price, typeOfComponent, gigaBytes, multiChannel);
 		
 	}
+	public ComputerSystem getComputerSystem(int componentId, String componentName, int stock, double unitCost, String typeOfComponent, String OS ){
+		return new ComputerSystem(componentId, componentName, stock, unitCost, typeOfComponent, OS);
+	}
 	
 }
