@@ -32,6 +32,11 @@ public class data {
 						Integer.parseInt(pieceOfLine[6]));
 				componentList.add(gpuComponent);
 				break;
+			case "Keyboard":
+				Keyboard keyboardComponent = component.getCPU(Integer.parseInt(pieceOfLine[0]), pieceOfLine[1], Integer.parseInt(pieceOfLine[2]), Double.parseDouble(pieceOfLine[3]), pieceOfLine[4], pieceOfLine[5], 
+						Boolean.parseBoolean(pieceOfLine[6]));
+				componentList.add(keyboardComponent);
+				break;
 			case "MemoryDrive":
 				MemoryDrive memoryComponent = component.getMemoryDrive(Integer.parseInt(pieceOfLine[0]), pieceOfLine[1], Integer.parseInt(pieceOfLine[2]), Double.parseDouble(pieceOfLine[3]), pieceOfLine[4], Integer.parseInt(pieceOfLine[5]), 
 						Boolean.parseBoolean(pieceOfLine[6]));
