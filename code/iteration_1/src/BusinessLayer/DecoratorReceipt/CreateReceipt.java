@@ -15,24 +15,35 @@ import java.util.ArrayList;
 
 public class CreateReceipt {
 
+	private ComputerSystem computerSystem;
+	
 	public CreateReceipt(ComputerSystem computerSystem) {
+		
+		this.computerSystem = computerSystem;
+	}
+	
+	public static String getReceipt() {
+		
+		String returnString = "";
 		
 		// Create heading section of receipt
 		Receipt headerReceipt = new ThankYouReceipt(new HeaderReceipt(new BasicReceipt()));
-		System.out.println(headerReceipt.printReceipt());
+		returnString = headerReceipt.printReceipt();
 
 		// Create purchased products section of receipt
-		System.out.println("\nDetails of your Computer System purchase:");
+		returnString += "\nDetails of your Computer System purchase:";
 		ArrayList<Component> computerComponents = computerSystem.getComponents();
 		double totalCost = 0.0;
 		for(Component component : computerComponents) {
-			System.out.println(component.getTypeOfComponent() + "\t\u20ac" + component.getPrice() + "\t" + component.getComponentName());
+			returnString += component.getTypeOfComponent() + "\t\u20ac" + component.getPrice() + "\t" + component.getComponentName();
 			totalCost += component.getPrice();
 		}
-		System.out.println("\nTotal Cost:\t\u20ac" + totalCost);
+		returnString += "\nTotal Cost:\t\u20ac" + totalCost;
 		
 		// Create footing section of receipt
 		Receipt shippingReceipt = new FooterReceipt(new BasicReceipt());
-		System.out.println(shippingReceipt.printReceipt());
+		returnString += shippingReceipt.printReceipt();
+		
+		return returnString;
 	}
 }
