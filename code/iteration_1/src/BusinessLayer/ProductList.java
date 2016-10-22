@@ -31,6 +31,6 @@ public class ProductList {
 			computerSystem.addComponent(listOfComponentTypeOptions.get(userChoice));
 		}
 		
-		// 
+		// Call Observer stock edit and then receipt here
 	}
 }
