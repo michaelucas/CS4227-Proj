@@ -1,4 +1,4 @@
-package Component;
+package BusinessLayer.CompositeProduct;
 
 public class GPU extends Component {
 

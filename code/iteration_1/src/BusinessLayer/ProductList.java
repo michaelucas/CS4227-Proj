@@ -19,7 +19,7 @@ public class ProductList {
 
 	ProductList() {
 		
-		String [] listOfComponentOptions = new String[] {"CPU"}; //Need to add more component types
+		String [] listOfComponentOptions = new String[] {"CPU", "GPU", "Keyboard", "MemoryDrive", "Monitor", "Motherboard", "Mouse", "RAM"};
 		ComputerSystem computerSystem = new ComputerSystem(13141252, "AlienWare Laptop", 6, "ComputerSystem", 1200.66, "Windows" );
 		
 		for(String index : listOfComponentOptions) {

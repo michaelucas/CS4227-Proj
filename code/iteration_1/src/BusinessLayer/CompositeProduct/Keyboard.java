@@ -1,6 +1,4 @@
-package Component;
-
-import Component.Component;
+package BusinessLayer.CompositeProduct;
 
 public class Keyboard extends Component {
     private String keySwitchType;

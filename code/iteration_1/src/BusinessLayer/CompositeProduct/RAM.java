@@ -1,4 +1,4 @@
-package compositeSoFar;
+package BusinessLayer.CompositeProduct;
 
 public class RAM extends Component {
 	

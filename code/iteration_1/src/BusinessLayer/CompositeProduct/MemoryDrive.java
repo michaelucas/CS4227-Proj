@@ -1,6 +1,4 @@
-package Component;
-
-import Component.Component;
+package BusinessLayer.CompositeProduct;
 
 public class MemoryDrive extends Component {
     private int driveCapacity;
