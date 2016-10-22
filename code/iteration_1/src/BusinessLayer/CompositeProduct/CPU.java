@@ -1,4 +1,4 @@
-package BusinessLayer.Product;
+package BusinessLayer.CompositeProduct;
 
 public class CPU extends Component {
     private String series;

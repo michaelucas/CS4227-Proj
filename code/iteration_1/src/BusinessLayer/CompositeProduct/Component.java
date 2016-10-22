@@ -1,4 +1,4 @@
-package BusinessLayer.Product;
+package BusinessLayer.CompositeProduct;
 
 public abstract class Component implements Part {
 

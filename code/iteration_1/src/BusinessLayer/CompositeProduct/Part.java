@@ -1,4 +1,4 @@
-package BusinessLayer.Product;
+package BusinessLayer.CompositeProduct;
 
 public interface Part {
 
