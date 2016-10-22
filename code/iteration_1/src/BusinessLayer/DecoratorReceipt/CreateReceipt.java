@@ -11,7 +11,7 @@
 package BusinessLayer.DecoratorReceipt;
 
 import java.util.ArrayList;
-// !!!! NEED TO INCLUDE IMPORT PATH WHERE COMPONENT AND COMPUTER SYSTEM CLASSES ARE LOCATED !!!! 
+import BusinessLayer.CompositeProduct.*;
 
 public class CreateReceipt {
 
