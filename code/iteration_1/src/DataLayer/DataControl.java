@@ -70,4 +70,33 @@ public class data {
 		reader.close();
 		return componentList;
 	}
+	
+	public void writeNewComponentToFile(String details) throws FileNotFoundException {
+		
+		int nextID = checkNextAvailableId(componentFile);
+		String lineToAppend =  nextID + ", " + details + "\n";
+		try {
+		    Files.write(Paths.get(componentFile), lineToAppend.getBytes(), StandardOpenOption.APPEND);
+		}
+		catch (IOException e) {
+		    //exception handling left as an exercise for the reader
+		}
+	}
+	
+	
+	public int checkNextAvailableId(String textFileName) throws FileNotFoundException {
+		int nextAvailableId = 0;
+		
+		File searchTextFile = new File(textFileName);
+		Scanner lineIn = new Scanner(searchTextFile);
+		while (lineIn.hasNextLine()) {
+			String aLineFromFile = lineIn.nextLine();
+			String [] splitLineFromFile = aLineFromFile.split(",");
+			if (Integer.parseInt(splitLineFromFile[0]) > nextAvailableId) 
+				nextAvailableId = Integer.parseInt(splitLineFromFile[0]);
+		}
+		lineIn.close();
+		nextAvailableId++;
+		return nextAvailableId;
+	}
 }
