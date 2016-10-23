@@ -45,6 +45,6 @@ public class ProductListUI {
 		}
 		
 		checkedUserChoice = Integer.parseInt(uncheckedUserChoice);
-		return checkedUserChoice;
+		return (checkedUserChoice - 1);
 	}
 }
