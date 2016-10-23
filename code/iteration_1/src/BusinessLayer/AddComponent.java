@@ -1,42 +1,36 @@
 package BusinessLayer;
 import java.io.*;
-import java.util.*;
-import DataLayer.DataControl;
+import UserInterfaceLayer.AddComponentUI;
 
 public class AddComponent {
 
 	public void addComponent(String type) throws FileNotFoundException{
 		
-		DataControl d = new DataControl();
-		Scanner in = new Scanner(System.in);
+		AddComponentUI aComponent = new AddComponentUI();
 		switch(type){
 		case "CPU":
-			System.out.println("String componentName, int stock, double price, String typeOfComponent, String series, String CPUSocketType");
-			d.writeNewComponentToFile(in.nextLine());
+			aComponent.addCPUComponent(type);
 			break;
 		case "GPU":
-			System.out.println("String componentName, int stock, double price, String typeOfComponent, String memory, int displayPorts");
-			d.writeNewComponentToFile(in.nextLine());
+			aComponent.addGPUComponent(type);
+			break;
+		case "Keyboard":
+			aComponent.addKeyboardComponent(type);
 			break;
 		case "MemoryDrive":
-			System.out.println("String componentName, int stock, double price, String typeOfComponent, int driveCapacity, boolean SSD");
-			d.writeNewComponentToFile(in.nextLine());
+			aComponent.addMemoryDriveComponent(type);
 			break;
 		case "Monitor":
-			System.out.println("String componentName, int stock, double price, String typeOfComponent, String screenResolution, boolean curved, boolean is3d");
-			d.writeNewComponentToFile(in.nextLine());
+			aComponent.addMonitorComponent(type);
 			break;
 		case "Motherboard":
-			System.out.println(" String componentName, int stock, double price, String typeOfComponent, String cpuSocketType, String series, String memoryStandard");
-			d.writeNewComponentToFile(in.nextLine());
+			aComponent.addMotherboardComponent(type);
 			break;
 		case "Mouse":
-			System.out.println("String componentName, int stock, String typeOfComponent, int dpi, boolean programmableButtons, boolean dpiSwitching");
-			d.writeNewComponentToFile(in.nextLine());
+			aComponent.addMouseComponent(type);
 			break;
 		case "RAM":
-			System.out.println("String componentName, int stock, String typeOfComponent, int gigaBytes, String multiChannel");
-			d.writeNewComponentToFile(in.nextLine());
+			aComponent.addRAMComponent(type);
 			break;
 		
 		}
