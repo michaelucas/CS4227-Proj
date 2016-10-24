@@ -16,9 +16,11 @@ public class mainProgramUI {
 		typeOfUser = input.nextLine();
 		if(typeOfUser.equalsIgnoreCase("Customer")){
 			ProductList customerChoice = new ProductList();
+			System.exit(0);
 		}
 		else if(typeOfUser.equalsIgnoreCase("Admin")){
 			AddComponent adminOptions = new AddComponent();
+			System.exit(0);
 			
 		}
 		else
