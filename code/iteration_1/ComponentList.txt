@@ -1,4 +1,5 @@
 13141253,Intel i7 4670K,6,30.99,CPU,Series 12,12PinSocketType
+13141131,Intel i5 3000K,6,24.99,CPU,Series 6,8PinSocketType
 13141254,Radeon R280x,6,45.99,GPU,3333Mhrz,4
 13141255,Logitech 1770m,6,20.00,Keyboard,NormalKeySwitchType,true
 13141256,Crucial SSD,6,35.50,MemoryDrive,1000,false

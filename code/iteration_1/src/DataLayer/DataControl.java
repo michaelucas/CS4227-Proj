@@ -93,9 +93,9 @@ public class DataControl {
 		Scanner reader = new Scanner(componentFile);
 		while(reader.hasNextLine()){
 			String LineFromFile = reader.nextLine();
-			System.out.println(LineFromFile);
 			String[] pieceOfLine = LineFromFile.split(",");
-			if (componentType == pieceOfLine[4]) {
+			
+			if (componentType.equals(pieceOfLine[4])) {
 				switch(componentType){
 				case "CPU":
 					CPU cpuComponent = component.getCPU(Integer.parseInt(pieceOfLine[0]), pieceOfLine[1], Integer.parseInt(pieceOfLine[2]), Double.parseDouble(pieceOfLine[3]), pieceOfLine[4], pieceOfLine[5], 
