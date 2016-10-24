@@ -17,6 +17,6 @@ public class HeaderReceipt extends ReceiptDecorator {
 
 	@Override
 	public String printReceipt() {
-		return super.printReceipt() + " DCM Computing ";
+		return super.printReceipt() + " The Computer Shop ";
 	}
 }
