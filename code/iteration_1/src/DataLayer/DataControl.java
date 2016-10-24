@@ -13,7 +13,7 @@ import java.util.*;
 
 public class DataControl {
 	
-	public final static String componentFileName = "ComponentList.txt";
+	public final static String componentFileName = "code/iteration_1/ComponentList.txt";
 	
 	public static ArrayList<String> getUniqueComponentTypes() throws FileNotFoundException {
 		
