@@ -9,6 +9,7 @@
 
 package BusinessLayer;
  
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import BusinessLayer.*;
@@ -19,7 +20,7 @@ import UserInterfaceLayer.*;
 
 public class ProductList {
 
-	public ProductList() {
+	public ProductList() throws FileNotFoundException {
 		
 		String [] listOfComponentOptions = new String[] {"CPU", "GPU", "Keyboard", "MemoryDrive", "Monitor", "Motherboard", "Mouse", "RAM"};
 		ComputerSystem computerSystem = new ComputerSystem(13141252, "AlienWare Laptop", 6, "ComputerSystem", 1200.66, "Windows" );

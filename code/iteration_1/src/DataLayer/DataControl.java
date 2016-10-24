@@ -13,11 +13,11 @@ import java.util.*;
 
 public class DataControl {
 	
-	public final static String aComponentFile = "ComponentList.txt";
+	public final static String componentFileName = "ComponentList.txt";
 	
 	public static ArrayList<String> getUniqueComponentTypes() throws FileNotFoundException {
 		
-		File componentFile = new File(aComponentFile);
+		File componentFile = new File(componentFileName);
 		FactoryDesignPattern component = new FactoryDesignPattern();
 		ArrayList<Component> componentList = new ArrayList<Component>();
 		Scanner reader = new Scanner(componentFile);
@@ -81,18 +81,19 @@ public class DataControl {
 	}
 	
 	
-	public static ArrayList<Component> getComponentTypeList(String componentType) {
+	public static ArrayList<Component> getComponentTypeList(String componentType) throws FileNotFoundException {
 		//Filled with factory stuff
 		//Method will take in param of component type e.g. CPU
 		//Factory stuff will search txt files for products matching CPU
 		//Create ArrayList of Component type filled with all CPUs
 		//Return ArrayList
-		File componentFile = new File("ComponentList.txt");
+		File componentFile = new File(componentFileName);
 		FactoryDesignPattern component = new FactoryDesignPattern();
 		ArrayList<Component> componentList = new ArrayList<Component>();
-		Scanner reader = new Scanner(aComponentFile);
+		Scanner reader = new Scanner(componentFile);
 		while(reader.hasNextLine()){
 			String LineFromFile = reader.nextLine();
+			System.out.println(LineFromFile);
 			String[] pieceOfLine = LineFromFile.split(",");
 			if (componentType == pieceOfLine[4]) {
 				switch(componentType){
@@ -146,10 +147,10 @@ public class DataControl {
 	
 	public void writeNewComponentToFile(String details) throws FileNotFoundException {
 		
-		int nextID = checkNextAvailableId(aComponentFile);
+		int nextID = checkNextAvailableId(componentFileName);
 		String lineToAppend =  nextID + ", " + details + "\n";
 		try {
-		    Files.write(Paths.get(aComponentFile), lineToAppend.getBytes(), StandardOpenOption.APPEND);
+		    Files.write(Paths.get(componentFileName), lineToAppend.getBytes(), StandardOpenOption.APPEND);
 		}
 		catch (IOException e) {
 		    //exception handling left as an exercise for the reader
