@@ -15,10 +15,10 @@ public class mainProgramUI {
 		System.out.println("Are you a customer or admin? ");
 		typeOfUser = input.nextLine();
 		if(typeOfUser.equalsIgnoreCase("Customer")){
-			
+			ProductList customerChoice = new ProductList();
 		}
 		else if(typeOfUser.equalsIgnoreCase("Admin")){
-			ProductList p = new ProductList();
+			AddComponent adminOptions = AddComponent();
 			
 		}
 		else
