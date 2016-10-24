@@ -5,8 +5,28 @@ import UserInterfaceLayer.AddComponentUI;
 import DataLayer.DataControl;
 
 public class AddComponent {
+	
+	public AddComponent() throws FileNotFoundException {
+		String componentTypeToAdd = getComponentType();
+		addComponentSpecs(componentTypeToAdd);
+	}
+	
+	private String getComponentType() throws FileNotFoundException {
+		
+		String componentTypes = "Please choose a component type to add a new product to:\n";
+		ArrayList<String> uniqueComponentList = DataControl.getUniqueComponentTypes();
+		for (int i = 0; i < uniqueComponentList.size(); i++) {
+			componentTypes += "Choice: " + (i + 1) + "\t" + " " + uniqueComponentList.get(i) + "\n";
+		}
+		
+		AddComponentUI.printOutput(componentTypes);
+		
+		int userChoice = AddComponentUI.getComponentType();
+		
+		return uniqueComponentList.get(userChoice);
+	}
 
-	public void addComponent(String type) throws FileNotFoundException{
+	public void addComponentSpecs(String type) throws FileNotFoundException{
 		
 		DataControl d = new DataControl();
 		Scanner in = new Scanner(System.in);
