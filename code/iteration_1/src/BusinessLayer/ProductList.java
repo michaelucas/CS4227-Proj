@@ -45,6 +45,7 @@ public class ProductList {
 
 			SummaryUI.printOutSummary(computerSystem.getSummary());
 			summaryConfirmToContinue = SummaryUI.checkToContinue();
+			ReceiptUI aReceipt = new ReceiptUI(computerSystem);
 
 		}
 	}
