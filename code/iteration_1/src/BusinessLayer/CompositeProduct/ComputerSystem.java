@@ -6,10 +6,9 @@ public class ComputerSystem extends Component{
 
     private String OS;
     private ArrayList<Component> components;
-    private double unitCost;
 
     public ComputerSystem(int componentId, String componentName, int stock, String typeOfComponent, double unitCost, String OS) {
-        super(componentId, componentName, stock, unitCost, typeOfComponent);
+        super(componentId, componentName, stock, 0, typeOfComponent);
         this.OS = OS;
         this.components = new ArrayList<Component>();
     }
@@ -39,15 +38,27 @@ public class ComputerSystem extends Component{
         this.OS = OS;
     }
 
-    public void setUnitCost (double unitCost) {
-        this.unitCost = unitCost;
-    }
-
     public double getUnitCost() {
-        return unitCost;
+    	double unitCost = 0;
+    	if(components.size() > 0){
+    		for (int i = 0; i < components.size(); i++) {
+    			unitCost += components.get(i).getPrice();
+    		}
+    	}
+		return unitCost;
     }
     
     public String getComponentDetails(){
     	return super.getComponentDetails() + "\nOperating System: " + this.OS;
+    }
+    public String getSummary() {
+    	String summary = "";
+    	if(components.size() > 0){
+    		for (int i = 0; i < components.size(); i++) {
+    			String compInfo = components.get(i).getComponentName() + "\t\t:" + components.get(i).getPrice() + "\n";
+    			summary += compInfo;
+    		}
+    	}
+    	return summary;
     }
  }
