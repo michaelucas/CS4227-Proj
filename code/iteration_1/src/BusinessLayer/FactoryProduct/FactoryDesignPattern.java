@@ -1,4 +1,6 @@
-package Component;
+package BusinessLayer.FactoryProduct;
+
+import BusinessLayer.CompositeProduct.*;
 
 public class FactoryDesignPattern {
 	
@@ -39,7 +41,7 @@ public class FactoryDesignPattern {
 	}
 	
 	public ComputerSystem getComputerSystem(int componentId, String componentName, int stock, double unitCost, String typeOfComponent, String OS ){
-		return new ComputerSystem(componentId, componentName, stock, unitCost, typeOfComponent, OS);
+		return new ComputerSystem(componentId, componentName, stock, typeOfComponent, unitCost, OS);
 	}
 	
 }

@@ -11,13 +11,15 @@ package BusinessLayer;
  
 import java.util.ArrayList;
 import java.util.Scanner;
-import BusinessLayer.Product.*;
+import BusinessLayer.*;
+import BusinessLayer.CompositeProduct.Component;
+import BusinessLayer.CompositeProduct.ComputerSystem;
+import DataLayer.DataControl;
 import UserInterfaceLayer.*;
-import DataControl.*;
 
 public class ProductList {
 
-	ProductList() {
+	public ProductList() {
 		
 		String [] listOfComponentOptions = new String[] {"CPU", "GPU", "Keyboard", "MemoryDrive", "Monitor", "Motherboard", "Mouse", "RAM"};
 		ComputerSystem computerSystem = new ComputerSystem(13141252, "AlienWare Laptop", 6, "ComputerSystem", 1200.66, "Windows" );

@@ -2,7 +2,7 @@ package UserInterfaceLayer;
 import java.util.*;
 import java.io.*;
 
-import BusinessLayer.ProductList;
+import BusinessLayer.*;
 
 public class mainProgramUI {
 	
@@ -18,7 +18,7 @@ public class mainProgramUI {
 			ProductList customerChoice = new ProductList();
 		}
 		else if(typeOfUser.equalsIgnoreCase("Admin")){
-			AddComponent adminOptions = AddComponent();
+			AddComponent adminOptions = new AddComponent();
 			
 		}
 		else

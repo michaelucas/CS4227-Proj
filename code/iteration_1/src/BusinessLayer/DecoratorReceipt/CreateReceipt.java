@@ -15,7 +15,7 @@ import BusinessLayer.CompositeProduct.*;
 
 public class CreateReceipt {
 
-	private ComputerSystem computerSystem;
+	private static ComputerSystem computerSystem;
 	
 	public CreateReceipt(ComputerSystem computerSystem) {
 		

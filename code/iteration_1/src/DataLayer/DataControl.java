@@ -15,7 +15,7 @@ public class DataControl {
 	
 	public final static String aComponentFile = "ComponentList.txt";
 	
-public static ArrayList<String> getUniqueComponentTypes() throws FileNotFoundException {
+	public static ArrayList<String> getUniqueComponentTypes() throws FileNotFoundException {
 		
 		File componentFile = new File(aComponentFile);
 		FactoryDesignPattern component = new FactoryDesignPattern();
@@ -80,7 +80,6 @@ public static ArrayList<String> getUniqueComponentTypes() throws FileNotFoundExc
 		return uniqueComponentArrayList;
 	}
 	
-	}
 	
 	public static ArrayList<Component> getComponentTypeList(String componentType) {
 		//Filled with factory stuff
@@ -91,7 +90,7 @@ public static ArrayList<String> getUniqueComponentTypes() throws FileNotFoundExc
 		File componentFile = new File("ComponentList.txt");
 		FactoryDesignPattern component = new FactoryDesignPattern();
 		ArrayList<Component> componentList = new ArrayList<Component>();
-		Scanner reader = new Scanner(componentFile);
+		Scanner reader = new Scanner(aComponentFile);
 		while(reader.hasNextLine()){
 			String LineFromFile = reader.nextLine();
 			String[] pieceOfLine = LineFromFile.split(",");
@@ -108,7 +107,7 @@ public static ArrayList<String> getUniqueComponentTypes() throws FileNotFoundExc
 					componentList.add(gpuComponent);
 					break;
 				case "Keyboard":
-					Keyboard keyboardComponent = component.getCPU(Integer.parseInt(pieceOfLine[0]), pieceOfLine[1], Integer.parseInt(pieceOfLine[2]), Double.parseDouble(pieceOfLine[3]), pieceOfLine[4], pieceOfLine[5], 
+					Keyboard keyboardComponent = component.getKeyboard(Integer.parseInt(pieceOfLine[0]), pieceOfLine[1], Integer.parseInt(pieceOfLine[2]), Double.parseDouble(pieceOfLine[3]), pieceOfLine[4], pieceOfLine[5], 
 							Boolean.parseBoolean(pieceOfLine[6]));
 					componentList.add(keyboardComponent);
 					break;
@@ -147,10 +146,10 @@ public static ArrayList<String> getUniqueComponentTypes() throws FileNotFoundExc
 	
 	public void writeNewComponentToFile(String details) throws FileNotFoundException {
 		
-		int nextID = checkNextAvailableId(componentFile);
+		int nextID = checkNextAvailableId(aComponentFile);
 		String lineToAppend =  nextID + ", " + details + "\n";
 		try {
-		    Files.write(Paths.get(componentFile), lineToAppend.getBytes(), StandardOpenOption.APPEND);
+		    Files.write(Paths.get(aComponentFile), lineToAppend.getBytes(), StandardOpenOption.APPEND);
 		}
 		catch (IOException e) {
 		    //exception handling left as an exercise for the reader

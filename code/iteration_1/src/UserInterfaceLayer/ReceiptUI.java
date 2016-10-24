@@ -9,7 +9,7 @@
 
 package UserInterfaceLayer;
 
-import DecoratorReceipt.CreateReceipt;
+import BusinessLayer.DecoratorReceipt.CreateReceipt;
 import BusinessLayer.CompositeProduct.*;
 
 public class ReceiptUI {
