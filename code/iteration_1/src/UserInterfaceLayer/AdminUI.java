@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 
+import BusinessLayer.AddComponent;
 import BusinessLayer.AdminProductDisplay;
 import BusinessLayer.AdminProductList;
 
@@ -37,7 +38,7 @@ public class AdminUI {
 		}
 	}
 	
-	public void addComponent(AdminProductList pl){
+	public void addComponent(AdminProductList pl) throws FileNotFoundException{
 		Scanner in = new Scanner(System.in);
 		System.out.println("What type of product do you want to add (GPU,CPU etc.)?");
 		String answer = in.nextLine();
@@ -53,7 +54,6 @@ public class AdminUI {
 	}
 	
 	public void removeComponent(AdminProductList pl) throws IOException{
-		Scanner in = new Scanner(System.in);
 		System.out.println("Type the number of the product you want to remove");
 		int choice = display.readUserInput();
 		pl.removeComponent(choice);

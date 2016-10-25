@@ -19,7 +19,9 @@ public class mainProgramUI {
 			System.exit(0);
 		}
 		else if(typeOfUser.equalsIgnoreCase("Admin")){
-			AddComponent adminOptions = new AddComponent();
+			//AddComponent adminOptions = new AddComponent();
+			AdminUI adminNew = new AdminUI();
+			adminNew.display();
 			System.exit(0);
 			
 		}
