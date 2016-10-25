@@ -53,7 +53,6 @@ public class ProductList {
 				DecreaseStock decrease = new DecreaseStock(computerSystem.getChildAtIndex(i));
 				
 		      	stock.takeOrder(decrease);
-		      	stock.placeOrders();
 		      	DataControl.editComponent(computerSystem.getChildAtIndex(i));
 			}
 
