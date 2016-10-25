@@ -13,7 +13,7 @@ import java.util.*;
 
 public class DataControl {
 	
-	public final static String componentFileName = "code/iteration_1/ComponentList.txt";
+	public final static String componentFileName = "ComponentList.txt";
 	
 	public static ArrayList<String> getUniqueComponentTypes() throws FileNotFoundException {
 		
@@ -172,5 +172,46 @@ public class DataControl {
 		lineIn.close();
 		nextAvailableId++;
 		return nextAvailableId;
+	}
+	
+public void editComponent(Part part) throws IOException {
+	int id = part.getComponentId();
+	
+	File searchTextFile = new File(componentFileName);
+	Scanner lineIn = new Scanner(searchTextFile);
+	int length;
+	ArrayList<String[]> fileList = new ArrayList<String[]>();
+	
+	while (lineIn.hasNextLine()) {
+		String aLineFromFile = lineIn.nextLine();
+		String [] splitLineFromFile = aLineFromFile.split(",");
+		length = splitLineFromFile.length;
+		fileList.add(splitLineFromFile);
+		
+	}
+	
+	
+	for(int i = 0;i < fileList.size();i++) {
+			if(Integer.parseInt(fileList.get(i)[0]) == id) {
+				fileList.get(i)[2] = Integer.toString(part.getStock());
+			}	
+	}
+	
+	
+	FileWriter writer = new FileWriter(componentFileName); 
+	
+	for(int k = 0;k < fileList.size();k++) {
+		for(int u = 0;u < fileList.get(k).length;u++) {
+			writer.write(fileList.get(k)[u]);
+			if(!(u == fileList.get(k).length)) {
+				writer.write(",");
+			}
+			
+		}
+		writer.write("\n");
+		
+	}
+	writer.close();
+	
 	}
 }
