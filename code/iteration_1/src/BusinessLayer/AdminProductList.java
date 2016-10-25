@@ -31,11 +31,10 @@ public class AdminProductList implements Subject {
 	
 	
 	public void removeComponent(int choice) throws IOException{
+		System.out.println("-----------------------------------------");
 		listOfProducts.remove(choice - 1);
-		for (int i = 0; i < listOfProducts.size(); i++) {
-			DataControl.editComponent(listOfProducts.get(i));
-		}
-		
+		DataControl.rewriteComponentFile(listOfProducts);
+		notifyObservers();
 	}
 	
 	public String addComponent(String type) throws FileNotFoundException{
@@ -82,7 +81,7 @@ public class AdminProductList implements Subject {
 		Component c = listOfProducts.get(choice - 1);
 		String[] updated = details.split(",");
 		listOfProducts.remove(choice - 1);
-		//DataControl.rewriteComponentFile(listOfProducts);
+		DataControl.rewriteComponentFile(listOfProducts);
 	}
 	
 	@Override
