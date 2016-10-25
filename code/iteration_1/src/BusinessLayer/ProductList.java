@@ -46,6 +46,13 @@ public class ProductList {
 			SummaryUI.printOutSummary(computerSystem.getSummary());
 			summaryConfirmToContinue = SummaryUI.checkToContinue();
 			ReceiptUI aReceipt = new ReceiptUI(computerSystem);
+			for(int i = 0;i < 6;i++) {
+				DecreaseStock decrease = new DecreaseStock(computerSystem.getChildAtIndex(i));
+				
+		      	stock.takeOrder(decrease);
+		      	stock.placeOrders();
+		      	data.editComponent(computerSystem.getChildAtIndex(i));
+			}
 
 		}
 	}
