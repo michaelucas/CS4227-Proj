@@ -5,23 +5,19 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import Observer.Component;
-import Observer.DataControl;
-import Observer.Observer;
-import Observer.Subject;
+import BusinessLayer.CompositeProduct.*;
+import DataLayer.DataControl;
 
 public class AdminProductList implements Subject {
 
 	
 	private ArrayList<Component> listOfProducts;
-	private DataControl d;
 	private ArrayList<Observer> observers;
 	
 	public AdminProductList() throws FileNotFoundException{
-		listOfProducts = new ArrayList<Component>(); 
-		d = new DataControl();
+		listOfProducts = new ArrayList<Component>();
 		observers = new ArrayList<Observer>();
-		listOfProducts = d.factoryDesignPattern();
+		listOfProducts = DataControl.factoryDesignPattern();
 	}	
 	
 	public String getAllDisplay() throws FileNotFoundException{
@@ -37,7 +33,7 @@ public class AdminProductList implements Subject {
 	public void removeComponent(int choice) throws IOException{
 		listOfProducts.remove(choice - 1);
 		for (int i = 0; i < listOfProducts.size(); i++) {
-			d.editComponent(listOfProducts.get(i));
+			DataControl.editComponent(listOfProducts.get(i));
 		}
 		
 	}
@@ -66,8 +62,8 @@ public class AdminProductList implements Subject {
 	}
 	
 	public void addToFile(String details) throws FileNotFoundException{
-		d.writeNewComponentToFile(details);
-		listOfProducts = d.factoryDesignPattern();
+		DataControl.writeNewComponentToFile(details);
+		listOfProducts = DataControl.factoryDesignPattern();
 		notifyObservers();
 
 	}
@@ -86,7 +82,7 @@ public class AdminProductList implements Subject {
 		Component c = listOfProducts.get(choice - 1);
 		String[] updated = details.split(",");
 		listOfProducts.remove(choice - 1);
-		d.rewriteComponentFile(listOfProducts);
+		//DataControl.rewriteComponentFile(listOfProducts);
 	}
 	
 	@Override

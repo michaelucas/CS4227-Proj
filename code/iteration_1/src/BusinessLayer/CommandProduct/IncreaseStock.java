@@ -1,4 +1,5 @@
 package BusinessLayer.CommandProduct;
+
 import BusinessLayer.CompositeProduct.*;
 
 public class IncreaseStock implements Order {

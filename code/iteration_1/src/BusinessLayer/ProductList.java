@@ -10,18 +10,20 @@
 package BusinessLayer;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import BusinessLayer.*;
-import BusinessLayer.CompositeProduct.Component;
-import BusinessLayer.CompositeProduct.ComputerSystem;
+import BusinessLayer.CommandProduct.*;
+import BusinessLayer.CompositeProduct.*;
 import DataLayer.DataControl;
 import UserInterfaceLayer.*;
 
 public class ProductList {
 
-	public ProductList() throws FileNotFoundException {
+	public ProductList() throws IOException {
 
+		Stock stock = new Stock();
 		boolean summaryConfirmToContinue = false;
 
 		while(summaryConfirmToContinue == false) {
@@ -51,7 +53,7 @@ public class ProductList {
 				
 		      	stock.takeOrder(decrease);
 		      	stock.placeOrders();
-		      	data.editComponent(computerSystem.getChildAtIndex(i));
+		      	DataControl.editComponent(computerSystem.getChildAtIndex(i));
 			}
 
 		}

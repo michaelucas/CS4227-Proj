@@ -6,7 +6,7 @@ import BusinessLayer.*;
 
 public class mainProgramUI {
 	
-	public mainProgramUI() throws FileNotFoundException{
+	public mainProgramUI() throws IOException{
 		
 		String typeOfUser = "";
 		boolean isValidChoice = false;

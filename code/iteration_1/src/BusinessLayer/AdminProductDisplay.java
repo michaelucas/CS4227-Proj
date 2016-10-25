@@ -3,20 +3,17 @@ package BusinessLayer;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-import Observer.DataControl;
-import Observer.Observer;
+import DataLayer.*;
 
 public class AdminProductDisplay implements Observer {
 	
-	private DataControl d;
 	private String allDisplay;
 	
 	public AdminProductDisplay() throws FileNotFoundException{
-		d = new DataControl();
 		
 		allDisplay = "\n\nPlease choose a component for your computer:\n";
-		for (int i = 0; i < d.factoryDesignPattern().size(); i++) {
-			allDisplay += "Choice: " + (i + 1) + "\t" + " " + d.factoryDesignPattern().get(i).getComponentDetails();
+		for (int i = 0; i < DataControl.factoryDesignPattern().size(); i++) {
+			allDisplay += "Choice: " + (i + 1) + "\t" + " " + DataControl.factoryDesignPattern().get(i).getComponentDetails();
 		}
 	}
 	
@@ -30,8 +27,8 @@ public class AdminProductDisplay implements Observer {
 		try {
 			System.out.println("here");
 			allDisplay = "\n\nPlease choose a component for your computer:\n";
-			for (int i = 0; i < d.factoryDesignPattern().size(); i++) {
-				allDisplay += "Choice: " + (i + 1) + "\t" + " " + d.factoryDesignPattern().get(i).getComponentDetails();
+			for (int i = 0; i < DataControl.factoryDesignPattern().size(); i++) {
+				allDisplay += "Choice: " + (i + 1) + "\t" + " " + DataControl.factoryDesignPattern().get(i).getComponentDetails();
 			}
 			/*GPUDisplay = pl.getIndividualDisplay("GPU");
 			CPUDisplay = pl.getIndividualDisplay("CPU");

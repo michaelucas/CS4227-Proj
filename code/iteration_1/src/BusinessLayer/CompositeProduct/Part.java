@@ -40,4 +40,8 @@ public interface Part {
 	String getTypeOfComponent();
 	String getComponentDetails();
 
+	void addStock();
+
+	void decrementStock();
+
 }

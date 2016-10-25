@@ -13,7 +13,7 @@ import java.util.*;
 
 public class DataControl {
 	
-	public final static String componentFileName = "ComponentList.txt";
+	public final static String componentFileName = "code/iteration_1/ComponentList.txt";
 	
 	public static ArrayList<String> getUniqueComponentTypes() throws FileNotFoundException {
 		
@@ -145,7 +145,7 @@ public class DataControl {
 		return componentList;
 	}
 	
-	public void writeNewComponentToFile(String details) throws FileNotFoundException {
+	public static void writeNewComponentToFile(String details) throws FileNotFoundException {
 		
 		int nextID = checkNextAvailableId(componentFileName);
 		String lineToAppend =  nextID + ", " + details + "\n";
@@ -158,7 +158,7 @@ public class DataControl {
 	}
 	
 	
-	public int checkNextAvailableId(String textFileName) throws FileNotFoundException {
+	public static int checkNextAvailableId(String textFileName) throws FileNotFoundException {
 		int nextAvailableId = 0;
 		
 		File searchTextFile = new File(textFileName);
@@ -174,7 +174,7 @@ public class DataControl {
 		return nextAvailableId;
 	}
 	
-public void editComponent(Part part) throws IOException {
+public static void editComponent(Part part) throws IOException {
 	int id = part.getComponentId();
 	
 	File searchTextFile = new File(componentFileName);
@@ -212,6 +212,59 @@ public void editComponent(Part part) throws IOException {
 		
 	}
 	writer.close();
+	
+	}
+
+	public static ArrayList<Component> factoryDesignPattern() throws FileNotFoundException{
+		File componentFile = new File(componentFileName);
+		FactoryDesignPattern component = new FactoryDesignPattern();
+		ArrayList<Component> componentList = new ArrayList<Component>();
+		Scanner reader = new Scanner(componentFile);
+		while(reader.hasNextLine()){
+			String LineFromFile = reader.nextLine();
+			String[] pieceOfLine = LineFromFile.split(",");
+			switch(pieceOfLine[4]){
+			case "CPU":
+				CPU cpuComponent = component.getCPU(Integer.parseInt(pieceOfLine[0]), pieceOfLine[1], Integer.parseInt(pieceOfLine[2]), Double.parseDouble(pieceOfLine[3]), pieceOfLine[4], pieceOfLine[5], 
+						pieceOfLine[6]);
+				componentList.add(cpuComponent);
+				break;
+			case "GPU":
+				GPU gpuComponent = component.getGPU(Integer.parseInt(pieceOfLine[0]), pieceOfLine[1], Integer.parseInt(pieceOfLine[2]),Double.parseDouble(pieceOfLine[3]), pieceOfLine[4], pieceOfLine[5], 
+						Integer.parseInt(pieceOfLine[6]));
+				componentList.add(gpuComponent);
+				break;
+			case "MemoryDrive":
+				MemoryDrive memoryComponent = component.getMemoryDrive(Integer.parseInt(pieceOfLine[0]), pieceOfLine[1], Integer.parseInt(pieceOfLine[2]), Double.parseDouble(pieceOfLine[3]), pieceOfLine[4], Integer.parseInt(pieceOfLine[5]), 
+						Boolean.parseBoolean(pieceOfLine[6]));
+				componentList.add(memoryComponent);
+				break;
+			case "Monitor":
+				Monitor monitorComponent = component.getMonitor(Integer.parseInt(pieceOfLine[0]), pieceOfLine[1], Integer.parseInt(pieceOfLine[2]), Double.parseDouble(pieceOfLine[3]), pieceOfLine[4], pieceOfLine[5], 
+						Boolean.parseBoolean(pieceOfLine[6]), Boolean.parseBoolean(pieceOfLine[7]));
+				componentList.add(monitorComponent);
+				break;
+			case "Motherboard":
+				Motherboard motherboardComponent = component.getMotherboard(Integer.parseInt(pieceOfLine[0]), pieceOfLine[1], Integer.parseInt(pieceOfLine[2]), Double.parseDouble(pieceOfLine[3]), pieceOfLine[4], pieceOfLine[5],
+						pieceOfLine[6], pieceOfLine[7]);
+				componentList.add(motherboardComponent);
+				break;
+			case "Mouse":
+				Mouse mouseComponent = component.getMouse(Integer.parseInt(pieceOfLine[0]), pieceOfLine[1], Integer.parseInt(pieceOfLine[2]), Double.parseDouble(pieceOfLine[3]), pieceOfLine[4], Integer.parseInt(pieceOfLine[5]), 
+						Boolean.parseBoolean(pieceOfLine[6]), Boolean.parseBoolean(pieceOfLine[7]));
+				componentList.add(mouseComponent);
+				break;
+			case "RAM":
+				RAM ramComponent = component.getRAM(Integer.parseInt(pieceOfLine[0]), pieceOfLine[1], Integer.parseInt(pieceOfLine[2]), Double.parseDouble(pieceOfLine[3]), pieceOfLine[4], Integer.parseInt(pieceOfLine[5]), 
+						pieceOfLine[6]);
+				componentList.add(ramComponent);
+				break;	
+			}
+			
+		}
+		reader.close();
+	
+		return componentList;
 	
 	}
 }

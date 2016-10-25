@@ -14,7 +14,7 @@ import BusinessLayer.CompositeProduct.*;
 
 public class ReceiptUI {
 
-	ReceiptUI(ComputerSystem computerSystem) {
+	public ReceiptUI(ComputerSystem computerSystem) {
 		CreateReceipt receipt1 = new CreateReceipt(computerSystem);
 		System.out.println(receipt1.getReceipt());
 	}
