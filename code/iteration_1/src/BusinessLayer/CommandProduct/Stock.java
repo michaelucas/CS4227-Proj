@@ -7,7 +7,8 @@ import java.util.List;
    private List<Order> orderList = new ArrayList<Order>(); 
 
    public void takeOrder(Order order){
-      orderList.add(order);		
+      orderList.add(order);
+      order.execute();
    }
 
    public void placeOrders(){
