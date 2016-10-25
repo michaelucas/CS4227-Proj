@@ -215,6 +215,18 @@ public static void editComponent(Part part) throws IOException {
 	
 	}
 
+	public static void rewriteComponentFile(ArrayList<Component> components) throws IOException{
+	FileWriter writer = new FileWriter(componentFileName);
+	PrintWriter out = new PrintWriter(writer);
+	Component c;
+	for(int i =0; i < components.size();i++){
+		System.out.println("[info]  : ------ Rewriting File (DataControl) ------");
+		c= components.get(i);
+		out.println(c.toString());
+	}
+	out.close();
+}
+
 	public static ArrayList<Component> factoryDesignPattern() throws FileNotFoundException{
 		File componentFile = new File(componentFileName);
 		FactoryDesignPattern component = new FactoryDesignPattern();
