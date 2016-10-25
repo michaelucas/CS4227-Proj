@@ -40,4 +40,11 @@ public class Motherboard extends Component {
     public String getComponentDetails(){
    	 return super.getComponentDetails() + "\nCPU Socket Type: " + this.cpuSocketType + "\nSeries" + this.series + "\nMemoryStandard: " + this.memoryStandard;
    }
+    
+    public String toString(){
+		String output;
+		output = super.toString();
+		output += "," + cpuSocketType + "," + series + "," + memoryStandard;
+		return output;
+	}
 }

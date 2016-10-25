@@ -34,4 +34,5 @@ public class MemoryDrive extends Component {
     public String getComponentDetails(){
    	 return super.getComponentDetails() + "\nDriveCapacity: " + this.driveCapacity + "\nSSD T/F : " + this.SSD;
    }
+    
 }

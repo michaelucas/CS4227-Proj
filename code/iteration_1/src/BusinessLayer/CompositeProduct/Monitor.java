@@ -39,4 +39,11 @@ public class Monitor extends Component {
     public String getComponentDetails(){
    	 return super.getComponentDetails() + "\nScreenResolution: " + this.screenResolution + "\nCurved T/F: " + this.curved + "\nIs 3D T/F: " + this.is3d;
    }
+    
+    public String toString(){
+		String output;
+		output = super.toString();
+		output += "," + screenResolution + "," + curved + "," + is3d;
+		return output;
+	}
 }

@@ -77,4 +77,10 @@ public abstract class Component implements Part {
     public void addStock() {
         stock++;
     }
+    
+    public String toString(){
+		String output;
+		output = componentId + "," +  componentName + "," + stock  + "," + price  + "," + typeOfComponent;
+		return output;
+	}
 }

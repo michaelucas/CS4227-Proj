@@ -30,4 +30,12 @@ public class RAM extends Component {
     public String getComponentDetails(){
    	 return super.getComponentDetails() + "\nGigaBytes: " + this.gigaBytes + "\nMultiChannel" + this.multiChannel;
    }
+    
+    public String toString(){
+		String output;
+		output = super.toString();
+		output += "," + gigaBytes + "," + multiChannel;
+		return output;
+	}
+    
 }

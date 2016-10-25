@@ -30,4 +30,11 @@ public class GPU extends Component {
     public String getComponentDetails(){
    	 return super.getComponentDetails() + "\nGPU Memory: " + this.memory + "\nGPU DisplayPorts" + this.displayPorts;
    }
+    
+    public String toString(){
+		String output;
+		output = super.toString();
+		output += "," + memory + "," + displayPorts;
+		return output;
+	}
 }

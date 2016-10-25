@@ -61,4 +61,11 @@ public class ComputerSystem extends Component{
     	}
     	return summary;
     }
+    
+    public String toString(){
+		String output;
+		output = super.toString();
+		output += "," + OS;
+		return output;
+	}
  }

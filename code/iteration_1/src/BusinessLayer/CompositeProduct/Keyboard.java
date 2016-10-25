@@ -29,4 +29,11 @@ public class Keyboard extends Component {
     public String getComponentDetails(){
    	 return super.getComponentDetails() + "\nKeySwitchType: " + this.keySwitchType + "\nBacklit: " + this.backlit;
    }
+    
+    public String toString(){
+		String output;
+		output = super.toString();
+		output += "," + keySwitchType + "," + backlit;
+		return output;
+	}
 }

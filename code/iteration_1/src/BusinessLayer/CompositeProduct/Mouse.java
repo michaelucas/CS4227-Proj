@@ -38,4 +38,11 @@ public class Mouse extends Component {
     public String getComponentDetails(){
    	 return super.getComponentDetails() + "\nMouse DPI: " + this.dpi + "\nProgrammable Buttons: " + this.programmableButtons + "DPI Switching : " + this.dpiSwitching;
    }
+    
+    public String toString(){
+		String output;
+		output = super.toString();
+		output += "," + dpi + "," + programmableButtons + "," + dpiSwitching;
+		return output;
+	}
 }
