@@ -10,6 +10,7 @@
 
 package BusinessLayer.DecoratorReceipt;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import BusinessLayer.CompositeProduct.*;
 
@@ -33,12 +34,11 @@ public class CreateReceipt {
 		// Create purchased products section of receipt
 		returnString += "\nDetails of your Computer System purchase:";
 		ArrayList<Component> computerComponents = computerSystem.getComponents();
-		double totalCost = 0.0;
 		for(Component component : computerComponents) {
 			returnString += component.getTypeOfComponent() + "\t\u20ac" + component.getPrice() + "\t" + component.getComponentName();
-			totalCost += component.getPrice();
 		}
-		returnString += "\nTotal Cost:\t\u20ac" + totalCost;
+		double totalCost = computerSystem.getUnitCost();
+		returnString += "\nTotal Cost:\t\u20ac" + new DecimalFormat("##.##").format(totalCost);
 		
 		// Create footing section of receipt
 		Receipt shippingReceipt = new FooterReceipt(new BasicReceipt());

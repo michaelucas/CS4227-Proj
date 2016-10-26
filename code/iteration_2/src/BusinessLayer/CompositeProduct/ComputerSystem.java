@@ -1,5 +1,6 @@
 package BusinessLayer.CompositeProduct;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class ComputerSystem extends Component{
@@ -58,6 +59,7 @@ public class ComputerSystem extends Component{
     			String compInfo = components.get(i).getComponentName() + "\t\t:" + components.get(i).getPrice() + "\n";
     			summary += compInfo;
     		}
+    			summary += "\n\nTotal Price = " + new DecimalFormat("##.##").format(getUnitCost());
     	}
     	return summary;
     }
