@@ -57,4 +57,8 @@ public class ProductList {
 
 		}
 	}
+	public int getStock(String compName) throws FileNotFoundException{
+		int stock = DataControl.getStockByComponentName(compName);
+		return stock;
+	}
 }
