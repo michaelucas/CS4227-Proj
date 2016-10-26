@@ -16,10 +16,10 @@ public abstract class Component implements Part {
      * @param stock the amount left to sell for the component
      * @param componentName the componentName of the component.
      */
-    public Component(int componentId, String componentName, int stock, double price, String typeOfComponent) {
+    public Component(int componentId, String componentName, double price, String typeOfComponent) {
         this.componentId = componentId; //Generate new Id function should be used here
         this.componentName = componentName;
-        this.stock = stock;
+        this.stock = 2;
         this.price = price;
         this.typeOfComponent = typeOfComponent;
     }
@@ -37,15 +37,6 @@ public abstract class Component implements Part {
 
     public void setComponentName(String newComponentName) {
         componentName =  newComponentName;
-    }
-    
-
-    public int getStock() {
-        return stock;
-    }
-
-    public void setStock(int newStock) {
-        stock =  newStock;
     }
     
     public double getPrice(){
