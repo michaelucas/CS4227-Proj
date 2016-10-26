@@ -5,8 +5,8 @@ public class GPU extends Component {
     private String memory;
     private int displayPorts;
 
-    public GPU(int componentId, String componentName, int stock, double price, String typeOfComponent, String memory, int displayPorts) {
-        super(componentId, componentName, stock, price, typeOfComponent);
+    public GPU(int componentId, String componentName, double price, String typeOfComponent, String memory, int displayPorts) {
+        super(componentId, componentName, price, typeOfComponent);
         this.memory = memory;
         this.displayPorts = displayPorts;
     }

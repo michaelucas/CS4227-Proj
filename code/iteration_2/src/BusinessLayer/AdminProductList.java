@@ -73,7 +73,6 @@ public class AdminProductList implements Subject {
 		status = "Name\tPrice\tStock\n";
 		status += c.getComponentName();
 		status += "\t" + c.getPrice();
-		status += "\t" + c.getStock();
 		return status;
 	}
 	

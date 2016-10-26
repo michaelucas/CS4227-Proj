@@ -4,8 +4,8 @@ public class Keyboard extends Component {
     private String keySwitchType;
     private boolean backlit;
 
-    public Keyboard(int componentId, String componentName, int stock, double price, String typeOfComponent, String keySwitchType, boolean backlit) {
-        super(componentId, componentName ,stock, price, typeOfComponent);
+    public Keyboard(int componentId, String componentName, double price, String typeOfComponent, String keySwitchType, boolean backlit) {
+        super(componentId, componentName, price, typeOfComponent);
         this.keySwitchType = keySwitchType;
         this.backlit = backlit;
     }

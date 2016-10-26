@@ -4,8 +4,8 @@ public class CPU extends Component {
     private String series;
     private String CPUSocketType;
 
-    public CPU(int componentId, String componentName, int stock, double price, String typeOfComponent, String series, String CPUSocketType) {
-        super(componentId, componentName ,stock, price, typeOfComponent);
+    public CPU(int componentId, String componentName, double price, String typeOfComponent, String series, String CPUSocketType) {
+        super(componentId, componentName, price, typeOfComponent);
         this.series = series;
         this.CPUSocketType = CPUSocketType;
     }

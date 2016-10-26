@@ -5,8 +5,8 @@ public class RAM extends Component {
     private int gigaBytes;
     private String multiChannel;
 
-    public RAM(int componentId, String componentName, int stock, double price, String typeOfComponent, int gigaBytes, String multiChannel) {
-        super(componentId, componentName ,stock, price, typeOfComponent);
+    public RAM(int componentId, String componentName, double price, String typeOfComponent, int gigaBytes, String multiChannel) {
+        super(componentId, componentName, price, typeOfComponent);
         this.gigaBytes = gigaBytes;
         this.multiChannel = multiChannel;
     }

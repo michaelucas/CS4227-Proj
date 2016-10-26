@@ -21,15 +21,6 @@ public interface Part {
 	void setComponentName(String newComponentName);
 
 	/**
-	 * Get the stock of this Component.
-	 *
-	 * @return the stock of this Component.
-	 */
-	int getStock();
-
-	void setStock(int newStock);
-
-	/**
 	 * Get a String that describes this Component. Note that
 	 * this method overrides the toString method inherited
 	 * from Object.
