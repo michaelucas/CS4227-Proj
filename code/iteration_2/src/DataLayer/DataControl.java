@@ -246,7 +246,7 @@ public class DataControl {
 		while(reader.hasNextLine()){
 			String LineFromFile = reader.nextLine();
 			String[] pieceOfLine = LineFromFile.split(",");
-			switch(pieceOfLine[4]){
+			switch(pieceOfLine[3]){
 			case "CPU":
 				CPU cpuComponent = component.getCPU(Integer.parseInt(pieceOfLine[0]), pieceOfLine[1], Double.parseDouble(pieceOfLine[2]), pieceOfLine[3], pieceOfLine[4], 
 						pieceOfLine[5]);
