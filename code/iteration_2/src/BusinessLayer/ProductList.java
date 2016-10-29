@@ -35,9 +35,14 @@ public class ProductList {
 				// Ask for an ArrayList of all products of index component type
 				listOfComponentTypeOptions = DataControl.getComponentTypeList(index);
 				//Print out the list of components of index type
-				ProductListUI.printOutList(listOfComponentTypeOptions);
-				int userChoice = ProductListUI.readUserInput();
-				computerSystem.addComponent(listOfComponentTypeOptions.get(userChoice));
+				if (listOfComponentTypeOptions.size() > 0) {
+					ProductListUI.printOutList(listOfComponentTypeOptions);
+					int userChoice = ProductListUI.readUserInput();
+					computerSystem.addComponent(listOfComponentTypeOptions.get(userChoice));
+				}
+				else {
+					System.out.println("We are currently out of all components of type" + index + ".\nPlease consider returning after we restock our products");
+				}
 			}
 
 			// Call Dan's Summary UI, Cians stock command edit and then receipt here
