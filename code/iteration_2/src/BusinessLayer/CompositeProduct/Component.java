@@ -23,7 +23,6 @@ public abstract class Component implements Part {
     public Component(int componentId, String componentName, double price, String typeOfComponent) {
         this.componentId = componentId; //Generate new Id function should be used here
         this.componentName = componentName;
-        this.stock = 2;
         this.price = price;
         this.typeOfComponent = typeOfComponent;
     }
