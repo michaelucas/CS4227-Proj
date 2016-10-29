@@ -295,4 +295,54 @@ public class DataControl {
 		return componentList;
 
 	}
+
+
+	public static void adjustStock(String componentName, String incOrDec) throws IOException {
+		File searchTextFile = new File(stockFileName);
+
+		//Construct the new file that will later be renamed to the original filename.
+		File tempFile = new File(searchTextFile.getAbsolutePath() + ".tmp");
+
+		BufferedReader br = new BufferedReader(new FileReader(searchTextFile));
+		PrintWriter pw = new PrintWriter(new FileWriter(tempFile));
+
+		String line = null;
+
+		//Read from the original file and write to the new
+		//unless content matches data to be removed.
+		while ((line = br.readLine()) != null) {
+			String aLineFromFile = line;
+			String [] splitLineFromFile = aLineFromFile.split(",");
+
+			if (!splitLineFromFile[0].equals(componentName)) {
+
+				pw.println(line);
+				pw.flush();;
+			}
+			else {
+				int stock = Integer.parseInt(splitLineFromFile[1]);
+				if (incOrDec.matches("increment")){
+					stock++;
+				}
+				else if(incOrDec.matches("decrement")){
+					stock--;
+				}
+				pw.println(componentName + "," + stock + ",");
+				pw.flush();
+				
+			}
+		}
+		pw.close();
+		br.close();
+
+		//Delete the original file
+		if (!searchTextFile.delete()) {
+			System.out.println("Could not delete file");
+			return;
+		}
+
+		//Rename the new file to the filename the original file had.
+		if (!tempFile.renameTo(searchTextFile))
+			System.out.println("Could not rename file");
+	}
 }

@@ -22,8 +22,6 @@ import UserInterfaceLayer.*;
 public class ProductList {
 
 	public ProductList() throws IOException {
-
-		Stock stock = new Stock();
 		boolean summaryConfirmToContinue = false;
 
 		while(summaryConfirmToContinue == false) {
@@ -46,15 +44,8 @@ public class ProductList {
 
 			SummaryUI.printOutSummary(computerSystem.getSummary());
 			summaryConfirmToContinue = SummaryUI.checkToContinue();
+			StockManager.decrementStock(computerSystem);
 			ReceiptUI aReceipt = new ReceiptUI(computerSystem);
-			int length = computerSystem.getComponents().size();
-			for(int i = 0;i < length;i++) {
-				DecreaseStock decrease = new DecreaseStock(computerSystem.getChildAtIndex(i));
-				
-		      	stock.takeOrder(decrease);
-		      	DataControl.editComponent(computerSystem.getChildAtIndex(i));
-			}
-
 		}
 	}
 	public int getStock(String compName) throws FileNotFoundException{

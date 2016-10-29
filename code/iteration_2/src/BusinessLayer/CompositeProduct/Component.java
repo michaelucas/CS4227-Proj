@@ -1,5 +1,9 @@
 package BusinessLayer.CompositeProduct;
 
+import java.io.IOException;
+
+import DataLayer.DataControl;
+
 public abstract class Component implements Part {
 
     private int componentId;
@@ -62,11 +66,21 @@ public abstract class Component implements Part {
         		"\nPrice: " + this.price + "\nType: " + this.typeOfComponent;
     }
     public void decrementStock() {
-        stock--;
+		try {
+			DataControl.adjustStock(this.componentName, "decrement");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
 
     public void addStock() {
-        stock++;
+    	try {
+			DataControl.adjustStock(this.componentName, "increment");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
     
     public String toString(){
