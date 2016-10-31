@@ -76,6 +76,11 @@ public class AdminProductList implements Subject {
 		return status;
 	}
 	
+	public Component getComponent(int choice){
+		Component c = listOfProducts.get(choice - 1);
+		return c;
+	}
+	
 	public void editComponent(int choice, String details) throws IOException{
 		Component c = listOfProducts.get(choice - 1);
 		String[] updated = details.split(",");
