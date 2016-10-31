@@ -7,6 +7,7 @@ import java.util.Scanner;
 import BusinessLayer.AddComponent;
 import BusinessLayer.AdminProductDisplay;
 import BusinessLayer.AdminProductList;
+import BusinessLayer.CompositeProduct.Component;
 
 public class AdminUI {
 	
@@ -35,6 +36,9 @@ public class AdminUI {
 			else if(choice == 2){
 				removeComponent(pl);
 			}
+			else if(choice == 3){
+				editComponent(pl);
+			}
 		}
 	}
 	
@@ -57,6 +61,13 @@ public class AdminUI {
 		System.out.println("Type the number of the product you want to remove");
 		int choice = display.readUserInput();
 		pl.removeComponent(choice);
+	}
+	
+	public void editComponent(AdminProductList pl) throws IOException{
+		System.out.println("Type the number of the product you want to edit");
+		int choice = display.readUserInput();
+		Component c = pl.getComponent(choice);
+		System.out.println(pl.getCurrentStatus(choice));
 	}
 
 }
