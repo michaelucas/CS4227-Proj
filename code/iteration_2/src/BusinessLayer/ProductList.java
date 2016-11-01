@@ -26,7 +26,7 @@ public class ProductList {
 
 		while(summaryConfirmToContinue == false) {
 			String [] listOfComponentOptions = new String[] {"CPU", "GPU", "Keyboard", "MemoryDrive", "Monitor", "Motherboard", "Mouse", "RAM"};
-			ComputerSystem computerSystem = new ComputerSystem(13141252, "AlienWare Laptop", "ComputerSystem", 1200.66, "Windows" );
+			ComputerSystem computerSystem = new ComputerSystem(1, "Laptop", "ComputerSystem", 1200.66, "Windows" );
 
 			// Loop for each component type in listOfComponentOptions array
 			for(String index : listOfComponentOptions) {
@@ -38,7 +38,8 @@ public class ProductList {
 				if (listOfComponentTypeOptions.size() > 0) {
 					ProductListUI.printOutList(listOfComponentTypeOptions);
 					int userChoice = ProductListUI.readUserInput();
-					computerSystem.addComponent(listOfComponentTypeOptions.get(userChoice));
+					if (userChoice >= 0)
+						computerSystem.addComponent(listOfComponentTypeOptions.get(userChoice));
 				}
 				else {
 					System.out.println("We are currently out of all components of type" + index + ".\nPlease consider returning after we restock our products");
