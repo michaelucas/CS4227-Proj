@@ -7,7 +7,7 @@
 	Usage: 
 */
 
-public interface Visitable {
+public interface VisitableElement {
 	
-	public void accept(Visitor visitor);
+	public double accept(Visitor visitor);
 }

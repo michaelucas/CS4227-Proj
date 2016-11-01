@@ -9,5 +9,5 @@
 
 public interface Visitor {
 	
-	public void visit(CPUvisitor cpuVisitor);
+	double visit(CPUvisitor cpuVisitor);
 }

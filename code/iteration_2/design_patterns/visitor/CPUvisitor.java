@@ -7,13 +7,14 @@
 	Usage: 
 */
 
-public class CPUvisitor implements Visitable{
+public class CPUvisitor implements VisitableElement {
 	
 	private double price;
 	private double weight;
 	
-	public void accept(Visitor vistor) {
-		visitor.visit(this);
+	CPUvisitor(double price, double weight) {
+		this.price = price;
+		this.weight = weight;
 	}
 	
 	public double getPrice() {
@@ -22,5 +23,10 @@ public class CPUvisitor implements Visitable{
 	
 	public double getWeight() {
 		return weight;
+	}
+
+	@Override
+	public double accept(Visitor visitor) {
+		return visitor.visit(this);
 	}
 }
