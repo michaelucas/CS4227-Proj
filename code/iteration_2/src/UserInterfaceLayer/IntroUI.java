@@ -4,9 +4,9 @@ import java.io.*;
 
 import BusinessLayer.*;
 
-public class mainProgramUI {
+public class IntroUI {
 	
-	public mainProgramUI() throws IOException{
+	public IntroUI() throws IOException{
 		
 		String typeOfUser = "";
 		boolean isValidChoice = false;

@@ -1,5 +1,5 @@
 package BusinessLayer;
-import UserInterfaceLayer.mainProgramUI;
+import UserInterfaceLayer.IntroUI;
 
 
 public class runProject {
@@ -7,7 +7,7 @@ public class runProject {
 	public static void main(String[] args){
 		
 		try{
-			mainProgramUI program = new mainProgramUI();
+			IntroUI program = new IntroUI();
 		}
 		catch(Exception e){
 			System.out.println(e.getMessage());
