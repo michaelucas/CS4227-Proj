@@ -16,7 +16,7 @@ public class runVisitor {
 		System.out.println("Total Cost: " + totalCost);
 	}
 
-	private static double calculatePrice(Visitable[] cartItems) {
+	private static double calculatePrice(VisitableElement[] cartItems) {
 
 		PostageVisitor visitor = new PostageVisitor();
 		double sum = 0.0;
