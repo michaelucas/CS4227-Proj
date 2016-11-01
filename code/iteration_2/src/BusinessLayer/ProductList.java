@@ -46,8 +46,6 @@ public class ProductList {
 				}
 			}
 
-			// Call Dan's Summary UI, Cians stock command edit and then receipt here
-
 			SummaryUI.printOutSummary(computerSystem.getSummary());
 			summaryConfirmToContinue = SummaryUI.checkToContinue();
 			StockManager.decrementStock(computerSystem);
