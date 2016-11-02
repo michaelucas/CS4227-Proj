@@ -35,7 +35,7 @@ public class CreateReceipt {
 		returnString += "\nDetails of your Computer System purchase:";
 		ArrayList<Component> computerComponents = computerSystem.getComponents();
 		for(Component component : computerComponents) {
-			returnString += component.getTypeOfComponent() + "\t\u20ac" + component.getPrice() + "\t" + component.getComponentName();
+			returnString += component.getTypeOfComponent() + "\t\u20ac" + component.getPrice() + "\t" + component.getComponentName() + "\n";
 		}
 		double totalCost = computerSystem.getUnitCost();
 		returnString += "\nTotal Cost:\t\u20ac" + new DecimalFormat("##.##").format(totalCost);
