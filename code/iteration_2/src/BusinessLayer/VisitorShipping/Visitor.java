@@ -8,6 +8,7 @@
 */
 
 package BusinessLayer.VisitorShipping;
+
 import BusinessLayer.CompositeProduct.*;
 
 public interface Visitor {
