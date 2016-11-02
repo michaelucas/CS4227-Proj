@@ -21,56 +21,56 @@ public class ShippingVisitor implements Visitor {
 
 	@Override
 	public void visit(CPU cpu) {
-		if(cpu.getPrice() < 10.0) {
+		if(cpu.getPrice() < 100.0) {
 			//totalShippingForCart += cpu.getWeight() * 2;  
 		}
 	}
 
 	@Override
 	public void visit(GPU gpu) {
-		if(gpu.getPrice() < 10.0) {
+		if(gpu.getPrice() < 100.0) {
 			//totalShippingForCart += gpu.getWeight() * 3;  
 		}
 	}
 
 	@Override
 	public void visit(Keyboard keyboard) {
-		if(keyboard.getPrice() < 10.0) {
+		if(keyboard.getPrice() < 100.0) {
 			//totalShippingForCart += keyboard.getWeight() * 2;  
 		}
 	}
 
 	@Override
 	public void visit(MemoryDrive memoryDrive) {
-		if(memoryDrive.getPrice() < 10.0) {
+		if(memoryDrive.getPrice() < 100.0) {
 			//totalShippingForCart += memoryDrive.getWeight() * 2;  
 		}
 	}
 
 	@Override
 	public void visit(Monitor monitor) {
-		if(monitor.getPrice() < 10.0) {
+		if(monitor.getPrice() < 100.0) {
 			//totalShippingForCart += monitor.getWeight() * 2;  
 		}
 	}
 
 	@Override
 	public void visit(Motherboard motherboard) {
-		if(motherboard.getPrice() < 10.0) {
+		if(motherboard.getPrice() < 100.0) {
 			//totalShippingForCart += motherboard.getWeight() * 2;  
 		}
 	}
 
 	@Override
 	public void visit(Mouse mouse) {
-		if(mouse.getPrice() < 10.0) {
+		if(mouse.getPrice() < 100.0) {
 			//totalShippingForCart += mouse.getWeight() * 2;  
 		}
 	}
 
 	@Override
 	public void visit(RAM ram) {
-		if(ram.getPrice() < 10.0) {
+		if(ram.getPrice() < 100.0) {
 			//totalShippingForCart += ram.getWeight() * 2;  
 		}
 	}
