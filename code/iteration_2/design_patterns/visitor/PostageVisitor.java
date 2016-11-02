@@ -8,11 +8,24 @@
 */
 
 public class PostageVisitor implements Visitor {
-	
-	@Override
-	public double visit(CPUvisitor cpuVisitor) {
-		
-		double cost = cpuVisitor.getPrice()*cpuVisitor.getWeight();
-		return cost;
-	}
-}
+    
+    private double totalPostageForCart;     
+
+    public double getTotalPostage() {
+        return totalPostageForCart;    
+    }
+
+    @Override
+    public void visit(CPU cpu) {
+        if(cpu.getPrice() < 10.0) {
+            totalPostageForCart += cpu.getWeight() * 2;  
+        }
+    }
+
+    @Override
+    public void visit(GPU gpu) {
+        if(gpu.getPrice() < 10.0) {
+            totalPostageForCart += gpu.getWeight() * 3;  
+        }
+    }
+} 

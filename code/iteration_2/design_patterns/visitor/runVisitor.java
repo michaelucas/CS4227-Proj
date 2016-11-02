@@ -7,22 +7,22 @@
 	Usage: 
 */
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class runVisitor {
 	
 	public static void main(String [] args) {
 		
-		VisitableElement [] cartItems = new VisitableElement[]{new CPUvisitor(20.99, 0.90)};
-		double totalCost = calculatePrice(cartItems);
-		System.out.println("Total Cost: " + totalCost);
-	}
-
-	private static double calculatePrice(VisitableElement[] cartItems) {
-
-		PostageVisitor visitor = new PostageVisitor();
-		double sum = 0.0;
-		for (VisitableElement item : cartItems) {
-			sum = sum + item.accept(visitor);
-		}
-		return sum;
+		List<VisitableElement> items = new ArrayList<VisitableElement>();
+        items.add(new CPU(8, 10));
+        items.add(new GPU(5, 5));
+        
+        PostageVisitor postage = new PostageVisitor();         
+        for(VisitableElement item: items) {
+            item.accept(postage);
+        }
+        double total = postage.getTotalPostage();
+        System.out.println(total);     	
 	}
 }

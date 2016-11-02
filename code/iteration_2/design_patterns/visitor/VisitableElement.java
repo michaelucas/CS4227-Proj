@@ -9,5 +9,5 @@
 
 public interface VisitableElement {
 	
-	public double accept(Visitor visitor);
+	public void accept(Visitor visitor);
 }

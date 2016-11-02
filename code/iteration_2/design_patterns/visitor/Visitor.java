@@ -8,6 +8,7 @@
 */
 
 public interface Visitor {
-	
-	double visit(CPUvisitor cpuVisitor);
+    // second dispatch
+    public void visit(CPU cpu);
+    public void visit(GPU gpu);
 }
