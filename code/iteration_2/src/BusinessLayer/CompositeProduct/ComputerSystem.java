@@ -70,4 +70,8 @@ public class ComputerSystem extends Component{
 		output += "," + OS;
 		return output;
 	}
+	
+    public void clear() {
+    		components.removeAll(components);
+    }
  }
