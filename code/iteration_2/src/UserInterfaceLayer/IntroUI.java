@@ -1,5 +1,10 @@
 package UserInterfaceLayer;
 import java.util.*;
+
+import ArchitecturalLayer.Dispatcher;
+import ArchitecturalLayer.Interceptor;
+import ArchitecturalLayer.infoRequest;
+
 import java.io.*;
 
 import BusinessLayer.*;
@@ -7,6 +12,15 @@ import BusinessLayer.*;
 public class IntroUI {
 	
 	public IntroUI() throws IOException{
+		
+		Interceptor myInterceptor = new Interceptor () {
+			public void onPreMarshalRequest(infoRequest context) {
+				System.out.print(context.getType());
+			}
+
+		};
+		Dispatcher dispatcher = new Dispatcher();
+		dispatcher.register(myInterceptor);
 		
 		String typeOfUser = "";
 		boolean isValidChoice = false;
