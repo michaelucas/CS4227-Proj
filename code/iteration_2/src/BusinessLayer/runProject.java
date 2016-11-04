@@ -1,3 +1,5 @@
+//Author Connor Buggan
+
 package BusinessLayer;
 import UserInterfaceLayer.IntroUI;
 

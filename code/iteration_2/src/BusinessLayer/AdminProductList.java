@@ -10,20 +10,33 @@ import ArchitecturalLayer.Dispatcher;
 import ArchitecturalLayer.infoRequest;
 import BusinessLayer.CompositeProduct.*;
 import DataLayer.DataControl;
+import Interceptor.infoRequest;
 
-public class AdminProductList implements Subject {
+public class AdminProductList implements Subject, infoRequest {
 
 
 	private ArrayList<Component> listOfProducts;
 	private ArrayList<Observer> observers;
+<<<<<<< HEAD
 	public Component actionComponent;
 	public Dispatcher dispatcher;
 
+=======
+	private boolean editAction,addAction,removeAction;
+	public Component actionComponent;
+	
+>>>>>>> origin/master
 	public AdminProductList() throws FileNotFoundException{
 		listOfProducts = new ArrayList<Component>();
 		observers = new ArrayList<Observer>();
 		listOfProducts = DataControl.factoryDesignPattern();
+<<<<<<< HEAD
 		dispatcher = new Dispatcher();
+=======
+		removeAction = false;
+		editAction = false;
+		addAction = false;
+>>>>>>> origin/master
 	}	
 
 	public String getAllDisplay() throws FileNotFoundException{
@@ -37,8 +50,16 @@ public class AdminProductList implements Subject {
 
 
 	public void removeComponent(int choice) throws IOException{
+<<<<<<< HEAD
 		ContextObject c = new ContextObject("remove" , listOfProducts.get(choice - 1));
 		dispatcher.iterate_list(c);
+=======
+		removeAction = true;
+		editAction = false;
+		addAction = false;
+		System.out.println("-----------------------------------------");
+		actionComponent = listOfProducts.get(choice - 1);
+>>>>>>> origin/master
 		listOfProducts.remove(choice - 1);
 		DataControl.rewriteComponentFile(listOfProducts);
 		notifyObservers();
@@ -68,10 +89,17 @@ public class AdminProductList implements Subject {
 	}
 
 	public void addToFile(String details) throws FileNotFoundException{
+		addAction = true;
+		editAction = false;
+		removeAction = false;
 		DataControl.writeNewComponentToFile(details);
 		listOfProducts = DataControl.factoryDesignPattern();
+<<<<<<< HEAD
 		ContextObject c = new ContextObject("add" , listOfProducts.get(listOfProducts.size()-1));
 		dispatcher.iterate_list(c);
+=======
+		actionComponent = listOfProducts.get(listOfProducts.size()-1);
+>>>>>>> origin/master
 		notifyObservers();
 
 	}
@@ -94,8 +122,11 @@ public class AdminProductList implements Subject {
 	public void editComponent(int choice, String details) throws IOException{
 		Component c = listOfProducts.get(choice - 1);
 		actionComponent = c;
+<<<<<<< HEAD
 		ContextObject cONTEXTo = new ContextObject("edit" , c);
 		dispatcher.iterate_list(cONTEXTo);
+=======
+>>>>>>> origin/master
 		String[] updated = details.split(",");
 		listOfProducts.remove(choice - 1);
 		DataControl.rewriteComponentFile(listOfProducts);
@@ -123,5 +154,26 @@ public class AdminProductList implements Subject {
 		}
 	}
 
+<<<<<<< HEAD
 
 }
+=======
+	@Override
+	public String getType() {
+		if(editAction)
+			return "EDIT COMPONENT";
+		else if (addAction)
+			return "ADD COMPONENT";
+		else if(removeAction)
+			return "REMOVE COMPONENT";
+		else return "INVALID ACTION";
+	}
+
+	@Override
+	public int getComponentID() {
+		// TODO Auto-generated method stub
+		return actionComponent.getComponentId();
+	}
+
+}
+>>>>>>> origin/master
