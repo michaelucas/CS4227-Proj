@@ -1,6 +1,9 @@
 package BusinessLayer.CompositeProduct;
 
-public class MemoryDrive extends Component {
+import BusinessLayer.VisitorShipping.VisitableElement;
+import BusinessLayer.VisitorShipping.Visitor;
+
+public class MemoryDrive extends Component implements VisitableElement {
     private int driveCapacity;
     private boolean SSD;
 
@@ -34,5 +37,11 @@ public class MemoryDrive extends Component {
     public String getComponentDetails(){
    	 return super.getComponentDetails() + "\nDriveCapacity: " + this.driveCapacity + "\nSSD T/F : " + this.SSD;
    }
+
+    // For Visitor
+	@Override
+	public void accept(Visitor visitor) {
+		visitor.visit(this);
+	}
     
 }

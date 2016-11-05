@@ -1,6 +1,9 @@
 package BusinessLayer.CompositeProduct;
 
-public class Monitor extends Component {
+import BusinessLayer.VisitorShipping.VisitableElement;
+import BusinessLayer.VisitorShipping.Visitor;
+
+public class Monitor extends Component implements VisitableElement {
     private String screenResolution;
     private boolean curved;
     private boolean is3d;
@@ -45,5 +48,11 @@ public class Monitor extends Component {
 		output = super.toString();
 		output += "," + screenResolution + "," + curved + "," + is3d;
 		return output;
+	}
+
+    // For Visitor
+	@Override
+	public void accept(Visitor visitor) {
+		visitor.visit(this);
 	}
 }

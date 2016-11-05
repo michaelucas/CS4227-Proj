@@ -1,6 +1,9 @@
 package BusinessLayer.CompositeProduct;
 
-public class Keyboard extends Component {
+import BusinessLayer.VisitorShipping.VisitableElement;
+import BusinessLayer.VisitorShipping.Visitor;
+
+public class Keyboard extends Component implements VisitableElement {
     private String keySwitchType;
     private boolean backlit;
 
@@ -35,5 +38,11 @@ public class Keyboard extends Component {
 		output = super.toString();
 		output += "," + keySwitchType + "," + backlit;
 		return output;
+	}
+
+    // For Visitor
+	@Override
+	public void accept(Visitor visitor) {
+		visitor.visit(this);
 	}
 }

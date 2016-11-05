@@ -11,6 +11,7 @@ package BusinessLayer;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -23,7 +24,7 @@ import UserInterfaceLayer.*;
 
 public class ProductList {
 	
-	private List<VisitableElement> cartItems = new ArrayList<VisitableElement>();
+	private List<VisitableElement> cartItems;
 
 	public ProductList() throws IOException {
 		boolean summaryConfirmToContinue = false;
@@ -31,6 +32,7 @@ public class ProductList {
 		while(summaryConfirmToContinue == false) {
 			String [] listOfComponentOptions = new String[] {"CPU", "GPU", "Keyboard", "MemoryDrive", "Monitor", "Motherboard", "Mouse", "RAM"};
 			ComputerSystem computerSystem = new ComputerSystem(1, "Laptop", "ComputerSystem", 00.00, "Windows", 00.00);
+			cartItems = new ArrayList<VisitableElement>();
 
 			// Loop for each component type in listOfComponentOptions array
 			for(String index : listOfComponentOptions) {
@@ -42,10 +44,8 @@ public class ProductList {
 				if (listOfComponentTypeOptions.size() > 0) {
 					ProductListUI.printOutList(listOfComponentTypeOptions);
 					int userChoice = ProductListUI.readUserInput();
-					if (userChoice >= 0) {
+					if (userChoice >= 0)
 						computerSystem.addComponent(listOfComponentTypeOptions.get(userChoice));
-						addToVisitableElementList(listOfComponentTypeOptions.get(userChoice));
-					}
 				}
 				else {
 					System.out.println("We are currently out of all components of type" + index + ".\nPlease consider returning after we restock our products");
@@ -54,14 +54,19 @@ public class ProductList {
 			
 			// Visitor Design Pattern - Get Shipping Cost
 			ShippingVisitor shippingVisitor = new ShippingVisitor();
+			addToVisitableElementList(computerSystem);
+			
 			for (VisitableElement item: cartItems)
 				item.accept(shippingVisitor);
 			double shippingCostTotal = shippingVisitor.getTotalShipping();
-			//System.out.println("\nTotal Shipping Cost:" + shippingCostTotal);
 
 			SummaryUI.printOutSummary(computerSystem.getSummary());
+			System.out.println("\nTotal Shipping Cost:" + new DecimalFormat("##.##").format(shippingCostTotal));
 			summaryConfirmToContinue = SummaryUI.checkToContinue();
+			
 			StockManager.decrementStock(computerSystem);
+			
+			computerSystem.setPrice(computerSystem.getPrice() + shippingCostTotal);
 			ReceiptUI aReceipt = new ReceiptUI(computerSystem);
 		}
 	}
@@ -71,17 +76,20 @@ public class ProductList {
 		return stock;
 	}
 	
-	private void addToVisitableElementList(Component component) {
-		/*
-		switch(component.getTypeOfComponent()) {
-			case "CPU" :		cartItems.add((CPU) component); 	break;
-			case "GPU" :		cartItems.add((VisitableElement) component); 	break;
-			case "Keyboard" :	cartItems.add((VisitableElement) component); 	break;
-			case "MemoryDrive" :cartItems.add((VisitableElement) component); 	break;
-			case "Monitor" :	cartItems.add((VisitableElement) component); 	break;
-			case "Motherboard" :cartItems.add((VisitableElement) component); 	break;
-			case "Mouse" :		cartItems.add((VisitableElement) component); 	break;
-			case "RAM" :		cartItems.add((VisitableElement) component); 	break;
-		}*/
+	private void addToVisitableElementList(ComputerSystem computerSystem) {
+		
+		ArrayList<Component> componentList = computerSystem.getComponents();
+		for (Component component: componentList) {
+			switch(component.getTypeOfComponent()) {
+				case "CPU" :		CPU cpu = (CPU) component; cartItems.add(cpu); 	break;
+				case "GPU" :		GPU gpu = (GPU) component; cartItems.add(gpu); 	break;
+				case "Keyboard" :	Keyboard keyboard = (Keyboard) component; cartItems.add(keyboard); 	break;
+				case "MemoryDrive" :MemoryDrive memoryDrive = (MemoryDrive) component; cartItems.add(memoryDrive); 	break;
+				case "Monitor" :	Monitor monitor = (Monitor) component; cartItems.add(monitor); 	break;
+				case "Motherboard" :Motherboard motherboard = (Motherboard) component; cartItems.add(motherboard); 	break;
+				case "Mouse" :		Mouse mouse = (Mouse) component; cartItems.add(mouse); 	break;
+				case "RAM" :		RAM ram = (RAM) component; cartItems.add(ram); 	break;
+			}
+		}
 	}
 }

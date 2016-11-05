@@ -1,6 +1,9 @@
 package BusinessLayer.CompositeProduct;
 
-public class Motherboard extends Component {
+import BusinessLayer.VisitorShipping.VisitableElement;
+import BusinessLayer.VisitorShipping.Visitor;
+
+public class Motherboard extends Component implements VisitableElement {
 
     private String cpuSocketType;
     private String series;
@@ -46,5 +49,11 @@ public class Motherboard extends Component {
 		output = super.toString();
 		output += "," + cpuSocketType + "," + series + "," + memoryStandard;
 		return output;
+	}
+
+    // For Visitor
+	@Override
+	public void accept(Visitor visitor) {
+		visitor.visit(this);
 	}
 }

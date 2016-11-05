@@ -1,6 +1,9 @@
 package BusinessLayer.CompositeProduct;
 
-public class RAM extends Component {
+import BusinessLayer.VisitorShipping.VisitableElement;
+import BusinessLayer.VisitorShipping.Visitor;
+
+public class RAM extends Component implements VisitableElement {
 	
     private int gigaBytes;
     private String multiChannel;
@@ -36,6 +39,12 @@ public class RAM extends Component {
 		output = super.toString();
 		output += "," + gigaBytes + "," + multiChannel;
 		return output;
+	}
+
+    // For Visitor
+	@Override
+	public void accept(Visitor visitor) {
+		visitor.visit(this);
 	}
     
 }

@@ -1,6 +1,9 @@
 package BusinessLayer.CompositeProduct;
 
-public class GPU extends Component {
+import BusinessLayer.VisitorShipping.VisitableElement;
+import BusinessLayer.VisitorShipping.Visitor;
+
+public class GPU extends Component implements VisitableElement {
 
     private String memory;
     private int displayPorts;
@@ -36,5 +39,11 @@ public class GPU extends Component {
 		output = super.toString();
 		output += "," + memory + "," + displayPorts;
 		return output;
+	}
+
+    // For Visitor
+	@Override
+	public void accept(Visitor visitor) {
+		visitor.visit(this);
 	}
 }

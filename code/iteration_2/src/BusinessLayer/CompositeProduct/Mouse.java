@@ -1,6 +1,9 @@
 package BusinessLayer.CompositeProduct;
 
-public class Mouse extends Component {
+import BusinessLayer.VisitorShipping.VisitableElement;
+import BusinessLayer.VisitorShipping.Visitor;
+
+public class Mouse extends Component implements VisitableElement {
     private int dpi;
     private boolean programmableButtons;
     private boolean dpiSwitching;
@@ -45,5 +48,11 @@ public class Mouse extends Component {
 		output = super.toString();
 		output += "," + dpi + "," + programmableButtons + "," + dpiSwitching;
 		return output;
+	}
+
+    // For Visitor
+	@Override
+	public void accept(Visitor visitor) {
+		visitor.visit(this);
 	}
 }

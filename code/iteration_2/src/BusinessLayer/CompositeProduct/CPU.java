@@ -1,6 +1,9 @@
 package BusinessLayer.CompositeProduct;
 
-public class CPU extends Component {
+import BusinessLayer.VisitorShipping.VisitableElement;
+import BusinessLayer.VisitorShipping.Visitor;
+
+public class CPU extends Component implements VisitableElement {
     private String series;
     private String CPUSocketType;
 
@@ -36,5 +39,11 @@ public class CPU extends Component {
 		output = super.toString();
 		output += "," + series + "," + CPUSocketType;
 		return output;
+	}
+
+    // For Visitor
+	@Override
+	public void accept(Visitor visitor) {
+		visitor.visit(this);
 	}
 }
