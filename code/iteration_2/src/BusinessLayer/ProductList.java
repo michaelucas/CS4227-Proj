@@ -58,15 +58,19 @@ public class ProductList {
 			
 			for (VisitableElement item: cartItems)
 				item.accept(shippingVisitor);
+			
 			double shippingCostTotal = shippingVisitor.getTotalShipping();
-
+			double totalCostBeforeShipping = computerSystem.getPrice();
+			double totalCostAfterShipping = (totalCostBeforeShipping + shippingCostTotal);
+			
 			SummaryUI.printOutSummary(computerSystem.getSummary());
-			System.out.println("\nTotal Shipping Cost:" + new DecimalFormat("##.##").format(shippingCostTotal));
+			System.out.println("\nTotal Additional Shipping Cost:" + new DecimalFormat("##.##").format(shippingCostTotal));
+			computerSystem.setShippingCost(totalCostAfterShipping);
+
 			summaryConfirmToContinue = SummaryUI.checkToContinue();
 			
 			StockManager.decrementStock(computerSystem);
 			
-			computerSystem.setPrice(computerSystem.getPrice() + shippingCostTotal);
 			ReceiptUI aReceipt = new ReceiptUI(computerSystem);
 		}
 	}
