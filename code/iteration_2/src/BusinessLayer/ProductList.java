@@ -62,10 +62,9 @@ public class ProductList {
 			double shippingCostTotal = shippingVisitor.getTotalShipping();
 			double totalCostBeforeShipping = computerSystem.getPrice();
 			double totalCostAfterShipping = (totalCostBeforeShipping + shippingCostTotal);
+			computerSystem.setShippingCost(totalCostAfterShipping);
 			
 			SummaryUI.printOutSummary(computerSystem.getSummary());
-			System.out.println("\nTotal Additional Shipping Cost:" + new DecimalFormat("##.##").format(shippingCostTotal));
-			computerSystem.setShippingCost(totalCostAfterShipping);
 
 			summaryConfirmToContinue = SummaryUI.checkToContinue();
 			

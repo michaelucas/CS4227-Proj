@@ -66,7 +66,8 @@ public class ComputerSystem extends Component{
     			String compInfo = components.get(i).getComponentName() + "\t\t:" + components.get(i).getPrice() + "\n";
     			summary += compInfo;
     		}
-    		summary += "\n\nTotal Price = " + new DecimalFormat("##.##").format(getUnitCost());
+    		summary += "\nShipping Cost = " + new DecimalFormat("##.##").format(shippingCost);
+    		summary += "\nTotal Price incl. Shipping = " + new DecimalFormat("##.##").format(getUnitCost()) + "\n";
     	}
     	return summary;
     }
