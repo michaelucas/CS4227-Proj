@@ -29,7 +29,7 @@ public class ComputerSystem extends Component{
     	components.remove(component);
     }
     
-    public Part getChildAtIndex(int i) {
+    public Component getChildAtIndex(int i) {
         return components.get(i);
     }
 
