@@ -19,6 +19,7 @@ import BusinessLayer.*;
 import BusinessLayer.CommandProduct.*;
 import BusinessLayer.CompositeProduct.*;
 import BusinessLayer.VisitorShipping.*;
+import BusinessLayer.MementoPattern.*;
 import DataLayer.DataControl;
 import UserInterfaceLayer.*;
 
@@ -27,29 +28,108 @@ public class ProductList {
 	private List<VisitableElement> cartItems;
 
 	public ProductList() throws IOException {
+		Originator originator = new Originator();
+		Caretaker caretaker = new Caretaker();
 		boolean summaryConfirmToContinue = false;
 
 		while(summaryConfirmToContinue == false) {
 			String [] listOfComponentOptions = new String[] {"CPU", "GPU", "Keyboard", "MemoryDrive", "Monitor", "Motherboard", "Mouse", "RAM"};
 			ComputerSystem computerSystem = new ComputerSystem(1, "Laptop", "ComputerSystem", 00.00, "Windows", 00.00);
 			cartItems = new ArrayList<VisitableElement>();
+			
+			//saved systems = the amount of mementos created
+			//current system is used to return to the previous memento
+			int savedSystems = 0, currentSystem = 0;
+			
+			ComputerSystem c2 = new ComputerSystem(1, "Laptop", "ComputerSystem", 00.00, "Windows", 00.00);
+			
+			ArrayList<Component> t = computerSystem.getComponents();
+			for(int y = 0;y < t.size();y++) {
+				//c2.addComponent(t.get(y));
+			}
+			originator.set(c2);
+			caretaker.addMemento(originator.storeInMemento());
 
 			// Loop for each component type in listOfComponentOptions array
-			for(String index : listOfComponentOptions) {
+			for(int i = 0;i < listOfComponentOptions.length;) {
 				// Initialise an ArrayList to be filled with component type stored in index
 				ArrayList<Component> listOfComponentTypeOptions = new ArrayList<Component>();
 				// Ask for an ArrayList of all products of index component type
-				listOfComponentTypeOptions = DataControl.getComponentTypeList(index);
+				
+				
+				//listOfComponentTypeOptions = DataControl.getComponentTypeList(index);
+				
+				listOfComponentTypeOptions = DataControl.getComponentTypeList(listOfComponentOptions[i]);
+				
+				
 				//Print out the list of components of index type
 				if (listOfComponentTypeOptions.size() > 0) {
 					ProductListUI.printOutList(listOfComponentTypeOptions);
 					int userChoice = ProductListUI.readUserInput();
-					if (userChoice >= 0)
-						computerSystem.addComponent(listOfComponentTypeOptions.get(userChoice));
+					
+					if (userChoice >= -1) {
+						
+						if(userChoice >= 0) {
+							computerSystem.addComponent(listOfComponentTypeOptions.get(userChoice));
+						}
+						//computerSystem.addComponent(listOfComponentTypeOptions.get(userChoice));	
+						ComputerSystem c1 = new ComputerSystem(1, "Laptop", "ComputerSystem", 00.00, "Windows", 00.00);
+						ArrayList<Component> l = computerSystem.getComponents();
+						for(int y = 0;y < l.size();y++) {
+							c1.addComponent(l.get(y));
+						}
+						//adding a memento of the current computer system
+						originator.set(c1);
+						caretaker.addMemento(originator.storeInMemento());
+						
+						savedSystems++;
+						currentSystem++;
+						i++;
+					/*  Whenever a product is added to the computer system the currentSystem must be equal to
+					 *  the number of savedSystems to ensure that when the user wants to undo a selection
+					 *  it always returns the last added memento*/
+						
+						currentSystem = savedSystems;
+					}
+					//if the user enters -1 (undo)
+					else if(userChoice == -2) {
+						System.out.print("\n\nEntered -1");
+						// user cannot undo if no components have been added to the computer system
+						if(i <= 0)
+							System.out.print("No components currently in computer system");
+					
+					else  {
+						//get the previous memento
+						currentSystem = currentSystem-1;
+						// this computer system is set to the previous memento
+							ComputerSystem computerSystem1 = new ComputerSystem(1, "Laptop", "ComputerSystem", 00.00, "Windows", 00.00);
+							computerSystem1 = originator.restoreFromMemento(caretaker.getMemento(currentSystem));
+							
+							/*  .clear() removes all the components in a computer system
+							 *  this is needed in order to set the main computer system as the previously saved memento
+							 */
+							computerSystem.clear();
+							
+							//aadding the components from the previous memento to the computer system
+							for(int j = 0;j < (computerSystem1.getComponents()).size();j++) {
+								Component c = computerSystem1.getChildAtIndex(j);
+								
+								computerSystem.addComponent(c);
+							}
+							
+							//return to the previous component selection screen
+								i--;
+						}
+					}
 				}
+				
+				
 				else {
-					System.out.println("We are currently out of all components of type" + index + ".\nPlease consider returning after we restock our products");
+					System.out.println("We are currently out of all components of type" + listOfComponentOptions[i] + ".\nPlease consider returning after we restock our products");
+
 				}
+				//caretaker.getMementos();
+				//ComputerSystem computerSystem1 = originator.restoreFromMemento(caretaker.getMemento(0));
 			}
 			
 			// Visitor Design Pattern - Get Shipping Cost
