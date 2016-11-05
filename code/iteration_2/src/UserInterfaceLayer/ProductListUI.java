@@ -23,8 +23,9 @@ public class ProductListUI {
 		
 		System.out.println("\n\nPlease choose a component for your computer:\n");
 		for (int i = 0; i < listArray.size(); i++) {
-			System.out.println("Choice: " + (i + 1) + "\t" + " " + listArray.get(i).getComponentDetails() + "\n\nPress 0 to skip component.\nPress -1 to undo selection.");
+			System.out.println("Choice: " + (i + 1) + "\t" + " " + listArray.get(i).getComponentDetails() +"\n\n");
 		}
+		System.out.print("Press 0 to skip component.\nPress -1 to undo selection.\n");
 	}
 	
 	public static int readUserInput() {
