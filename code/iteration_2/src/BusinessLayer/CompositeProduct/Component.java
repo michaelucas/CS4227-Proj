@@ -11,6 +11,7 @@ public abstract class Component implements Part {
     private int stock;
     private double price;
     private String typeOfComponent;
+    private double weight;
 
     /**
      * Construct a new component using the provided item
@@ -20,11 +21,12 @@ public abstract class Component implements Part {
      * @param stock the amount left to sell for the component
      * @param componentName the componentName of the component.
      */
-    public Component(int componentId, String componentName, double price, String typeOfComponent) {
+    public Component(int componentId, String componentName, double price, String typeOfComponent, double weight) {
         this.componentId = componentId; //Generate new Id function should be used here
         this.componentName = componentName;
         this.price = price;
         this.typeOfComponent = typeOfComponent;
+        this.weight = weight;
     }
 
 	public int getComponentId() {
@@ -58,6 +60,10 @@ public abstract class Component implements Part {
 	public void setTypeOfComponent(String typeOfComponent) {
 		
 		this.typeOfComponent = typeOfComponent;
+	}
+	
+	public double getWeight() {
+		return this.weight;
 	}
 	
     public String getComponentDetails() {

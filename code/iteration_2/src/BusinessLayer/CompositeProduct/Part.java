@@ -34,5 +34,7 @@ public interface Part {
 	void addStock();
 
 	void decrementStock();
+	
+	double getWeight();
 
 }

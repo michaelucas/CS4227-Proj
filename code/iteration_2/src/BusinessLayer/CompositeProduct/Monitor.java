@@ -5,8 +5,8 @@ public class Monitor extends Component {
     private boolean curved;
     private boolean is3d;
 
-    public Monitor(int componentId, String componentName, double price, String typeOfComponent, String screenResolution, boolean curved, boolean is3d) {
-        super(componentId, componentName, price, typeOfComponent);
+    public Monitor(int componentId, String componentName, double price, String typeOfComponent, String screenResolution, boolean curved, boolean is3d, double weight) {
+        super(componentId, componentName, price, typeOfComponent, weight);
         this.screenResolution = screenResolution;
         this.curved = curved;
         this.is3d = is3d;

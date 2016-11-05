@@ -8,8 +8,8 @@ public class ComputerSystem extends Component{
     private String OS;
     private ArrayList<Component> components;
 
-    public ComputerSystem(int componentId, String componentName, String typeOfComponent, double unitCost, String OS) {
-        super(componentId, componentName, 0, typeOfComponent);
+    public ComputerSystem(int componentId, String componentName, String typeOfComponent, double unitCost, String OS, double weight) {
+        super(componentId, componentName, 0, typeOfComponent, weight);
         this.OS = OS;
         this.components = new ArrayList<Component>();
     }

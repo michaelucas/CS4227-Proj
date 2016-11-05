@@ -26,7 +26,7 @@ public class ProductList {
 
 		while(summaryConfirmToContinue == false) {
 			String [] listOfComponentOptions = new String[] {"CPU", "GPU", "Keyboard", "MemoryDrive", "Monitor", "Motherboard", "Mouse", "RAM"};
-			ComputerSystem computerSystem = new ComputerSystem(1, "Laptop", "ComputerSystem", 00.00, "Windows" );
+			ComputerSystem computerSystem = new ComputerSystem(1, "Laptop", "ComputerSystem", 00.00, "Windows", 00.00);
 
 			// Loop for each component type in listOfComponentOptions array
 			for(String index : listOfComponentOptions) {

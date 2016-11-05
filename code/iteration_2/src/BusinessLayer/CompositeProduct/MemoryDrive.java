@@ -4,8 +4,8 @@ public class MemoryDrive extends Component {
     private int driveCapacity;
     private boolean SSD;
 
-    public MemoryDrive(int componentId, String componentName, double price, String typeOfComponent, int driveCapacity, boolean SSD) {
-        super(componentId, componentName,  price, typeOfComponent);
+    public MemoryDrive(int componentId, String componentName, double price, String typeOfComponent, int driveCapacity, boolean SSD, double weight) {
+        super(componentId, componentName,  price, typeOfComponent, weight);
         this.driveCapacity = driveCapacity;
         this.SSD = SSD;
     }

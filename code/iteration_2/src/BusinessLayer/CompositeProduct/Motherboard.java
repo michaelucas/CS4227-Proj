@@ -6,8 +6,8 @@ public class Motherboard extends Component {
     private String series;
     private String memoryStandard;
 
-    public Motherboard(int componentId, String componentName, double price, String typeOfComponent, String cpuSocketType, String series, String memoryStandard) {
-        super(componentId, componentName, price, typeOfComponent);
+    public Motherboard(int componentId, String componentName, double price, String typeOfComponent, String cpuSocketType, String series, String memoryStandard, double weight) {
+        super(componentId, componentName, price, typeOfComponent, weight);
         this.cpuSocketType = cpuSocketType;
         this.series = series;
         this.memoryStandard = memoryStandard;
