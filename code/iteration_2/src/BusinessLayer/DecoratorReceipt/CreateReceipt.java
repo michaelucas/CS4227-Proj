@@ -32,7 +32,7 @@ public class CreateReceipt {
 		returnString = headerReceipt.printReceipt();
 
 		// Create purchased products section of receipt
-		returnString += "\nDetails of your Computer System purchase:";
+		returnString += "\nDetails of your Computer System purchase:\n";
 		ArrayList<Component> computerComponents = computerSystem.getComponents();
 		for(Component component : computerComponents) {
 			returnString += component.getTypeOfComponent() + "\t\u20ac" + component.getPrice() + "\t" + component.getComponentName() + "\n";
