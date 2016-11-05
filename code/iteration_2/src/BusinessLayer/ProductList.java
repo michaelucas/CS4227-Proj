@@ -12,14 +12,18 @@ package BusinessLayer;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import BusinessLayer.*;
 import BusinessLayer.CommandProduct.*;
 import BusinessLayer.CompositeProduct.*;
+import BusinessLayer.VisitorShipping.*;
 import DataLayer.DataControl;
 import UserInterfaceLayer.*;
 
 public class ProductList {
+	
+	private List<VisitableElement> cartItems = new ArrayList<VisitableElement>();
 
 	public ProductList() throws IOException {
 		boolean summaryConfirmToContinue = false;
@@ -38,13 +42,22 @@ public class ProductList {
 				if (listOfComponentTypeOptions.size() > 0) {
 					ProductListUI.printOutList(listOfComponentTypeOptions);
 					int userChoice = ProductListUI.readUserInput();
-					if (userChoice >= 0)
+					if (userChoice >= 0) {
 						computerSystem.addComponent(listOfComponentTypeOptions.get(userChoice));
+						addToVisitableElementList(listOfComponentTypeOptions.get(userChoice));
+					}
 				}
 				else {
 					System.out.println("We are currently out of all components of type" + index + ".\nPlease consider returning after we restock our products");
 				}
 			}
+			
+			// Visitor Design Pattern - Get Shipping Cost
+			ShippingVisitor shippingVisitor = new ShippingVisitor();
+			for (VisitableElement item: cartItems)
+				item.accept(shippingVisitor);
+			double shippingCostTotal = shippingVisitor.getTotalShipping();
+			//System.out.println("\nTotal Shipping Cost:" + shippingCostTotal);
 
 			SummaryUI.printOutSummary(computerSystem.getSummary());
 			summaryConfirmToContinue = SummaryUI.checkToContinue();
@@ -52,8 +65,23 @@ public class ProductList {
 			ReceiptUI aReceipt = new ReceiptUI(computerSystem);
 		}
 	}
+	
 	public int getStock(String compName) throws FileNotFoundException{
 		int stock = DataControl.getStockByComponentName(compName);
 		return stock;
+	}
+	
+	private void addToVisitableElementList(Component component) {
+		/*
+		switch(component.getTypeOfComponent()) {
+			case "CPU" :		cartItems.add((CPU) component); 	break;
+			case "GPU" :		cartItems.add((VisitableElement) component); 	break;
+			case "Keyboard" :	cartItems.add((VisitableElement) component); 	break;
+			case "MemoryDrive" :cartItems.add((VisitableElement) component); 	break;
+			case "Monitor" :	cartItems.add((VisitableElement) component); 	break;
+			case "Motherboard" :cartItems.add((VisitableElement) component); 	break;
+			case "Mouse" :		cartItems.add((VisitableElement) component); 	break;
+			case "RAM" :		cartItems.add((VisitableElement) component); 	break;
+		}*/
 	}
 }
