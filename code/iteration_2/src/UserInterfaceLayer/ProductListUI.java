@@ -39,7 +39,7 @@ public class ProductListUI {
 			
 			System.out.println("\nEnter choice number: ");
 			uncheckedUserChoice = in.nextLine();
-			if (uncheckedUserChoice.matches("[0-9]+"))
+			if (uncheckedUserChoice.matches("[0-9]+|-1"))
 				acceptableInput = true;
 			else
 				System.out.println("Error: Invalid. Must be a number");
