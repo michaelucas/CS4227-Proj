@@ -13,7 +13,7 @@ public class AdminProductDisplay implements Observer {
 		
 		allDisplay = "\n\nPlease choose a component for your computer:\n";
 		for (int i = 0; i < DataControl.factoryDesignPattern().size(); i++) {
-			allDisplay += "Choice: " + (i + 1) + "\t" + " " + DataControl.factoryDesignPattern().get(i).getComponentDetails();
+			allDisplay += "\n\nChoice: " + (i + 1) + "\t" + " " + DataControl.factoryDesignPattern().get(i).getComponentDetails();
 		}
 	}
 	
@@ -25,10 +25,9 @@ public class AdminProductDisplay implements Observer {
 	@Override
 	public void update() {
 		try {
-			System.out.println("here");
 			allDisplay = "\n\nPlease choose a component for your computer:\n";
 			for (int i = 0; i < DataControl.factoryDesignPattern().size(); i++) {
-				allDisplay += "Choice: " + (i + 1) + "\t" + " " + DataControl.factoryDesignPattern().get(i).getComponentDetails();
+				allDisplay += "\n\nChoice: " + (i + 1) + "\t" + " " + DataControl.factoryDesignPattern().get(i).getComponentDetails();
 			}
 			/*GPUDisplay = pl.getIndividualDisplay("GPU");
 			CPUDisplay = pl.getIndividualDisplay("CPU");
@@ -43,6 +42,29 @@ public class AdminProductDisplay implements Observer {
 			e.printStackTrace();
 		}
 		
+	}
+	
+	public String addComponent(String type) throws FileNotFoundException{
+
+
+		Scanner in = new Scanner(System.in);
+		switch(type){
+		case "CPU":
+			return "String componentName, double price, String typeOfComponent, String series, String CPUSocketType, double weight";
+		case "GPU":
+			return "String componentName, double price, String typeOfComponent, String memory, int displayPorts, double weight";
+		case "MemoryDrive":
+			return "String componentName, double price, String typeOfComponent, int driveCapacity, boolean SSD, double weight";
+		case "Monitor":
+			return "String componentName, double price, String typeOfComponent, String screenResolution, boolean curved, boolean is3d, double weight";
+		case "Motherboard":
+			return " String componentName, double price, String typeOfComponent, String cpuSocketType, String series, String memoryStandard, double weight";
+		case "Mouse":
+			return "String componentName, double price, String typeOfComponent, int dpi, boolean programmableButtons, boolean dpiSwitching, double weight";
+		case "RAM":
+			return "String componentName, double price, String typeOfComponent, int gigaBytes, String multiChannel, double weight";
+		default: return "Invalid Input";	
+		}
 	}
 	
 public int readUserInput() {

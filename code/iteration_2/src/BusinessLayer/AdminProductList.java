@@ -44,28 +44,6 @@ public class AdminProductList implements Subject {
 		notifyObservers();
 	}
 
-	public String addComponent(String type) throws FileNotFoundException{
-
-
-		Scanner in = new Scanner(System.in);
-		switch(type){
-		case "CPU":
-			return "String componentName, int stock, double price, String typeOfComponent, String series, String CPUSocketType";
-		case "GPU":
-			return "String componentName, int stock, double price, String typeOfComponent, String memory, int displayPorts";
-		case "MemoryDrive":
-			return "String componentName, int stock, double price, String typeOfComponent, int driveCapacity, boolean SSD";
-		case "Monitor":
-			return "String componentName, int stock, double price, String typeOfComponent, String screenResolution, boolean curved, boolean is3d";
-		case "Motherboard":
-			return " String componentName, int stock, double price, String typeOfComponent, String cpuSocketType, String series, String memoryStandard";
-		case "Mouse":
-			return "String componentName, int stock, double price, String typeOfComponent, int dpi, boolean programmableButtons, boolean dpiSwitching";
-		case "RAM":
-			return "String componentName, int stock,double price, String typeOfComponent, int gigaBytes, String multiChannel";
-		default: return "Invalid Input";	
-		}
-	}
 
 	public void addToFile(String details) throws FileNotFoundException{
 		DataControl.writeNewComponentToFile(details);
