@@ -93,7 +93,7 @@ public class ProductList {
 					}
 					//if the user enters -1 (undo)
 					else if(userChoice == -2) {
-						System.out.print("\n\nEntered -1");
+						
 						// user cannot undo if no components have been added to the computer system
 						if(i <= 0)
 							System.out.print("No components currently in computer system");
