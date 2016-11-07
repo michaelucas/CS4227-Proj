@@ -15,14 +15,8 @@ public class IntroUI {
 	
 	public IntroUI() throws IOException{
 		
-		Interceptor myInterceptor = new Interceptor () {
-			public void onPreMarshalRequest(infoRequest context) {
-				System.out.print(context.getType());
-			}
-
-		};
-		Dispatcher dispatcher = new Dispatcher();
-		dispatcher.register(myInterceptor);
+		IntroControl intro = new IntroControl();
+		intro.setUp();
 		
 		String typeOfUser = "";
 		boolean isValidChoice = false;
