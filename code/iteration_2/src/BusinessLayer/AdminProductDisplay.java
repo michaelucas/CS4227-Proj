@@ -45,24 +45,24 @@ public class AdminProductDisplay implements Observer {
 	}
 	
 	public String addComponent(String type) throws FileNotFoundException{
-
+		String result = "String componentName, double price, String typeOfComponent, double weight";
 
 		Scanner in = new Scanner(System.in);
 		switch(type){
 		case "CPU":
-			return "String componentName, double price, String typeOfComponent, String series, String CPUSocketType, double weight";
+			return result + " String series, String CPUSocketType";
 		case "GPU":
-			return "String componentName, double price, String typeOfComponent, String memory, int displayPorts, double weight";
+			return result + " String memory, int displayPorts";
 		case "MemoryDrive":
-			return "String componentName, double price, String typeOfComponent, int driveCapacity, boolean SSD, double weight";
+			return result + " int driveCapacity, boolean SSD";
 		case "Monitor":
-			return "String componentName, double price, String typeOfComponent, String screenResolution, boolean curved, boolean is3d, double weight";
+			return result + " String screenResolution, boolean curved, boolean is3d";
 		case "Motherboard":
-			return " String componentName, double price, String typeOfComponent, String cpuSocketType, String series, String memoryStandard, double weight";
+			return result + " String cpuSocketType, String series, String memoryStandard";
 		case "Mouse":
-			return "String componentName, double price, String typeOfComponent, int dpi, boolean programmableButtons, boolean dpiSwitching, double weight";
+			return result + " int dpi, boolean programmableButtons, boolean dpiSwitching";
 		case "RAM":
-			return "String componentName, double price, String typeOfComponent, int gigaBytes, String multiChannel, double weight";
+			return result + " int gigaBytes, String multiChannel";
 		default: return "Invalid Input";	
 		}
 	}
