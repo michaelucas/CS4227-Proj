@@ -27,7 +27,7 @@ public class AdminUI {
 		while (choice != 0){
 			
 			System.out.println(display.getAllDisplay());
-			System.out.println("\n\nWould you like to : \n1. Add a new Product\n2. Remove a Product\n0. Exit");
+			System.out.println("\n\nWould you like to : \n1. Add a new Product\n2. Remove a Product\n3. Edit a Product\n0. Exit");
 			choice = display.readUserInput();
 			
 			if(choice == 1){
@@ -48,8 +48,8 @@ public class AdminUI {
 		String answer = in.nextLine();
 		
 		try {
-			System.out.println(pl.addComponent(answer));
-			if(!(pl.addComponent(answer).equals("Invalid Input")))
+			System.out.println(display.addComponent(answer));
+			if(!(display.addComponent(answer).equals("Invalid Input")))
 				pl.addToFile(in.nextLine());
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
