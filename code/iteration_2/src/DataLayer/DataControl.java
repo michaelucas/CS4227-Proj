@@ -117,43 +117,43 @@ public class DataControl {
 				if (componentType.equals(pieceOfLine[3])) {
 					switch(componentType){
 					case "CPU":
-						CPU cpuComponent = component.getCPU(Integer.parseInt(pieceOfLine[0]), pieceOfLine[1], Double.parseDouble(pieceOfLine[2]), pieceOfLine[3], pieceOfLine[4], 
-								pieceOfLine[5], Double.parseDouble(pieceOfLine[6]));
+						CPU cpuComponent = component.getCPU(Integer.parseInt(pieceOfLine[0]), pieceOfLine[1], Double.parseDouble(pieceOfLine[2]), pieceOfLine[3], pieceOfLine[5], 
+								pieceOfLine[6], Double.parseDouble(pieceOfLine[4]));
 						componentList.add(cpuComponent);
 						break;
 					case "GPU":
-						GPU gpuComponent = component.getGPU(Integer.parseInt(pieceOfLine[0]), pieceOfLine[1], Double.parseDouble(pieceOfLine[2]), pieceOfLine[3], pieceOfLine[4], 
-								Integer.parseInt(pieceOfLine[5]), Double.parseDouble(pieceOfLine[6]));
+						GPU gpuComponent = component.getGPU(Integer.parseInt(pieceOfLine[0]), pieceOfLine[1], Double.parseDouble(pieceOfLine[2]), pieceOfLine[3], pieceOfLine[5], 
+								Integer.parseInt(pieceOfLine[6]), Double.parseDouble(pieceOfLine[4]));
 						componentList.add(gpuComponent);
 						break;
 					case "Keyboard":
-						Keyboard keyboardComponent = component.getKeyboard(Integer.parseInt(pieceOfLine[0]), pieceOfLine[1], Double.parseDouble(pieceOfLine[2]), pieceOfLine[3], pieceOfLine[4], 
-								Boolean.parseBoolean(pieceOfLine[5]), Double.parseDouble(pieceOfLine[6]));
+						Keyboard keyboardComponent = component.getKeyboard(Integer.parseInt(pieceOfLine[0]), pieceOfLine[1], Double.parseDouble(pieceOfLine[2]), pieceOfLine[3], pieceOfLine[5], 
+								Boolean.parseBoolean(pieceOfLine[6]), Double.parseDouble(pieceOfLine[4]));
 						componentList.add(keyboardComponent);
 						break;
 					case "MemoryDrive":
-						MemoryDrive memoryComponent = component.getMemoryDrive(Integer.parseInt(pieceOfLine[0]), pieceOfLine[1], Double.parseDouble(pieceOfLine[2]), pieceOfLine[3], Integer.parseInt(pieceOfLine[4]), 
-								Boolean.parseBoolean(pieceOfLine[5]), Double.parseDouble(pieceOfLine[6]));
+						MemoryDrive memoryComponent = component.getMemoryDrive(Integer.parseInt(pieceOfLine[0]), pieceOfLine[1], Double.parseDouble(pieceOfLine[2]), pieceOfLine[3], Integer.parseInt(pieceOfLine[5]), 
+								Boolean.parseBoolean(pieceOfLine[6]), Double.parseDouble(pieceOfLine[4]));
 						componentList.add(memoryComponent);
 						break;
 					case "Monitor":
-						Monitor monitorComponent = component.getMonitor(Integer.parseInt(pieceOfLine[0]), pieceOfLine[1], Double.parseDouble(pieceOfLine[2]), pieceOfLine[3], pieceOfLine[4], 
-								Boolean.parseBoolean(pieceOfLine[5]), Boolean.parseBoolean(pieceOfLine[6]), Double.parseDouble(pieceOfLine[7]));
+						Monitor monitorComponent = component.getMonitor(Integer.parseInt(pieceOfLine[0]), pieceOfLine[1], Double.parseDouble(pieceOfLine[2]), pieceOfLine[3], pieceOfLine[5], 
+								Boolean.parseBoolean(pieceOfLine[6]), Boolean.parseBoolean(pieceOfLine[7]), Double.parseDouble(pieceOfLine[4]));
 						componentList.add(monitorComponent);
 						break;
 					case "Motherboard":
-						Motherboard motherboardComponent = component.getMotherboard(Integer.parseInt(pieceOfLine[0]), pieceOfLine[1], Double.parseDouble(pieceOfLine[2]), pieceOfLine[3], pieceOfLine[4],
-								pieceOfLine[5], pieceOfLine[6], Double.parseDouble(pieceOfLine[7]));
+						Motherboard motherboardComponent = component.getMotherboard(Integer.parseInt(pieceOfLine[0]), pieceOfLine[1], Double.parseDouble(pieceOfLine[2]), pieceOfLine[3], pieceOfLine[5],
+								pieceOfLine[6], pieceOfLine[7], Double.parseDouble(pieceOfLine[4]));
 						componentList.add(motherboardComponent);
 						break;
 					case "Mouse":
-						Mouse mouseComponent = component.getMouse(Integer.parseInt(pieceOfLine[0]), pieceOfLine[1], Double.parseDouble(pieceOfLine[2]), pieceOfLine[3], Integer.parseInt(pieceOfLine[4]), 
-								Boolean.parseBoolean(pieceOfLine[5]), Boolean.parseBoolean(pieceOfLine[6]), Double.parseDouble(pieceOfLine[7]));
+						Mouse mouseComponent = component.getMouse(Integer.parseInt(pieceOfLine[0]), pieceOfLine[1], Double.parseDouble(pieceOfLine[2]), pieceOfLine[3], Integer.parseInt(pieceOfLine[5]), 
+								Boolean.parseBoolean(pieceOfLine[6]), Boolean.parseBoolean(pieceOfLine[7]), Double.parseDouble(pieceOfLine[4]));
 						componentList.add(mouseComponent);
 						break;
 					case "RAM":
-						RAM ramComponent = component.getRAM(Integer.parseInt(pieceOfLine[0]), pieceOfLine[1], Double.parseDouble(pieceOfLine[2]), pieceOfLine[3], Integer.parseInt(pieceOfLine[4]), 
-								pieceOfLine[5], Double.parseDouble(pieceOfLine[6]));
+						RAM ramComponent = component.getRAM(Integer.parseInt(pieceOfLine[0]), pieceOfLine[1], Double.parseDouble(pieceOfLine[2]), pieceOfLine[3], Integer.parseInt(pieceOfLine[5]), 
+								pieceOfLine[6], Double.parseDouble(pieceOfLine[4]));
 						componentList.add(ramComponent);
 						break;
 					}
@@ -250,43 +250,43 @@ public class DataControl {
 			String[] pieceOfLine = LineFromFile.split(",");
 			switch(pieceOfLine[3]){
 			case "CPU":
-				CPU cpuComponent = component.getCPU(Integer.parseInt(pieceOfLine[0]), pieceOfLine[1], Double.parseDouble(pieceOfLine[2]), pieceOfLine[3], pieceOfLine[4], 
-						pieceOfLine[5], Double.parseDouble(pieceOfLine[6]));
+				CPU cpuComponent = component.getCPU(Integer.parseInt(pieceOfLine[0]), pieceOfLine[1], Double.parseDouble(pieceOfLine[2]), pieceOfLine[3], pieceOfLine[5], 
+						pieceOfLine[6], Double.parseDouble(pieceOfLine[4]));
 				componentList.add(cpuComponent);
 				break;
 			case "GPU":
-				GPU gpuComponent = component.getGPU(Integer.parseInt(pieceOfLine[0]), pieceOfLine[1], Double.parseDouble(pieceOfLine[2]), pieceOfLine[3], pieceOfLine[4], 
-						Integer.parseInt(pieceOfLine[5]), Double.parseDouble(pieceOfLine[6]));
+				GPU gpuComponent = component.getGPU(Integer.parseInt(pieceOfLine[0]), pieceOfLine[1], Double.parseDouble(pieceOfLine[2]), pieceOfLine[3], pieceOfLine[5], 
+						Integer.parseInt(pieceOfLine[6]), Double.parseDouble(pieceOfLine[4]));
 				componentList.add(gpuComponent);
 				break;
 			case "Keyboard":
-				Keyboard keyboardComponent = component.getKeyboard(Integer.parseInt(pieceOfLine[0]), pieceOfLine[1], Double.parseDouble(pieceOfLine[2]), pieceOfLine[3], pieceOfLine[4], 
-						Boolean.parseBoolean(pieceOfLine[5]), Double.parseDouble(pieceOfLine[6]));
+				Keyboard keyboardComponent = component.getKeyboard(Integer.parseInt(pieceOfLine[0]), pieceOfLine[1], Double.parseDouble(pieceOfLine[2]), pieceOfLine[3], pieceOfLine[5], 
+						Boolean.parseBoolean(pieceOfLine[6]), Double.parseDouble(pieceOfLine[4]));
 				componentList.add(keyboardComponent);
 				break;
 			case "MemoryDrive":
-				MemoryDrive memoryComponent = component.getMemoryDrive(Integer.parseInt(pieceOfLine[0]), pieceOfLine[1], Double.parseDouble(pieceOfLine[2]), pieceOfLine[3], Integer.parseInt(pieceOfLine[4]), 
-						Boolean.parseBoolean(pieceOfLine[5]), Double.parseDouble(pieceOfLine[6]));
+				MemoryDrive memoryComponent = component.getMemoryDrive(Integer.parseInt(pieceOfLine[0]), pieceOfLine[1], Double.parseDouble(pieceOfLine[2]), pieceOfLine[3], Integer.parseInt(pieceOfLine[5]), 
+						Boolean.parseBoolean(pieceOfLine[6]), Double.parseDouble(pieceOfLine[4]));
 				componentList.add(memoryComponent);
 				break;
 			case "Monitor":
-				Monitor monitorComponent = component.getMonitor(Integer.parseInt(pieceOfLine[0]), pieceOfLine[1], Double.parseDouble(pieceOfLine[2]), pieceOfLine[3], pieceOfLine[4], 
-						Boolean.parseBoolean(pieceOfLine[5]), Boolean.parseBoolean(pieceOfLine[6]), Double.parseDouble(pieceOfLine[7]));
+				Monitor monitorComponent = component.getMonitor(Integer.parseInt(pieceOfLine[0]), pieceOfLine[1], Double.parseDouble(pieceOfLine[2]), pieceOfLine[3], pieceOfLine[5], 
+						Boolean.parseBoolean(pieceOfLine[6]), Boolean.parseBoolean(pieceOfLine[7]), Double.parseDouble(pieceOfLine[4]));
 				componentList.add(monitorComponent);
 				break;
 			case "Motherboard":
-				Motherboard motherboardComponent = component.getMotherboard(Integer.parseInt(pieceOfLine[0]), pieceOfLine[1], Double.parseDouble(pieceOfLine[2]), pieceOfLine[3], pieceOfLine[4],
-						pieceOfLine[5], pieceOfLine[6], Double.parseDouble(pieceOfLine[7]));
+				Motherboard motherboardComponent = component.getMotherboard(Integer.parseInt(pieceOfLine[0]), pieceOfLine[1], Double.parseDouble(pieceOfLine[2]), pieceOfLine[3], pieceOfLine[5],
+						pieceOfLine[6], pieceOfLine[7], Double.parseDouble(pieceOfLine[4]));
 				componentList.add(motherboardComponent);
 				break;
 			case "Mouse":
-				Mouse mouseComponent = component.getMouse(Integer.parseInt(pieceOfLine[0]), pieceOfLine[1], Double.parseDouble(pieceOfLine[2]), pieceOfLine[3], Integer.parseInt(pieceOfLine[4]), 
-						Boolean.parseBoolean(pieceOfLine[5]), Boolean.parseBoolean(pieceOfLine[6]), Double.parseDouble(pieceOfLine[7]));
+				Mouse mouseComponent = component.getMouse(Integer.parseInt(pieceOfLine[0]), pieceOfLine[1], Double.parseDouble(pieceOfLine[2]), pieceOfLine[3], Integer.parseInt(pieceOfLine[5]), 
+						Boolean.parseBoolean(pieceOfLine[6]), Boolean.parseBoolean(pieceOfLine[7]), Double.parseDouble(pieceOfLine[4]));
 				componentList.add(mouseComponent);
 				break;
 			case "RAM":
-				RAM ramComponent = component.getRAM(Integer.parseInt(pieceOfLine[0]), pieceOfLine[1], Double.parseDouble(pieceOfLine[2]), pieceOfLine[3], Integer.parseInt(pieceOfLine[4]), 
-						pieceOfLine[5], Double.parseDouble(pieceOfLine[6]));
+				RAM ramComponent = component.getRAM(Integer.parseInt(pieceOfLine[0]), pieceOfLine[1], Double.parseDouble(pieceOfLine[2]), pieceOfLine[3], Integer.parseInt(pieceOfLine[5]), 
+						pieceOfLine[6], Double.parseDouble(pieceOfLine[4]));
 				componentList.add(ramComponent);
 				break;
 			}
