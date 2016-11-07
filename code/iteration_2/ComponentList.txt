@@ -1,9 +1,12 @@
-13141253,Intel i7 4670K,30.99,CPU,Series 12,12PinSocketType,0.20
-13141131,Intel i5 3000K,24.99,CPU,Series 6,8PinSocketType,0.35
-13141254,Radeon R280x,45.99,GPU,3333Mhrz,4,0.30
-13141255,Logitech 1770m,20.00,Keyboard,NormalKeySwitchType,true,0.12
-13141256,Crucial SSD,35.50,MemoryDrive,1000,false,0.70
-13141257,ROF266,30.00,Motherboard,12PinSocketType,Series 12,3333Mhrz,0.55
-13141258,RipTide,12.99,RAM,16,Dual,0.10
-13141259,Razor Deathador,10.00,Mouse,900,true,true,0.10
-13141260,Samsung 22 v1.1.1,60.99,Monitor,1200 x 600,false,false,3.00
+13141253,Intel i7 4670K,30.99,CPU,0.20,Series 12,12PinSocketType
+13141131,Intel i5 3000K,24.99,CPU,0.35,Series 6,8PinSocketType
+13141254,Radeon R280x,45.99,GPU,0.30,3333Mhrz,4
+13141255,Logitech 1770m,20.00,Keyboard,0.12,NormalKeySwitchType,true
+13141256,Crucial SSD,35.50,MemoryDrive,0.70,1000,false
+13141257,ROF266,30.00,Motherboard,0.55,12PinSocketType,Series 12,3333Mhrz
+13141258,RipTide,12.99,RAM,0.10,16,Dual
+13141259,Razor Deathador,10.00,Mouse,0.10,900,true,true
+13141260,Samsung 22 v1.1.1,60.99,Monitor,3.00,1200 x 600,false,false
+13141261,ofihe,45.78,GPU,7.00,wifeoh,5
+13141262, CPU2,56.89,CPU,1.40,ifeohe,12pinSocket type
+
