@@ -67,7 +67,7 @@ public abstract class Component implements Part {
 	}
 	
     public String getComponentDetails() {
-        return "\nComponent ID: " + this.componentId + "\nComponent Name: " + this.componentName + "\nStock: " + this.stock + 
+        return "\nComponent ID: " + this.componentId + "\nComponent Name: " + this.componentName  + 
         		"\nPrice: " + this.price + "\nType: " + this.typeOfComponent;
     }
     public void decrementStock() {
@@ -90,7 +90,7 @@ public abstract class Component implements Part {
     
     public String toString(){
 		String output;
-		output = componentId + "," +  componentName + "," + stock  + "," + price  + "," + typeOfComponent;
+		output = componentId + "," +  componentName  + "," + price  + "," + typeOfComponent + "," + weight;
 		return output;
 	}
 }

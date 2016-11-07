@@ -31,7 +31,7 @@ public class CPU extends Component implements VisitableElement {
     }
     
     public String getComponentDetails(){
-    	 return super.getComponentDetails() + "\nCPU series: " + this.series + "\nCPU SocketType" + this.CPUSocketType;
+    	 return super.getComponentDetails() + "\nCPU series: " + this.series + "\nCPU SocketType:" + this.CPUSocketType;
     }
     
     public String toString(){

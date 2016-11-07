@@ -31,7 +31,7 @@ public class GPU extends Component implements VisitableElement {
     }
     
     public String getComponentDetails(){
-   	 return super.getComponentDetails() + "\nGPU Memory: " + this.memory + "\nGPU DisplayPorts" + this.displayPorts;
+   	 return super.getComponentDetails() + "\nGPU Memory: " + this.memory + "\nGPU DisplayPorts:" + this.displayPorts;
    }
     
     public String toString(){
