@@ -34,14 +34,14 @@ public class ProductList {
 
 		while(summaryConfirmToContinue == false) {
 			String [] listOfComponentOptions = new String[] {"CPU", "GPU", "Keyboard", "MemoryDrive", "Monitor", "Motherboard", "Mouse", "RAM"};
-			ComputerSystem computerSystem = new ComputerSystem(1, "Laptop", "ComputerSystem", 00.00, "Windows", 00.00);
+			ComputerSystem computerSystem = new ComputerSystem(1, "Laptop", "ComputerSystem", "Windows", 00.00);
 			cartItems = new ArrayList<VisitableElement>();
 			
 			//saved systems = the amount of mementos created
 			//current system is used to return to the previous memento
 			int savedSystems = 0, currentSystem = 0;
 			
-			ComputerSystem c2 = new ComputerSystem(1, "Laptop", "ComputerSystem", 00.00, "Windows", 00.00);
+			ComputerSystem c2 = new ComputerSystem(1, "Laptop", "ComputerSystem", "Windows", 00.00);
 			
 			ArrayList<Component> t = computerSystem.getComponents();
 			for(int y = 0;y < t.size();y++) {
@@ -73,7 +73,7 @@ public class ProductList {
 							computerSystem.addComponent(listOfComponentTypeOptions.get(userChoice));
 						}
 						//computerSystem.addComponent(listOfComponentTypeOptions.get(userChoice));	
-						ComputerSystem c1 = new ComputerSystem(1, "Laptop", "ComputerSystem", 00.00, "Windows", 00.00);
+						ComputerSystem c1 = new ComputerSystem(1, "Laptop", "ComputerSystem", "Windows", 00.00);
 						ArrayList<Component> l = computerSystem.getComponents();
 						for(int y = 0;y < l.size();y++) {
 							c1.addComponent(l.get(y));
@@ -102,7 +102,7 @@ public class ProductList {
 						//get the previous memento
 						currentSystem = currentSystem-1;
 						// this computer system is set to the previous memento
-							ComputerSystem computerSystem1 = new ComputerSystem(1, "Laptop", "ComputerSystem", 00.00, "Windows", 00.00);
+							ComputerSystem computerSystem1 = new ComputerSystem(1, "Laptop", "ComputerSystem", "Windows", 00.00);
 							computerSystem1 = originator.restoreFromMemento(caretaker.getMemento(currentSystem));
 							
 							/*  .clear() removes all the components in a computer system

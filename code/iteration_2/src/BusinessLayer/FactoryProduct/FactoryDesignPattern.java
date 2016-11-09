@@ -40,8 +40,8 @@ public class FactoryDesignPattern {
 		
 	}
 	
-	public ComputerSystem getComputerSystem(int componentId, String componentName, double unitCost, String typeOfComponent, String OS, double weight){
-		return new ComputerSystem(componentId, componentName, typeOfComponent, unitCost, OS, weight);
+	public ComputerSystem getComputerSystem(int componentId, String componentName, String typeOfComponent, String OS, double weight){
+		return new ComputerSystem(componentId, componentName, typeOfComponent, OS, weight);
 	}
 	
 }
