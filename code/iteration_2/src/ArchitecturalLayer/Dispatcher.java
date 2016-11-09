@@ -3,7 +3,7 @@ package ArchitecturalLayer;
 import java.util.ArrayList;
 
 public class Dispatcher {
-	//
+	
 	static ArrayList<Interceptor> listOfInterceptors = new ArrayList<>();
 	
 	public synchronized void register(Interceptor i){
