@@ -175,6 +175,14 @@ public class DataControl {
 		catch (IOException e) {
 			throw new RuntimeException(e);
 		}
+		String[] lines = details.split(",");
+		lineToAppend = lines[0] + "," + 200;
+		try {
+			Files.write(Paths.get(stockFileName), lineToAppend.getBytes(), StandardOpenOption.APPEND);
+		}
+		catch (IOException e) {
+			//exception handling left as an exercise for the reader
+		}
 	}
 
 
