@@ -4,7 +4,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 
-import BusinessLayer.AddComponent;
 import BusinessLayer.AdminProductDisplay;
 import BusinessLayer.AdminProductList;
 import BusinessLayer.CompositeProduct.Component;
@@ -46,11 +45,15 @@ public class AdminUI {
 		Scanner in = new Scanner(System.in);
 		System.out.println("What type of product do you want to add (GPU,CPU etc.)?");
 		String answer = in.nextLine();
+		String componentToAdd = null;
 		
 		try {
 			System.out.println(display.addComponent(answer));
 			if(!(display.addComponent(answer).equals("Invalid Input")))
-				pl.addToFile(in.nextLine());
+				componentToAdd = in.nextLine();
+				System.out.println("How many are in Stock?");
+			    int stock = Integer.parseInt(in.nextLine());
+				pl.addToFile(componentToAdd, stock);
 		} catch (FileNotFoundException e) {
 			throw new RuntimeException(e);
 		}

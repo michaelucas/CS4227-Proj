@@ -37,7 +37,7 @@ public class CreateReceipt {
 		for(Component component : computerComponents) {
 			returnString += component.getTypeOfComponent() + "\t\u20ac" + component.getPrice() + "\t" + component.getComponentName() + "\n";
 		}
-		double totalCost = computerSystem.getUnitCost();
+		double totalCost = computerSystem.getPrice();
 		returnString += "\nTotal Cost:\t\u20ac" + new DecimalFormat("##.##").format(totalCost);
 		
 		// Create footing section of receipt

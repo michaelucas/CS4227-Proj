@@ -45,8 +45,8 @@ public class AdminProductList implements Subject {
 	}
 
 
-	public void addToFile(String details) throws FileNotFoundException{
-		DataControl.writeNewComponentToFile(details);
+	public void addToFile(String details, int stock) throws FileNotFoundException{
+		DataControl.writeNewComponentToFile(details, stock);
 		listOfProducts = DataControl.factoryDesignPattern();
 		ContextObject c = new ContextObject("add" , listOfProducts.get(listOfProducts.size()-1));
 		dispatcher.iterate_list(c);

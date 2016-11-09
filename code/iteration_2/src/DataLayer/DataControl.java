@@ -14,8 +14,8 @@ import java.util.*;
 
 public class DataControl {
 
-	public final static String componentFileName = "code/iteration_2/ComponentList.txt";
-	public final static String stockFileName = "code/iteration_2/StockList.txt";
+	public final static String componentFileName = "ComponentList.txt";
+	public final static String stockFileName = "StockList.txt";
 
 	public static ArrayList<String> getUniqueComponentTypes() throws FileNotFoundException {
 
@@ -165,12 +165,20 @@ public class DataControl {
 		return componentList;
 	}
 
-	public static void writeNewComponentToFile(String details) throws FileNotFoundException {
+	public static void writeNewComponentToFile(String details, int stock) throws FileNotFoundException {
 
 		int nextID = checkNextAvailableId(componentFileName);
-		String lineToAppend =  nextID + ", " + details + "\n";
+		String lineToAppendToComponentFile =  nextID + ", " + details + "\n";
+		String [] detailsSplit = details.split(",");
+		String lineToAppendToStockFile = detailsSplit[0] + "," + stock + "\n";
 		try {
-			Files.write(Paths.get(componentFileName), lineToAppend.getBytes(), StandardOpenOption.APPEND);
+			Files.write(Paths.get(componentFileName), lineToAppendToComponentFile.getBytes(), StandardOpenOption.APPEND);
+		}
+		catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+		try {
+			Files.write(Paths.get(stockFileName),  lineToAppendToStockFile.getBytes(), StandardOpenOption.APPEND);
 		}
 		catch (IOException e) {
 			throw new RuntimeException(e);
