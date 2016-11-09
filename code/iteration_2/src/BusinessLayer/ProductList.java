@@ -11,12 +11,8 @@ package BusinessLayer;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
-import BusinessLayer.*;
-import BusinessLayer.CommandProduct.*;
 import BusinessLayer.CompositeProduct.*;
 import BusinessLayer.VisitorShipping.*;
 import BusinessLayer.MementoPattern.*;
@@ -32,14 +28,15 @@ public class ProductList {
 		Caretaker caretaker = new Caretaker();
 		boolean summaryConfirmToContinue = false;
 
-		while(summaryConfirmToContinue == false) {
+		while(!summaryConfirmToContinue) {
 			String [] listOfComponentOptions = new String[] {"CPU", "GPU", "Keyboard", "MemoryDrive", "Monitor", "Motherboard", "Mouse", "RAM"};
 			ComputerSystem computerSystem = new ComputerSystem(1, "Laptop", "ComputerSystem", "Windows", 00.00);
-			cartItems = new ArrayList<VisitableElement>();
+			cartItems = new ArrayList<>();
 			
 			//saved systems = the amount of mementos created
 			//current system is used to return to the previous memento
-			int savedSystems = 0, currentSystem = 0;
+			int savedSystems = 0;
+			int currentSystem = 0;
 			
 			ComputerSystem c2 = new ComputerSystem(1, "Laptop", "ComputerSystem", "Windows", 00.00);
 			
@@ -53,7 +50,7 @@ public class ProductList {
 			// Loop for each component type in listOfComponentOptions array
 			for(int i = 0;i < listOfComponentOptions.length;) {
 				// Initialise an ArrayList to be filled with component type stored in index
-				ArrayList<Component> listOfComponentTypeOptions = new ArrayList<Component>();
+				ArrayList<Component> listOfComponentTypeOptions = new ArrayList<>();
 				// Ask for an ArrayList of all products of index component type
 				
 				
@@ -63,7 +60,7 @@ public class ProductList {
 				
 				
 				//Print out the list of components of index type
-				if (listOfComponentTypeOptions.size() > 0) {
+				if (!listOfComponentTypeOptions.isEmpty()) {
 					ProductListUI.printOutList(listOfComponentTypeOptions);
 					int userChoice = ProductListUI.readUserInput();
 					
@@ -141,7 +138,7 @@ public class ProductList {
 			
 			double shippingCostTotal = shippingVisitor.getTotalShipping();
 			double totalCostBeforeShipping = computerSystem.getPrice();
-			double totalCostAfterShipping = (totalCostBeforeShipping + shippingCostTotal);
+			double totalCostAfterShipping = totalCostBeforeShipping + shippingCostTotal;
 			computerSystem.setShippingCost(totalCostAfterShipping);
 			
 			SummaryUI.printOutSummary(computerSystem.getSummary());
@@ -155,8 +152,7 @@ public class ProductList {
 	}
 	
 	public int getStock(String compName) throws FileNotFoundException{
-		int stock = DataControl.getStockByComponentName(compName);
-		return stock;
+		return DataControl.getStockByComponentName(compName);
 	}
 	
 	private void addToVisitableElementList(ComputerSystem computerSystem) {
@@ -164,14 +160,41 @@ public class ProductList {
 		ArrayList<Component> componentList = computerSystem.getComponents();
 		for (Component component: componentList) {
 			switch(component.getTypeOfComponent()) {
-				case "CPU" :		CPU cpu = (CPU) component; cartItems.add(cpu); 	break;
-				case "GPU" :		GPU gpu = (GPU) component; cartItems.add(gpu); 	break;
-				case "Keyboard" :	Keyboard keyboard = (Keyboard) component; cartItems.add(keyboard); 	break;
-				case "MemoryDrive" :MemoryDrive memoryDrive = (MemoryDrive) component; cartItems.add(memoryDrive); 	break;
-				case "Monitor" :	Monitor monitor = (Monitor) component; cartItems.add(monitor); 	break;
-				case "Motherboard" :Motherboard motherboard = (Motherboard) component; cartItems.add(motherboard); 	break;
-				case "Mouse" :		Mouse mouse = (Mouse) component; cartItems.add(mouse); 	break;
-				case "RAM" :		RAM ram = (RAM) component; cartItems.add(ram); 	break;
+				case "CPU" :		
+					CPU cpu = (CPU) component; 
+					cartItems.add(cpu); 	
+					break;
+				case "GPU" :		
+					GPU gpu = (GPU) component; 
+					cartItems.add(gpu); 	
+					break;
+				case "Keyboard" :	
+					Keyboard keyboard = (Keyboard) component; 
+					cartItems.add(keyboard); 	
+					break;
+				case "MemoryDrive" :
+					MemoryDrive memoryDrive = (MemoryDrive) component; 
+					cartItems.add(memoryDrive); 	
+					break;
+				case "Monitor" :	
+					Monitor monitor = (Monitor) component; 
+					cartItems.add(monitor); 	
+					break;
+				case "Motherboard" :
+					Motherboard motherboard = (Motherboard) component; 
+					cartItems.add(motherboard); 	
+					break;
+				case "Mouse" :		
+					Mouse mouse = (Mouse) component; 
+					cartItems.add(mouse); 	
+					break;
+				case "RAM" :		
+					RAM ram = (RAM) component; 
+					cartItems.add(ram); 	
+					break;
+				default:
+					System.out.println("Invalid Component Type. ProductList.java");
+					break;
 			}
 		}
 	}

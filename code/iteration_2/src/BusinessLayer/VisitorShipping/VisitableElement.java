@@ -9,6 +9,7 @@
 
 package BusinessLayer.VisitorShipping;
 
+@FunctionalInterface
 public interface VisitableElement {
 
 	public void accept(Visitor visitor);

@@ -29,14 +29,6 @@ public class AdminProductDisplay implements Observer {
 			for (int i = 0; i < DataControl.factoryDesignPattern().size(); i++) {
 				allDisplay += "\n\nChoice: " + (i + 1) + "\t" + " " + DataControl.factoryDesignPattern().get(i).getComponentDetails();
 			}
-			/*GPUDisplay = pl.getIndividualDisplay("GPU");
-			CPUDisplay = pl.getIndividualDisplay("CPU");
-			motherboardDisplay = pl.getIndividualDisplay("Motherboard");
-			keyboardDisplay = pl.getIndividualDisplay("Keyboard");
-			memoryDriveDisplay = pl.getIndividualDisplay("MemoryDrive");
-			mouseDisplay = pl.getIndividualDisplay("Mouse");
-			RAMDisplay = pl.getIndividualDisplay("RAM");
-			monitorDisplay = pl.getIndividualDisplay("Monitor");*/
 		} catch (FileNotFoundException e) {
 			throw new RuntimeException(e);
 		}
@@ -45,26 +37,36 @@ public class AdminProductDisplay implements Observer {
 	
 	public String addComponent(String type) throws FileNotFoundException{
 		String result = "String componentName, double price, String typeOfComponent, double weight";
-
-		Scanner in = new Scanner(System.in);
+		
 		switch(type){
-		case "CPU":
-			return result + " String series, String CPUSocketType";
-		case "GPU":
-			return result + " String memory, int displayPorts";
-		case "MemoryDrive":
-			return result + " int driveCapacity, boolean SSD";
-		case "Monitor":
-			return result + " String screenResolution, boolean curved, boolean is3d";
-		case "Motherboard":
-			return result + " String cpuSocketType, String series, String memoryStandard";
-		case "Mouse":
-			return result + " int dpi, boolean programmableButtons, boolean dpiSwitching";
-		case "RAM":
-			return result + " int gigaBytes, String multiChannel";
-		default: return "Invalid Input";	
+			case "CPU":
+				result += " String series, String CPUSocketType";
+				break;
+			case "GPU":
+				result += " String memory, int displayPorts";
+				break;
+			case "MemoryDrive":
+				result += " int driveCapacity, boolean SSD";
+				break;
+			case "Monitor":
+				result += " String screenResolution, boolean curved, boolean is3d";
+				break;
+			case "Motherboard":
+				result += " String cpuSocketType, String series, String memoryStandard";
+				break;
+			case "Mouse":
+				result += " int dpi, boolean programmableButtons, boolean dpiSwitching";
+				break;
+			case "RAM":
+				result += " int gigaBytes, String multiChannel";
+				break;
+			default: 
+				result = "Invalid Input";	
+				break;
 		}
+		return result;
 	}
+	
 	
 public int readUserInput() {
 		
@@ -73,7 +75,7 @@ public int readUserInput() {
 		String uncheckedUserChoice = "";
 		Scanner in = new Scanner(System.in);
 		
-		while (false == acceptableInput) {
+		while (!acceptableInput) {
 			
 			System.out.println("\nEnter choice number: ");
 			uncheckedUserChoice = in.nextLine();

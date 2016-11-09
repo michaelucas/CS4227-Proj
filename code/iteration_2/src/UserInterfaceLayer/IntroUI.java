@@ -3,10 +3,6 @@
 package UserInterfaceLayer;
 import java.util.*;
 
-import ArchitecturalLayer.Dispatcher;
-import ArchitecturalLayer.Interceptor;
-import ArchitecturalLayer.infoRequest;
-
 import java.io.*;
 
 import BusinessLayer.*;
@@ -24,13 +20,12 @@ public class IntroUI {
 		while(!isValidChoice){
 			System.out.println("Are you a customer or admin? ");
 			typeOfUser = input.nextLine();
-			if(typeOfUser.equalsIgnoreCase("Customer")){
+			if("Customer".equalsIgnoreCase(typeOfUser)) {
 				isValidChoice = true;
 				ProductList customerChoice = new ProductList();
 				System.exit(0);
 			}
-			else if(typeOfUser.equalsIgnoreCase("Admin")){
-				//AddComponent adminOptions = new AddComponent();
+			else if ("Admin".equalsIgnoreCase(typeOfUser)) {
 				isValidChoice = true;
 				AdminUI adminNew = new AdminUI();
 				adminNew.display();

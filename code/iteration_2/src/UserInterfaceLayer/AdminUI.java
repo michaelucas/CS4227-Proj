@@ -6,7 +6,6 @@ import java.util.Scanner;
 
 import BusinessLayer.AdminProductDisplay;
 import BusinessLayer.AdminProductList;
-import BusinessLayer.CompositeProduct.Component;
 
 public class AdminUI {
 	
@@ -26,7 +25,7 @@ public class AdminUI {
 		while (choice != 0){
 			
 			System.out.println(display.getAllDisplay());
-			System.out.println("\n\nWould you like to : \n1. Add a new Product\n2. Remove a Product\n3. Edit a Product\n0. Exit");
+			System.out.println("\n\nWould you like to : \n1. Add a new Product\n2. Remove a Product\n0. Exit");
 			choice = display.readUserInput();
 			
 			if(choice == 1){
@@ -34,9 +33,6 @@ public class AdminUI {
 			}
 			else if(choice == 2){
 				removeComponent(pl);
-			}
-			else if(choice == 3){
-				editComponent(pl);
 			}
 		}
 	}
@@ -49,27 +45,14 @@ public class AdminUI {
 		
 		try {
 			System.out.println(display.addComponent(answer));
-			if(!(display.addComponent(answer).equals("Invalid Input")))
+			if(!("Invalid Input".equals(display.addComponent(answer))))
 				componentToAdd = in.nextLine();
 				System.out.println("How many are in Stock?");
 			    int stock = Integer.parseInt(in.nextLine());
 				pl.addToFile(componentToAdd, stock);
+
 		} catch (FileNotFoundException e) {
 			throw new RuntimeException(e);
 		}
 	}
-	
-	public void removeComponent(AdminProductList pl) throws IOException{
-		System.out.println("Type the number of the product you want to remove");
-		int choice = display.readUserInput();
-		pl.removeComponent(choice);
-	}
-	
-	public void editComponent(AdminProductList pl) throws IOException{
-		System.out.println("Type the number of the product you want to edit");
-		int choice = display.readUserInput();
-		Component c = pl.getComponent(choice);
-		System.out.println(pl.getCurrentStatus(choice));
-	}
-
 }

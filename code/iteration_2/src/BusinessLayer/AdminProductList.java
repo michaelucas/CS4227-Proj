@@ -2,12 +2,10 @@ package BusinessLayer;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList; 
-import java.util.Scanner;
+import java.util.ArrayList;
 
 import ArchitecturalLayer.ContextObject;
 import ArchitecturalLayer.Dispatcher;
-import ArchitecturalLayer.infoRequest;
 import BusinessLayer.CompositeProduct.*;
 import DataLayer.DataControl;
 
@@ -20,8 +18,8 @@ public class AdminProductList implements Subject {
 	public Dispatcher dispatcher;
 
 	public AdminProductList() throws FileNotFoundException{
-		listOfProducts = new ArrayList<Component>();
-		observers = new ArrayList<Observer>();
+		listOfProducts = new ArrayList<>();
+		observers = new ArrayList<>();
 		listOfProducts = DataControl.factoryDesignPattern();
 		dispatcher = new Dispatcher();
 	}	
@@ -74,7 +72,6 @@ public class AdminProductList implements Subject {
 		actionComponent = c;
 		ContextObject cONTEXTo = new ContextObject("edit" , c);
 		dispatcher.iterate_list(cONTEXTo);
-		String[] updated = details.split(",");
 		listOfProducts.remove(choice - 1);
 		DataControl.rewriteComponentFile(listOfProducts);
 	}

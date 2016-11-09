@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Caretaker {
 
-	ArrayList<Memento> computerList = new ArrayList<Memento>();
+	ArrayList<Memento> computerList = new ArrayList<>();
 	
 	public void addMemento(Memento m) {
 		computerList.add(m);

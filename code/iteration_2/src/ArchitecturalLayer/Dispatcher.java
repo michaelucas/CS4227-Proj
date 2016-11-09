@@ -3,18 +3,18 @@ package ArchitecturalLayer;
 import java.util.ArrayList;
 
 public class Dispatcher {
-	//
-	static ArrayList<Interceptor> listOfInterceptors = new ArrayList<Interceptor>();
 	
-	synchronized public void register(Interceptor i){
+	static ArrayList<Interceptor> listOfInterceptors = new ArrayList<>();
+	
+	public synchronized void register(Interceptor i){
 		listOfInterceptors.add(i);
 	}
 	
-	synchronized public void remove() {
-		
+	public synchronized void remove() {
+		// Method left empty
 	}
 	
-	synchronized public void iterate_list(infoRequest context) {
+	public synchronized void iterate_list(infoRequest context) {
 		for(int i=0;i< listOfInterceptors.size(); i++) {
 			Interceptor ic = listOfInterceptors.get(i);
 			ic.onPreMarshalRequest(context);
