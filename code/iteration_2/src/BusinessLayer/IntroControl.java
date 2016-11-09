@@ -19,7 +19,6 @@ public class IntroControl {
 				int componentID = context.getComponentID();
 				File loggingFile = new File("LoggingFile.txt");
 				try {
-					System.out.println("HERE NOW");
 					FileWriter logWriter = new FileWriter(loggingFile , true);
 					PrintWriter out = new PrintWriter(logWriter);
 					out.println(description + "," + componentID + "," + System.currentTimeMillis());
