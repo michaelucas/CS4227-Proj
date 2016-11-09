@@ -9,4 +9,3 @@
 13141260,Samsung 22 v1.1.1,60.99,Monitor,3.00,1200 x 600,false,false
 13141261,ofihe,45.78,GPU,7.00,wifeoh,5
 13141262, CPU2,56.89,CPU,1.40,ifeohe,12pinSocket type
-
