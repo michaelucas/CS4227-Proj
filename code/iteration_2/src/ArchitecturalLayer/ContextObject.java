@@ -4,15 +4,23 @@ import BusinessLayer.CompositeProduct.Component;
 
 public class ContextObject implements infoRequest{
 	
-	private boolean editAction,addAction,removeAction;
+	private boolean editAction;
+	private boolean addAction;
+	private boolean removeAction;
 	public Component actionComponent;
 	
 	public ContextObject(String type, Component actionComponent){
 		this.actionComponent = actionComponent;
 		switch(type){
-		case "edit":editAction= true;break;
-		case "add":addAction= true;break;
-		case "remove":removeAction= true;break;
+			case "edit":editAction= true;
+				break;
+			case "add":addAction= true;
+				break;
+			case "remove":removeAction= true;
+				break;
+			default:
+		    	System.out.println("Invalid");
+				break;
 		}
 	}
 
@@ -29,7 +37,6 @@ public class ContextObject implements infoRequest{
 
 	@Override
 	public int getComponentID() {
-		// TODO Auto-generated method stub
 		return actionComponent.getComponentId();
 	}
 
