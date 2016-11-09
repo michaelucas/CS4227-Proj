@@ -59,7 +59,9 @@ public class AddComponent {
 			System.out.println("String componentName, int stock, String typeOfComponent, int gigaBytes, String multiChannel");
 			d.writeNewComponentToFile(in.nextLine());
 			break;
-		
+		default:
+			System.out.println("Unknown Component Type Found. AddComponent.java");
+			break;
 		}
 	}
 	

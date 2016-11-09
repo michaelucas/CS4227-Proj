@@ -181,7 +181,7 @@ public class DataControl {
 			Files.write(Paths.get(stockFileName), lineToAppend.getBytes(), StandardOpenOption.APPEND);
 		}
 		catch (IOException e) {
-			//exception handling left as an exercise for the reader
+			throw new RuntimeException(e);
 		}
 	}
 

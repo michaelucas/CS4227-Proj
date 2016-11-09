@@ -4,17 +4,17 @@ import java.util.ArrayList;
 
 public class Dispatcher {
 	//
-	static ArrayList<Interceptor> listOfInterceptors = new ArrayList<Interceptor>();
+	static ArrayList<Interceptor> listOfInterceptors = new ArrayList<>();
 	
-	synchronized public void register(Interceptor i){
+	public synchronized void register(Interceptor i){
 		listOfInterceptors.add(i);
 	}
 	
-	synchronized public void remove() {
-		
+	public synchronized void remove() {
+		// Method left empty
 	}
 	
-	synchronized public void iterate_list(infoRequest context) {
+	public synchronized void iterate_list(infoRequest context) {
 		for(int i=0;i< listOfInterceptors.size(); i++) {
 			Interceptor ic = listOfInterceptors.get(i);
 			ic.onPreMarshalRequest(context);

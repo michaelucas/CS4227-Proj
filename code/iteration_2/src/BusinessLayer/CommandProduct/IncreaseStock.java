@@ -3,15 +3,14 @@ package BusinessLayer.CommandProduct;
 import BusinessLayer.CompositeProduct.*;
 
 public class IncreaseStock implements Order {
-	   //private Component comp;
 
-		private Part part;
+	private Part part;
 
-	   public IncreaseStock(Component part){
-	      this.part = part;
-	   }
+	public IncreaseStock(Component part){
+		this.part = part;
+	}
 
-	   public void execute() {
-	      part.addStock();
-	   }
+	public void execute() {
+		part.addStock();
+	}
 }
