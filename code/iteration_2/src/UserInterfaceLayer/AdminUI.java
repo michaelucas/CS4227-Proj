@@ -36,9 +36,6 @@ public class AdminUI {
 			else if(choice == 2){
 				removeComponent(pl);
 			}
-			else if(choice == 3){
-				editComponent(pl);
-			}
 		}
 	}
 	
