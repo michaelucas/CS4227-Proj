@@ -4,10 +4,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 
-import BusinessLayer.AddComponent;
 import BusinessLayer.AdminProductDisplay;
 import BusinessLayer.AdminProductList;
-import BusinessLayer.CompositeProduct.Component;
 
 public class AdminUI {
 	
@@ -46,7 +44,7 @@ public class AdminUI {
 		
 		try {
 			System.out.println(display.addComponent(answer));
-			if(!(display.addComponent(answer).equals("Invalid Input")))
+			if(!("Invalid Input".equals(display.addComponent(answer))))
 				pl.addToFile(in.nextLine());
 		} catch (FileNotFoundException e) {
 			throw new RuntimeException(e);

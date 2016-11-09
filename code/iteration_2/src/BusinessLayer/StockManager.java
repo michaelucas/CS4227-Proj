@@ -24,7 +24,7 @@ public class StockManager {
 	public static boolean checkIsComponentInStock(String componentName) throws FileNotFoundException {
 		
 		int currentStock = DataControl.getStockByComponentName(componentName);
-		boolean inStock = false;
+		boolean inStock;
 		if (currentStock > 0 ){
 			inStock = true;
 		}

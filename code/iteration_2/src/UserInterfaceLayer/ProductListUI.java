@@ -35,7 +35,7 @@ public class ProductListUI {
 		String uncheckedUserChoice = "";
 		Scanner in = new Scanner(System.in);
 		
-		while (false == acceptableInput) {
+		while (!acceptableInput) {
 			
 			System.out.println("\nEnter choice number: ");
 			uncheckedUserChoice = in.nextLine();
@@ -46,6 +46,6 @@ public class ProductListUI {
 		}
 		
 		checkedUserChoice = Integer.parseInt(uncheckedUserChoice);
-		return (checkedUserChoice - 1);
+		return checkedUserChoice - 1;
 	}
 }

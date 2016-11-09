@@ -1,10 +1,12 @@
 package UserInterfaceLayer;
-import DataLayer.DataControl;
 
-import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class AddComponentUI {
+	
+	private AddComponentUI() {
+		// Adding private constructor to avoid public implicit one
+	}
 	
 	public static void printOutput(String output) {
 		System.out.println(output);
@@ -17,7 +19,7 @@ public class AddComponentUI {
 		String uncheckedUserChoice = "";
 		Scanner in = new Scanner(System.in);
 		
-		while (false == acceptableInput) {
+		while (!acceptableInput) {
 			
 			System.out.println("\nEnter choice number: ");
 			uncheckedUserChoice = in.nextLine();
@@ -28,13 +30,12 @@ public class AddComponentUI {
 		}
 		
 		checkedUserChoice = Integer.parseInt(uncheckedUserChoice);
-		return (checkedUserChoice - 1);
+		return checkedUserChoice - 1;
 	}
 	
 	public static String getComponentSpecs() {
 		
 		Scanner in = new Scanner(System.in);
-		String userInput = in.nextLine();
-		return userInput;
+		return in.nextLine();
 	}
 }

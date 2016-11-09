@@ -1,9 +1,6 @@
 package UserInterfaceLayer;
 
-import java.util.ArrayList;
 import java.util.Scanner;
-
-import BusinessLayer.CompositeProduct.*;
 
 public class SummaryUI {
 
@@ -23,11 +20,11 @@ public class SummaryUI {
 		while(!correctInput) {
 			String userChoice;
 			userChoice = in.nextLine();
-			if(userChoice.equalsIgnoreCase("Y")) {
+			if ("Y".equalsIgnoreCase(userChoice)) {
 				correctInput = true;
 				continueExecuting = true;
 			}
-			else if (userChoice.equalsIgnoreCase("N")) {
+			else if ("N".equalsIgnoreCase(userChoice)) {
 				correctInput = true;
 				continueExecuting = false;
 			}

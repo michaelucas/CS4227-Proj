@@ -14,14 +14,18 @@ import java.util.*;
 
 public class DataControl {
 
-	public final static String componentFileName = "code/iteration_2/ComponentList.txt";
-	public final static String stockFileName = "code/iteration_2/StockList.txt";
+	public static final String componentFileName = "code/iteration_2/ComponentList.txt";
+	public static final String stockFileName = "code/iteration_2/StockList.txt";
+	
+	private DataControl() {
+		//Adding private constructor to avoid implicit public one
+	}
 
 	public static ArrayList<String> getUniqueComponentTypes() throws FileNotFoundException {
 
 		File componentFile = new File(componentFileName);
 		FactoryDesignPattern component = new FactoryDesignPattern();
-		ArrayList<Component> componentList = new ArrayList<Component>();
+		ArrayList<Component> componentList = new ArrayList<>();
 		Scanner reader = new Scanner(componentFile);
 		while(reader.hasNextLine()){
 			String LineFromFile = reader.nextLine();
@@ -68,11 +72,14 @@ public class DataControl {
 						pieceOfLine[5], Double.parseDouble(pieceOfLine[6]));
 				componentList.add(ramComponent);
 				break;
+			default:
+				System.out.println("Invalid Component type. DataControl.java");
+				break;
 			}
 
 		}
 		reader.close();
-		ArrayList<String> uniqueComponentArrayList = new ArrayList<String>();
+		ArrayList<String> uniqueComponentArrayList = new ArrayList<>();
 
 		for (int i = 0; i < componentList.size(); i++) {
 			if (!(uniqueComponentArrayList.contains(componentList.get(i).getTypeOfComponent())))
@@ -108,55 +115,56 @@ public class DataControl {
 		//Return ArrayList
 		File componentFile = new File(componentFileName);
 		FactoryDesignPattern component = new FactoryDesignPattern();
-		ArrayList<Component> componentList = new ArrayList<Component>();
+		ArrayList<Component> componentList = new ArrayList<>();
 		Scanner reader = new Scanner(componentFile);
 		while(reader.hasNextLine()){
 			String LineFromFile = reader.nextLine();
 			String[] pieceOfLine = LineFromFile.split(",");
-			if (StockManager.checkIsComponentInStock(pieceOfLine[1])) {
-				if (componentType.equals(pieceOfLine[3])) {
-					switch(componentType){
-					case "CPU":
-						CPU cpuComponent = component.getCPU(Integer.parseInt(pieceOfLine[0]), pieceOfLine[1], Double.parseDouble(pieceOfLine[2]), pieceOfLine[3], pieceOfLine[5], 
-								pieceOfLine[6], Double.parseDouble(pieceOfLine[4]));
-						componentList.add(cpuComponent);
-						break;
-					case "GPU":
-						GPU gpuComponent = component.getGPU(Integer.parseInt(pieceOfLine[0]), pieceOfLine[1], Double.parseDouble(pieceOfLine[2]), pieceOfLine[3], pieceOfLine[5], 
-								Integer.parseInt(pieceOfLine[6]), Double.parseDouble(pieceOfLine[4]));
-						componentList.add(gpuComponent);
-						break;
-					case "Keyboard":
-						Keyboard keyboardComponent = component.getKeyboard(Integer.parseInt(pieceOfLine[0]), pieceOfLine[1], Double.parseDouble(pieceOfLine[2]), pieceOfLine[3], pieceOfLine[5], 
-								Boolean.parseBoolean(pieceOfLine[6]), Double.parseDouble(pieceOfLine[4]));
-						componentList.add(keyboardComponent);
-						break;
-					case "MemoryDrive":
-						MemoryDrive memoryComponent = component.getMemoryDrive(Integer.parseInt(pieceOfLine[0]), pieceOfLine[1], Double.parseDouble(pieceOfLine[2]), pieceOfLine[3], Integer.parseInt(pieceOfLine[5]), 
-								Boolean.parseBoolean(pieceOfLine[6]), Double.parseDouble(pieceOfLine[4]));
-						componentList.add(memoryComponent);
-						break;
-					case "Monitor":
-						Monitor monitorComponent = component.getMonitor(Integer.parseInt(pieceOfLine[0]), pieceOfLine[1], Double.parseDouble(pieceOfLine[2]), pieceOfLine[3], pieceOfLine[5], 
-								Boolean.parseBoolean(pieceOfLine[6]), Boolean.parseBoolean(pieceOfLine[7]), Double.parseDouble(pieceOfLine[4]));
-						componentList.add(monitorComponent);
-						break;
-					case "Motherboard":
-						Motherboard motherboardComponent = component.getMotherboard(Integer.parseInt(pieceOfLine[0]), pieceOfLine[1], Double.parseDouble(pieceOfLine[2]), pieceOfLine[3], pieceOfLine[5],
-								pieceOfLine[6], pieceOfLine[7], Double.parseDouble(pieceOfLine[4]));
-						componentList.add(motherboardComponent);
-						break;
-					case "Mouse":
-						Mouse mouseComponent = component.getMouse(Integer.parseInt(pieceOfLine[0]), pieceOfLine[1], Double.parseDouble(pieceOfLine[2]), pieceOfLine[3], Integer.parseInt(pieceOfLine[5]), 
-								Boolean.parseBoolean(pieceOfLine[6]), Boolean.parseBoolean(pieceOfLine[7]), Double.parseDouble(pieceOfLine[4]));
-						componentList.add(mouseComponent);
-						break;
-					case "RAM":
-						RAM ramComponent = component.getRAM(Integer.parseInt(pieceOfLine[0]), pieceOfLine[1], Double.parseDouble(pieceOfLine[2]), pieceOfLine[3], Integer.parseInt(pieceOfLine[5]), 
-								pieceOfLine[6], Double.parseDouble(pieceOfLine[4]));
-						componentList.add(ramComponent);
-						break;
-					}
+			if (StockManager.checkIsComponentInStock(pieceOfLine[1]) && componentType.equals(pieceOfLine[3])) {
+				switch(componentType){
+				case "CPU":
+					CPU cpuComponent = component.getCPU(Integer.parseInt(pieceOfLine[0]), pieceOfLine[1], Double.parseDouble(pieceOfLine[2]), pieceOfLine[3], pieceOfLine[5], 
+							pieceOfLine[6], Double.parseDouble(pieceOfLine[4]));
+					componentList.add(cpuComponent);
+					break;
+				case "GPU":
+					GPU gpuComponent = component.getGPU(Integer.parseInt(pieceOfLine[0]), pieceOfLine[1], Double.parseDouble(pieceOfLine[2]), pieceOfLine[3], pieceOfLine[5], 
+							Integer.parseInt(pieceOfLine[6]), Double.parseDouble(pieceOfLine[4]));
+					componentList.add(gpuComponent);
+					break;
+				case "Keyboard":
+					Keyboard keyboardComponent = component.getKeyboard(Integer.parseInt(pieceOfLine[0]), pieceOfLine[1], Double.parseDouble(pieceOfLine[2]), pieceOfLine[3], pieceOfLine[5], 
+							Boolean.parseBoolean(pieceOfLine[6]), Double.parseDouble(pieceOfLine[4]));
+					componentList.add(keyboardComponent);
+					break;
+				case "MemoryDrive":
+					MemoryDrive memoryComponent = component.getMemoryDrive(Integer.parseInt(pieceOfLine[0]), pieceOfLine[1], Double.parseDouble(pieceOfLine[2]), pieceOfLine[3], Integer.parseInt(pieceOfLine[5]), 
+							Boolean.parseBoolean(pieceOfLine[6]), Double.parseDouble(pieceOfLine[4]));
+					componentList.add(memoryComponent);
+					break;
+				case "Monitor":
+					Monitor monitorComponent = component.getMonitor(Integer.parseInt(pieceOfLine[0]), pieceOfLine[1], Double.parseDouble(pieceOfLine[2]), pieceOfLine[3], pieceOfLine[5], 
+							Boolean.parseBoolean(pieceOfLine[6]), Boolean.parseBoolean(pieceOfLine[7]), Double.parseDouble(pieceOfLine[4]));
+					componentList.add(monitorComponent);
+					break;
+				case "Motherboard":
+					Motherboard motherboardComponent = component.getMotherboard(Integer.parseInt(pieceOfLine[0]), pieceOfLine[1], Double.parseDouble(pieceOfLine[2]), pieceOfLine[3], pieceOfLine[5],
+							pieceOfLine[6], pieceOfLine[7], Double.parseDouble(pieceOfLine[4]));
+					componentList.add(motherboardComponent);
+					break;
+				case "Mouse":
+					Mouse mouseComponent = component.getMouse(Integer.parseInt(pieceOfLine[0]), pieceOfLine[1], Double.parseDouble(pieceOfLine[2]), pieceOfLine[3], Integer.parseInt(pieceOfLine[5]), 
+							Boolean.parseBoolean(pieceOfLine[6]), Boolean.parseBoolean(pieceOfLine[7]), Double.parseDouble(pieceOfLine[4]));
+					componentList.add(mouseComponent);
+					break;
+				case "RAM":
+					RAM ramComponent = component.getRAM(Integer.parseInt(pieceOfLine[0]), pieceOfLine[1], Double.parseDouble(pieceOfLine[2]), pieceOfLine[3], Integer.parseInt(pieceOfLine[5]), 
+							pieceOfLine[6], Double.parseDouble(pieceOfLine[4]));
+					componentList.add(ramComponent);
+					break;
+				default:
+					System.out.println("Invalid Component type. DataControl.java");
+					break;
 				}
 			}
 
@@ -203,19 +211,15 @@ public class DataControl {
 	}
 
 	public static void editComponent(Part part) throws IOException {
-		int id = part.getComponentId();
 
 		File searchTextFile = new File(componentFileName);
 		Scanner lineIn = new Scanner(searchTextFile);
-		int length;
-		ArrayList<String[]> fileList = new ArrayList<String[]>();
+		ArrayList<String[]> fileList = new ArrayList<>();
 
 		while (lineIn.hasNextLine()) {
 			String aLineFromFile = lineIn.nextLine();
 			String [] splitLineFromFile = aLineFromFile.split(",");
-			length = splitLineFromFile.length;
 			fileList.add(splitLineFromFile);
-
 		}
 
 
@@ -224,7 +228,7 @@ public class DataControl {
 		for(int k = 0;k < fileList.size();k++) {
 			for(int u = 0;u < fileList.get(k).length;u++) {
 				writer.write(fileList.get(k)[u]);
-				if(!(u == fileList.get(k).length)) {
+				if (u != fileList.get(k).length) {
 					writer.write(",");
 				}
 
@@ -252,7 +256,7 @@ public class DataControl {
 	public static ArrayList<Component> factoryDesignPattern() throws FileNotFoundException{
 		File componentFile = new File(componentFileName);
 		FactoryDesignPattern component = new FactoryDesignPattern();
-		ArrayList<Component> componentList = new ArrayList<Component>();
+		ArrayList<Component> componentList = new ArrayList<>();
 		Scanner reader = new Scanner(componentFile);
 		while(reader.hasNextLine()){
 			String LineFromFile = reader.nextLine();
@@ -298,6 +302,8 @@ public class DataControl {
 						pieceOfLine[6], Double.parseDouble(pieceOfLine[4]));
 				componentList.add(ramComponent);
 				break;
+			default:
+				System.out.println("Invalid Component Type. DataControl.java");
 			}
 
 		}
@@ -328,7 +334,7 @@ public class DataControl {
 			if (!splitLineFromFile[0].equals(componentName)) {
 
 				pw.println(line);
-				pw.flush();;
+				pw.flush();
 			}
 			else {
 				int stock = Integer.parseInt(splitLineFromFile[1]);
