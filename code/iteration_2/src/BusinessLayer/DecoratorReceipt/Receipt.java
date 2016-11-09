@@ -9,8 +9,8 @@
 
 package BusinessLayer.DecoratorReceipt;
 
-abstract public class Receipt {
+public abstract class Receipt {
 	
-	abstract public String printReceipt();
+	public abstract String printReceipt();
 }
 

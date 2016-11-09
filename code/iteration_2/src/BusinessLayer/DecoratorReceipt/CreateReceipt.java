@@ -25,11 +25,9 @@ public class CreateReceipt {
 	
 	public static String getReceipt() {
 		
-		String returnString = "";
-		
 		// Create heading section of receipt
 		Receipt headerReceipt = new ThankYouReceipt(new HeaderReceipt(new BasicReceipt()));
-		returnString = headerReceipt.printReceipt();
+		String returnString = headerReceipt.printReceipt();
 
 		// Create purchased products section of receipt
 		returnString += "\nDetails of your Computer System purchase:\n";

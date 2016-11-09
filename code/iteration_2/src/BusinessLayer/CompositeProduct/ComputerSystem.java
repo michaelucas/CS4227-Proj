@@ -12,7 +12,7 @@ public class ComputerSystem extends Component{
     public ComputerSystem(int componentId, String componentName, String typeOfComponent, double unitCost, String OS, double weight) {
         super(componentId, componentName, 0, typeOfComponent, weight);
         this.OS = OS;
-        this.components = new ArrayList<Component>();
+        this.components = new ArrayList<>();
         this.shippingCost = 0.0;
     }
 
@@ -47,7 +47,7 @@ public class ComputerSystem extends Component{
 
     public double getUnitCost() {
     	double unitCost = 0;
-    	if(components.size() > 0){
+    	if(!components.isEmpty()){
     		for (int i = 0; i < components.size(); i++) {
     			unitCost += components.get(i).getPrice();
     		}
@@ -61,7 +61,7 @@ public class ComputerSystem extends Component{
     }
     public String getSummary() {
     	String summary = "";
-    	if(components.size() > 0){
+    	if(!components.isEmpty()){
     		for (int i = 0; i < components.size(); i++) {
     			String compInfo = components.get(i).getComponentName() + "\t\t:" + components.get(i).getPrice() + "\n";
     			summary += compInfo;

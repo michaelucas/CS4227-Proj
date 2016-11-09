@@ -8,6 +8,11 @@ import BusinessLayer.CompositeProduct.ComputerSystem;
 import DataLayer.DataControl;
 
 public class StockManager {
+	
+	private StockManager() {
+		//Adding private constructor to hide implicit public one
+	}
+	
 	public static void decrementStock(ComputerSystem computerSystem){
 		Stock stock = new Stock();
 		int length = computerSystem.getComponents().size();
@@ -17,12 +22,15 @@ public class StockManager {
 		}
 	}
 	public static boolean checkIsComponentInStock(String componentName) throws FileNotFoundException {
+		
 		int currentStock = DataControl.getStockByComponentName(componentName);
+		boolean inStock = false;
 		if (currentStock > 0 ){
-			return true;
+			inStock = true;
 		}
 		else {
-			return false;
+			inStock = false;
 		}
+		return inStock;
 	}
 }
