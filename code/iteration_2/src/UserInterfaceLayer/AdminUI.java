@@ -27,7 +27,7 @@ public class AdminUI {
 		while (choice != 0){
 			
 			System.out.println(display.getAllDisplay());
-			System.out.println("\n\nWould you like to : \n1. Add a new Product\n2. Remove a Product\n3. Edit a Product\n0. Exit");
+			System.out.println("\n\nWould you like to : \n1. Add a new Product\n2. Remove a Product\n0. Exit");
 			choice = display.readUserInput();
 			
 			if(choice == 1){
@@ -61,12 +61,4 @@ public class AdminUI {
 		int choice = display.readUserInput();
 		pl.removeComponent(choice);
 	}
-	
-	public void editComponent(AdminProductList pl) throws IOException{
-		System.out.println("Type the number of the product you want to edit");
-		int choice = display.readUserInput();
-		Component c = pl.getComponent(choice);
-		System.out.println(pl.getCurrentStatus(choice));
-	}
-
 }
