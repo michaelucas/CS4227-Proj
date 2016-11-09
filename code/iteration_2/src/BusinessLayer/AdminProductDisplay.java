@@ -38,8 +38,7 @@ public class AdminProductDisplay implements Observer {
 			RAMDisplay = pl.getIndividualDisplay("RAM");
 			monitorDisplay = pl.getIndividualDisplay("Monitor");*/
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 		
 	}

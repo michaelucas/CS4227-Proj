@@ -22,21 +22,23 @@ public class IntroUI {
 		boolean isValidChoice = false;
 		Scanner input = new Scanner(System.in);
 		while(!isValidChoice){
-		System.out.println("Are you a customer or admin? ");
-		typeOfUser = input.nextLine();
-		if(typeOfUser.equalsIgnoreCase("Customer")){
-			ProductList customerChoice = new ProductList();
-			System.exit(0);
-		}
-		else if(typeOfUser.equalsIgnoreCase("Admin")){
-			//AddComponent adminOptions = new AddComponent();
-			AdminUI adminNew = new AdminUI();
-			adminNew.display();
-			System.exit(0);
-			
-		}
-		else
-			System.out.println("Not a valid choice");
+			System.out.println("Are you a customer or admin? ");
+			typeOfUser = input.nextLine();
+			if(typeOfUser.equalsIgnoreCase("Customer")){
+				isValidChoice = true;
+				ProductList customerChoice = new ProductList();
+				System.exit(0);
+			}
+			else if(typeOfUser.equalsIgnoreCase("Admin")){
+				//AddComponent adminOptions = new AddComponent();
+				isValidChoice = true;
+				AdminUI adminNew = new AdminUI();
+				adminNew.display();
+				System.exit(0);
+				
+			}
+			else
+				System.out.println("Not a valid choice");
 		}
 	
 	}

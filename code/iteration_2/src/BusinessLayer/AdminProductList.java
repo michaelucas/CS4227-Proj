@@ -96,8 +96,7 @@ public class AdminProductList implements Subject {
 				o.update();
 			}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 	}
 

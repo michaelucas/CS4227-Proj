@@ -52,8 +52,7 @@ public class AdminUI {
 			if(!(display.addComponent(answer).equals("Invalid Input")))
 				pl.addToFile(in.nextLine());
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 	}
 	

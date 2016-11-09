@@ -74,8 +74,7 @@ public abstract class Component implements Part {
 		try {
 			DataControl.adjustStock(this.componentName, "decrement");
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
     }
 
@@ -83,8 +82,7 @@ public abstract class Component implements Part {
     	try {
 			DataControl.adjustStock(this.componentName, "increment");
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
     }
     

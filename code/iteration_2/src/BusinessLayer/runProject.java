@@ -12,7 +12,7 @@ public class runProject {
 			IntroUI program = new IntroUI();
 		}
 		catch(Exception e){
-			System.out.println(e.getMessage());
+			throw new RuntimeException(e);
 		}
 	}
 		

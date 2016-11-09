@@ -25,8 +25,7 @@ public class IntroControl {
 					out.println(description + "," + componentID + "," + System.currentTimeMillis());
 					out.close();
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+					throw new RuntimeException(e);
 				}
 			}
 
