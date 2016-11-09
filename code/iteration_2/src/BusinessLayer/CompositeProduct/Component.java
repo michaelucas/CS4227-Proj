@@ -8,7 +8,6 @@ public abstract class Component implements Part {
 
     private int componentId;
     private String componentName;
-    private int stock;
     private double price;
     private String typeOfComponent;
     private double weight;
