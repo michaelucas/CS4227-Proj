@@ -69,10 +69,10 @@ public class AdminProductList implements Subject {
 	}
 
 	public void editComponent(int choice, String details) throws IOException{
-		Component c = listOfProducts.get(choice - 1);
-		actionComponent = c;
-		ContextObject cONTEXTo = new ContextObject("edit" , c);
-		dispatcher.iterate_list(cONTEXTo);
+		Component component = listOfProducts.get(choice - 1);
+		actionComponent = component;
+		ContextObject contextObject = new ContextObject("edit" , component);
+		dispatcher.iterate_list(contextObject);
 		listOfProducts.remove(choice - 1);
 		DataControl.rewriteComponentFile(listOfProducts);
 	}
