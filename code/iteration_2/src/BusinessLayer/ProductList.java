@@ -35,7 +35,7 @@ public class ProductList {
 
 		while(summaryConfirmToContinue == false) {
 			String [] listOfComponentOptions = new String[] {"CPU", "GPU", "Keyboard", "MemoryDrive", "Monitor", "Motherboard", "Mouse", "RAM"};
-			ComputerSystem computerSystem = new ComputerSystem(1, "Laptop", "ComputerSystem", 00.00, "Windows", 00.00);
+			ComputerSystem computerSystem = new ComputerSystem(1, "Laptop", "ComputerSystem", "Windows", 00.00);
 			addMemento(computerSystem,originator,caretaker);
 			cartItems = new ArrayList<VisitableElement>();
 			
@@ -176,7 +176,7 @@ private void addToVisitableElementList(ComputerSystem computerSystem) {
 	}
 	
 	private void addMemento(ComputerSystem mainComputerSystem, Originator originator, Caretaker caretaker){
-		ComputerSystem tempComputerSystem = new ComputerSystem(1, "Laptop", "ComputerSystem", 00.00, "Windows", 00.00);
+		ComputerSystem tempComputerSystem = new ComputerSystem(1, "Laptop", "ComputerSystem", "Windows", 00.00);
 		ArrayList<Component> l = mainComputerSystem.getComponents();
 		for(int y = 0;y < l.size();y++) {
 			tempComputerSystem.addComponent(l.get(y));
@@ -188,7 +188,7 @@ private void addToVisitableElementList(ComputerSystem computerSystem) {
 	}
 	
 	private void undo(int previousMemento, ComputerSystem computerSystem, Originator originator, Caretaker caretaker) {
-		ComputerSystem computerSystem1 = new ComputerSystem(1, "Laptop", "ComputerSystem", 00.00, "Windows", 00.00);
+		ComputerSystem computerSystem1 = new ComputerSystem(1, "Laptop", "ComputerSystem", "Windows", 00.00);
 		computerSystem1 = originator.restoreFromMemento(caretaker.getMemento(previousMemento));
 		
 		System.out.print("\n\n\nMemento computer system" + computerSystem1.getSummary());
