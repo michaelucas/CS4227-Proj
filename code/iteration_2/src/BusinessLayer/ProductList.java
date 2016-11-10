@@ -33,20 +33,21 @@ public class ProductList {
 		boolean summaryConfirmToContinue = false;
 		dispatcher = new Dispatcher();
 
-		while(summaryConfirmToContinue == false) {
+		while(!summaryConfirmToContinue) {
 			String [] listOfComponentOptions = new String[] {"CPU", "GPU", "Keyboard", "MemoryDrive", "Monitor", "Motherboard", "Mouse", "RAM"};
 			ComputerSystem computerSystem = new ComputerSystem(1, "Laptop", "ComputerSystem", "Windows", 00.00);
 			addMemento(computerSystem,originator,caretaker);
-			cartItems = new ArrayList<VisitableElement>();
+			cartItems = new ArrayList<>();
 			
 			//saved systems = the amount of mementos created
 			//current system is used to return to the previous memento
-			int savedSystems = 0, currentSystem = 0;
+			int savedSystems = 0;
+			int currentSystem = 0;
 
 			// Loop for each component type in listOfComponentOptions array
 			for(int i = 0;i < listOfComponentOptions.length;) {
 				// Initialise an ArrayList to be filled with component type stored in index
-				ArrayList<Component> listOfComponentTypeOptions = new ArrayList<Component>();
+				ArrayList<Component> listOfComponentTypeOptions = new ArrayList<>();
 				// Ask for an ArrayList of all products of index component type
 				listOfComponentTypeOptions = DataControl.getComponentTypeList(listOfComponentOptions[i]);
 				
