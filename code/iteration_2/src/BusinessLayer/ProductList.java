@@ -15,6 +15,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import ArchitecturalLayer.ContextObject;
+import ArchitecturalLayer.Dispatcher;
 import BusinessLayer.CompositeProduct.*;
 import BusinessLayer.VisitorShipping.*;
 import BusinessLayer.MementoPattern.*;
@@ -24,11 +26,13 @@ import UserInterfaceLayer.*;
 public class ProductList {
 	
 	private List<VisitableElement> cartItems;
+	private Dispatcher dispatcher;
 
 	public ProductList() throws IOException {
 		Originator originator = new Originator();
 		Caretaker caretaker = new Caretaker();
 		boolean summaryConfirmToContinue = false;
+		dispatcher = new Dispatcher();
 
 		while(!summaryConfirmToContinue) {
 			String [] listOfComponentOptions = new String[] {"CPU", "GPU", "Keyboard", "MemoryDrive", "Monitor", "Motherboard", "Mouse", "RAM"};
@@ -147,6 +151,9 @@ public class ProductList {
 			summaryConfirmToContinue = SummaryUI.checkToContinue();
 			
 			StockManager.decrementStock(computerSystem);
+
+			ContextObject context = new ContextObject("Bought" , computerSystem);
+			dispatcher.iterate_list(context);
 			
 			ReceiptUI aReceipt = new ReceiptUI(computerSystem);
 		}

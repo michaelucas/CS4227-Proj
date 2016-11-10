@@ -7,6 +7,7 @@ public class ContextObject implements infoRequest{
 	private boolean editAction;
 	private boolean addAction;
 	private boolean removeAction;
+	private boolean buyAction;
 	public Component actionComponent;
 	
 	public ContextObject(String type, Component actionComponent){
@@ -17,6 +18,8 @@ public class ContextObject implements infoRequest{
 			case "add":addAction= true;
 				break;
 			case "remove":removeAction= true;
+				break;
+			case "Bought":buyAction= true;
 				break;
 			default:
 		    	System.out.println("Invalid");
@@ -32,6 +35,8 @@ public class ContextObject implements infoRequest{
 			return "ADD COMPONENT";
 		else if(removeAction)
 			return "REMOVE COMPONENT";
+		else if(buyAction)
+			return "BOUGHT COMPUTERSYSTEM";
 		else return "INVALID ACTION";
 	}
 
