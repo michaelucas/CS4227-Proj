@@ -35,8 +35,9 @@ public class AdminProductList implements Subject {
 
 
 	public void removeComponent(int choice) throws IOException{
-		ContextObject c = new ContextObject("remove" , listOfProducts.get(choice - 1));
-		dispatcher.iterate_list(c);
+		ContextObject context = new ContextObject("remove" , listOfProducts.get(choice - 1));
+		dispatcher.iterate_list(context);
+		DataControl.removeStockFromFile(listOfProducts.get(choice-1).getComponentName());
 		listOfProducts.remove(choice - 1);
 		DataControl.rewriteComponentFile(listOfProducts);
 		notifyObservers();
