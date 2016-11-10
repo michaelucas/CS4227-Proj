@@ -18,34 +18,15 @@ public class ProductListUI {
 	ProductListUI() {
 		
 	}
-
-	public static void printOutList(ArrayList<Component> listArray) {
-		
-		System.out.println("\n\nPlease choose a component for your computer:\n");
-		for (int i = 0; i < listArray.size(); i++) {
-			System.out.println("Choice: " + (i + 1) + "\t" + " " + listArray.get(i).getComponentDetails() +"\n\n");
-		}
-		System.out.print("Press 0 to skip component.\nPress -1 to undo selection.\n");
+	
+	public static void printOutput(String output) {
+		System.out.println(output);
 	}
 	
-	public static int readUserInput() {
+	public static String readUserInput() {
 		
-		boolean acceptableInput = false;
-		int checkedUserChoice;
-		String uncheckedUserChoice = "";
 		Scanner in = new Scanner(System.in);
 		
-		while (!acceptableInput) {
-			
-			System.out.println("\nEnter choice number: ");
-			uncheckedUserChoice = in.nextLine();
-			if (uncheckedUserChoice.matches("[0-9]+|-1"))
-				acceptableInput = true;
-			else
-				System.out.println("Error: Invalid. Must be a number");
-		}
-		
-		checkedUserChoice = Integer.parseInt(uncheckedUserChoice);
-		return checkedUserChoice - 1;
+		return  in.nextLine();
 	}
 }
