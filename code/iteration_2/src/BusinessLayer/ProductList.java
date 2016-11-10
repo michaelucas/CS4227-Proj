@@ -67,7 +67,7 @@ public class ProductList {
 						
 						//if the user chooses 0 nothing is added to the computer system
 						if(userChoice >= 0) 		
-						computerSystem.addComponent(listOfComponentTypeOptions.get(userChoice));
+							computerSystem.addComponent(listOfComponentTypeOptions.get(userChoice));
 									
 						addMemento(computerSystem, originator, caretaker);
 						savedSystems++;
