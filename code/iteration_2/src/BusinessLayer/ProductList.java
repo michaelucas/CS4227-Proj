@@ -40,10 +40,6 @@ public class ProductList {
 			
 			ComputerSystem c2 = new ComputerSystem(1, "Laptop", "ComputerSystem", "Windows", 00.00);
 			
-			ArrayList<Component> t = computerSystem.getComponents();
-			for(int y = 0;y < t.size();y++) {
-				//c2.addComponent(t.get(y));
-			}
 			originator.set(c2);
 			caretaker.addMemento(originator.storeInMemento());
 
@@ -53,8 +49,6 @@ public class ProductList {
 				ArrayList<Component> listOfComponentTypeOptions = new ArrayList<>();
 				// Ask for an ArrayList of all products of index component type
 				
-				
-				//listOfComponentTypeOptions = DataControl.getComponentTypeList(index);
 				
 				listOfComponentTypeOptions = DataControl.getComponentTypeList(listOfComponentOptions[i]);
 				
