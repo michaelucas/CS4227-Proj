@@ -205,7 +205,6 @@ public class ProductList {
 		boolean acceptableInput = false;
 		int checkedUserChoice;
 		String uncheckedUserChoice = "";
-		Scanner in = new Scanner(System.in);
 		
 		while (!acceptableInput) {
 			
