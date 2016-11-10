@@ -9,7 +9,7 @@
 
 package BusinessLayer.DecoratorReceipt;
 
-abstract public class ReceiptDecorator extends Receipt {
+public abstract class ReceiptDecorator extends Receipt {
 
 	private Receipt receipt;
 	
@@ -19,7 +19,8 @@ abstract public class ReceiptDecorator extends Receipt {
 	
 	@Override
 	public String printReceipt() {
-		if (receipt != null) return receipt.printReceipt(); 
+		if (receipt != null) 
+			return receipt.printReceipt(); 
 		return null;
 	}
 }
