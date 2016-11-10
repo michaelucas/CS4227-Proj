@@ -14,8 +14,7 @@ public class AdminProductList implements Subject {
 
 	private ArrayList<Component> listOfProducts;
 	private ArrayList<Observer> observers;
-	public Component actionComponent;
-	public Dispatcher dispatcher;
+	private Dispatcher dispatcher;
 
 	public AdminProductList() throws FileNotFoundException{
 		listOfProducts = new ArrayList<>();
@@ -60,21 +59,6 @@ public class AdminProductList implements Subject {
 		status += c.getComponentName();
 		status += "\t" + c.getPrice();
 		return status;
-	}
-
-	public Component getComponent(int choice){
-		Component c = listOfProducts.get(choice - 1);
-		actionComponent = c;
-		return c;
-	}
-
-	public void editComponent(int choice, String details) throws IOException{
-		Component component = listOfProducts.get(choice - 1);
-		actionComponent = component;
-		ContextObject contextObject = new ContextObject("edit" , component);
-		dispatcher.iterate_list(contextObject);
-		listOfProducts.remove(choice - 1);
-		DataControl.rewriteComponentFile(listOfProducts);
 	}
 
 	@Override
