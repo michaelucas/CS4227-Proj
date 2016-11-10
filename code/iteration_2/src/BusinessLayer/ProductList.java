@@ -62,8 +62,7 @@ public class ProductList {
 						
 						if(userChoice >= 0) {
 							computerSystem.addComponent(listOfComponentTypeOptions.get(userChoice));
-						}
-						//computerSystem.addComponent(listOfComponentTypeOptions.get(userChoice));	
+						}	
 						ComputerSystem c1 = new ComputerSystem(1, "Laptop", "ComputerSystem", "Windows", 00.00);
 						ArrayList<Component> l = computerSystem.getComponents();
 						for(int y = 0;y < l.size();y++) {
@@ -119,8 +118,7 @@ public class ProductList {
 					System.out.println("We are currently out of all components of type" + listOfComponentOptions[i] + ".\nPlease consider returning after we restock our products");
 
 				}
-				//caretaker.getMementos();
-				//ComputerSystem computerSystem1 = originator.restoreFromMemento(caretaker.getMemento(0));
+				
 			}
 			
 			// Visitor Design Pattern - Get Shipping Cost
