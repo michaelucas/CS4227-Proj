@@ -17,6 +17,8 @@ public class DataControl {
 	public static final String componentFileName = "code/iteration_2/ComponentList.txt";
 	public static final String stockFileName = "code/iteration_2/StockList.txt";
 	
+	
+	
 	private DataControl() {
 		//Adding private constructor to avoid implicit public one
 	}
@@ -348,6 +350,44 @@ public class DataControl {
 				pw.flush();
 
 			}
+		}
+		pw.close();
+		br.close();
+
+		//Delete the original file
+		if (!searchTextFile.delete()) {
+			System.out.println("Could not delete file");
+			return;
+		}
+
+		//Rename the new file to the filename the original file had.
+		if (!tempFile.renameTo(searchTextFile))
+			System.out.println("Could not rename file");
+	}
+	
+	public static void removeStockFromFile(String componentName) throws IOException{
+		File searchTextFile = new File(stockFileName);
+
+		//Construct the new file that will later be renamed to the original filename.
+		File tempFile = new File(searchTextFile.getAbsolutePath() + ".tmp");
+
+		BufferedReader br = new BufferedReader(new FileReader(searchTextFile));
+		PrintWriter pw = new PrintWriter(new FileWriter(tempFile));
+
+		String line = null;
+
+		//Read from the original file and write to the new
+		//unless content matches data to be removed.
+		while ((line = br.readLine()) != null) {
+			String aLineFromFile = line;
+			String [] splitLineFromFile = aLineFromFile.split(",");
+
+			if (!splitLineFromFile[0].equals(componentName)) {
+
+				pw.println(line);
+				pw.flush();
+			}
+			
 		}
 		pw.close();
 		br.close();
