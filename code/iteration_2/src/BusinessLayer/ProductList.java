@@ -13,6 +13,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
+
 import BusinessLayer.CompositeProduct.*;
 import BusinessLayer.VisitorShipping.*;
 import BusinessLayer.MementoPattern.*;
@@ -55,8 +57,15 @@ public class ProductList {
 				
 				//Print out the list of components of index type
 				if (!listOfComponentTypeOptions.isEmpty()) {
-					ProductListUI.printOutList(listOfComponentTypeOptions);
-					int userChoice = ProductListUI.readUserInput();
+					
+					String outputComponentListString = "\n\nPlease choose a component for your computer:\n\n";
+					for (int index = 0; index < listOfComponentTypeOptions.size(); index++) {
+						outputComponentListString += "Choice: " + (index + 1) + "\t" + " " + listOfComponentTypeOptions.get(index).getComponentDetails() +"\n\n";
+					}
+					outputComponentListString += "Press 0 to skip component.\nPress -1 to undo selection.\n";
+					
+					ProductListUI.printOutput(outputComponentListString);
+					int userChoice = readUserComponentChoice();
 					
 					if (userChoice >= -1) {
 						
@@ -86,7 +95,7 @@ public class ProductList {
 						
 						// user cannot undo if no components have been added to the computer system
 						if(i <= 0)
-							System.out.print("No components currently in computer system");
+							ProductListUI.printOutput("No components currently in computer system");
 					
 					else  {
 						//get the previous memento
@@ -115,7 +124,7 @@ public class ProductList {
 				
 				
 				else {
-					System.out.println("We are currently out of all components of type" + listOfComponentOptions[i] + ".\nPlease consider returning after we restock our products");
+					ProductListUI.printOutput("We are currently out of all components of type" + listOfComponentOptions[i] + ".\nPlease consider returning after we restock our products");
 
 				}
 				
@@ -189,5 +198,26 @@ public class ProductList {
 					break;
 			}
 		}
+	}
+	
+	private static int readUserComponentChoice() {
+		
+		boolean acceptableInput = false;
+		int checkedUserChoice;
+		String uncheckedUserChoice = "";
+		Scanner in = new Scanner(System.in);
+		
+		while (!acceptableInput) {
+			
+			ProductListUI.printOutput("\nEnter choice number: ");
+			uncheckedUserChoice = ProductListUI.readUserInput();
+			if (uncheckedUserChoice.matches("[0-9]+|-1"))
+				acceptableInput = true;
+			else
+				ProductListUI.printOutput("Error: Invalid. Must be a number");
+		}
+		
+		checkedUserChoice = Integer.parseInt(uncheckedUserChoice);
+		return checkedUserChoice - 1;
 	}
 }
