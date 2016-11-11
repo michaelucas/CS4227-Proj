@@ -23,17 +23,17 @@ public class IntroUI {
 			if("Customer".equalsIgnoreCase(typeOfUser)) {
 				isValidChoice = true;
 				ProductList customerChoice = new ProductList();
-				System.exit(0);
 			}
 			else if ("Admin".equalsIgnoreCase(typeOfUser)) {
 				isValidChoice = true;
 				AdminUI adminNew = new AdminUI();
 				adminNew.display();
-				System.exit(0);
 				
 			}
-			else
+			else {
 				System.out.println("Not a valid choice");
+				isValidChoice = false;
+			}
 		}
 	
 	}
