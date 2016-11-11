@@ -2,15 +2,17 @@ package BusinessLayer;
 
 import java.io.File;
 import java.io.FileWriter;
-import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import ArchitecturalLayer.Dispatcher;
 import ArchitecturalLayer.Interceptor;
 import ArchitecturalLayer.infoRequest;
 
 public class IntroControl {
-	
+
+	private static final Logger LOGGER = Logger.getLogger( AdminProductList.class.getName() );
 	
 	public void setUp(){
 		Interceptor myInterceptor = new Interceptor () {
@@ -23,8 +25,8 @@ public class IntroControl {
 					PrintWriter out = new PrintWriter(logWriter);
 					out.println(description + "," + componentID + "," + System.currentTimeMillis());
 					out.close();
-				} catch (IOException e) {
-					throw new RuntimeException(e);
+				} catch (Exception e) {
+		            LOGGER.log(Level.SEVERE, "context", e);
 				}
 			}
 

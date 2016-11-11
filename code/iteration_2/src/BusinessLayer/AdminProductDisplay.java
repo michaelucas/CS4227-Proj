@@ -2,12 +2,14 @@ package BusinessLayer;
 
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+import java.util.logging.*;
 
 import DataLayer.*;
 
 public class AdminProductDisplay implements Observer {
 	
 	private String allDisplay;
+	private static final Logger LOGGER = Logger.getLogger( AdminProductDisplay.class.getName() );
 	
 	public AdminProductDisplay() throws FileNotFoundException{
 		
@@ -29,8 +31,8 @@ public class AdminProductDisplay implements Observer {
 			for (int i = 0; i < DataControl.factoryDesignPattern().size(); i++) {
 				allDisplay += "\n\nChoice: " + (i + 1) + "\t" + " " + DataControl.factoryDesignPattern().get(i).getComponentDetails();
 			}
-		} catch (FileNotFoundException e) {
-			throw new RuntimeException(e);
+		} catch (Exception e) {
+            LOGGER.log(Level.SEVERE, "context", e);
 		}
 		
 	}

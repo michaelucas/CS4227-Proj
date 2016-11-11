@@ -3,6 +3,8 @@ package BusinessLayer;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import ArchitecturalLayer.ContextObject;
 import ArchitecturalLayer.Dispatcher;
@@ -15,6 +17,7 @@ public class AdminProductList implements Subject {
 	private ArrayList<Component> listOfProducts;
 	private ArrayList<Observer> observers;
 	private Dispatcher dispatcher;
+	private static final Logger LOGGER = Logger.getLogger( AdminProductList.class.getName() );
 
 	public AdminProductList() throws FileNotFoundException{
 		listOfProducts = new ArrayList<>();
@@ -78,7 +81,7 @@ public class AdminProductList implements Subject {
 				o.update();
 			}
 		} catch (Exception e) {
-			throw new RuntimeException(e);
+            LOGGER.log(Level.SEVERE, "context", e);
 		}
 	}
 

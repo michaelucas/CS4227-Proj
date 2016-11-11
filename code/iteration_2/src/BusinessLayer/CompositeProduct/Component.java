@@ -1,7 +1,9 @@
 package BusinessLayer.CompositeProduct;
 
-import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
+import BusinessLayer.AdminProductList;
 import DataLayer.DataControl;
 
 public abstract class Component implements Part {
@@ -11,6 +13,7 @@ public abstract class Component implements Part {
     private double price;
     private String typeOfComponent;
     private double weight;
+	private static final Logger LOGGER = Logger.getLogger( AdminProductList.class.getName() );
 
     /**
      * Construct a new component using the provided item
@@ -72,16 +75,16 @@ public abstract class Component implements Part {
     public void decrementStock() {
 		try {
 			DataControl.adjustStock(this.componentName, "decrement");
-		} catch (IOException e) {
-			throw new RuntimeException(e);
+		} catch (Exception e) {
+            LOGGER.log(Level.SEVERE, "context", e);
 		}
     }
 
     public void addStock() {
     	try {
 			DataControl.adjustStock(this.componentName, "increment");
-		} catch (IOException e) {
-			throw new RuntimeException(e);
+		} catch (Exception e) {
+            LOGGER.log(Level.SEVERE, "context", e);
 		}
     }
     

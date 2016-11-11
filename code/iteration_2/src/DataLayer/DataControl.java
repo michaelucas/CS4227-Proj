@@ -1,7 +1,10 @@
 package DataLayer;
 
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
+import BusinessLayer.AdminProductList;
 import BusinessLayer.StockManager;
 import BusinessLayer.CompositeProduct.*;
 import BusinessLayer.FactoryProduct.*;
@@ -16,8 +19,7 @@ public class DataControl {
 
 	public static final String componentFileName = "code/iteration_2/ComponentList.txt";
 	public static final String stockFileName = "code/iteration_2/StockList.txt";
-	
-	
+	private static final Logger LOGGER = Logger.getLogger( AdminProductList.class.getName() );
 	
 	private DataControl() {
 		//Adding private constructor to avoid implicit public one
@@ -184,14 +186,14 @@ public class DataControl {
 		try {
 			Files.write(Paths.get(componentFileName), lineToAppendToComponentFile.getBytes(), StandardOpenOption.APPEND);
 		}
-		catch (IOException e) {
-			throw new RuntimeException(e);
+		catch (Exception e) {
+            LOGGER.log(Level.SEVERE, "context", e);
 		}
 		try {
 			Files.write(Paths.get(stockFileName),  lineToAppendToStockFile.getBytes(), StandardOpenOption.APPEND);
 		}
-		catch (IOException e) {
-			throw new RuntimeException(e);
+		catch (Exception e) {
+            LOGGER.log(Level.SEVERE, "context", e);
 		}
 	}
 

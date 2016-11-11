@@ -3,6 +3,8 @@ package UserInterfaceLayer;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import BusinessLayer.AdminProductDisplay;
 import BusinessLayer.AdminProductList;
@@ -11,6 +13,7 @@ public class AdminUI {
 
 	private AdminProductList pl;
 	private AdminProductDisplay display;
+	private static final Logger LOGGER = Logger.getLogger( AdminProductList.class.getName() );
 
 	public AdminUI() throws IOException {
 		pl = new AdminProductList();
@@ -51,8 +54,8 @@ public class AdminUI {
 			int stock = Integer.parseInt(in.nextLine());
 			pl.addToFile(componentToAdd, stock);
 
-		} catch (FileNotFoundException e) {
-			throw new RuntimeException(e);
+		} catch (Exception e) {
+            LOGGER.log(Level.SEVERE, "context", e);
 		}
 	}
 
