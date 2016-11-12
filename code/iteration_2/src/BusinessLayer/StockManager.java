@@ -3,7 +3,7 @@ package BusinessLayer;
 import java.io.FileNotFoundException;
 
 import BusinessLayer.CommandProduct.DecreaseStock;
-import BusinessLayer.CommandProduct.Stock;
+import BusinessLayer.CommandProduct.Invoker;
 import BusinessLayer.CompositeProduct.ComputerSystem;
 import DataLayer.DataControl;
 
