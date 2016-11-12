@@ -14,12 +14,13 @@ public class StockManager {
 	}
 	
 	public static void decrementStock(ComputerSystem computerSystem){
-		Stock stock = new Stock();
+		Invoker stock = new Invoker();
 		int length = computerSystem.getComponents().size();
 		for(int i = 0;i < length;i++) {
 			DecreaseStock decrease = new DecreaseStock(computerSystem.getChildAtIndex(i));
 	      	stock.takeOrder(decrease);
 		}
+		stock.placeOrders();
 	}
 	public static boolean checkIsComponentInStock(String componentName) throws FileNotFoundException {
 		
