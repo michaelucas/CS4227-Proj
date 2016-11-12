@@ -2,5 +2,5 @@ package ArchitecturalLayer;
 
 @FunctionalInterface
 public interface Interceptor {
-	public void onPreMarshalRequest(infoRequest context);
+	public void loggingServiceRequest(infoRequest context);
 }
