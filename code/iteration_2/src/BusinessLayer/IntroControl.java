@@ -16,7 +16,7 @@ public class IntroControl {
 	
 	public void setUp(){
 		Interceptor myInterceptor = new Interceptor () {
-			public void loggingServiceRequest(infoRequest context) {
+			public void onPreMarshalRequest(infoRequest context) {
 				String description = context.getType();
 				int componentID = context.getComponentID();
 				File loggingFile = new File("LoggingFile.txt");

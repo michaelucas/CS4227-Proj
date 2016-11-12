@@ -17,7 +17,7 @@ public class Dispatcher {
 	public synchronized void iterate_list(infoRequest context) {
 		for(int i=0;i< listOfInterceptors.size(); i++) {
 			Interceptor ic = listOfInterceptors.get(i);
-			ic.loggingServiceRequest(context);
+			ic.onPreMarshalRequest(context);
 		}
 	}
 	
