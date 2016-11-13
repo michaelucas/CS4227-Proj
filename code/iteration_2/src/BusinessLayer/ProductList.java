@@ -61,7 +61,7 @@ public class ProductList {
 					outputComponentListString += "Press 0 to skip component.\nPress -1 to undo selection.\n";
 					
 					ProductListUI.printOutput(outputComponentListString);
-					int userChoice = readUserComponentChoice();
+					int userChoice = readUserComponentChoice(listOfComponentTypeOptions.size());
 					
 					if (userChoice >= -1) {
 						
@@ -201,7 +201,7 @@ private void addToVisitableElementList(ComputerSystem computerSystem) {
 		}
 	}
 	
-	private static int readUserComponentChoice() {
+	private static int readUserComponentChoice(int amountOfComponents) {
 		
 		boolean acceptableInput = false;
 		int checkedUserChoice;
@@ -211,10 +211,10 @@ private void addToVisitableElementList(ComputerSystem computerSystem) {
 			
 			ProductListUI.printOutput("\nEnter choice number: ");
 			uncheckedUserChoice = ProductListUI.readUserInput();
-			if (uncheckedUserChoice.matches("[0-9]+|-1"))
+			if (uncheckedUserChoice.matches("[0-9]+|-1") && Integer.parseInt(uncheckedUserChoice) <= amountOfComponents)
 				acceptableInput = true;
 			else
-				ProductListUI.printOutput("Error: Invalid. Must be a number");
+				ProductListUI.printOutput("Error: Invalid. Must be an available choice number");
 		}
 		
 		checkedUserChoice = Integer.parseInt(uncheckedUserChoice);
