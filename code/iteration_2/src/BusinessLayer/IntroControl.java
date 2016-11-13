@@ -9,6 +9,7 @@ import java.util.logging.Logger;
 import ArchitecturalLayer.Dispatcher;
 import ArchitecturalLayer.Interceptor;
 import ArchitecturalLayer.infoRequest;
+import BusinessLayer.ObserverProduct.AdminProductList;
 
 public class IntroControl {
 
