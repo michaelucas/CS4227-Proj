@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import BusinessLayer.AdminProductList;
 import BusinessLayer.StockManager;
 import BusinessLayer.CompositeProduct.*;
 import BusinessLayer.FactoryProduct.*;
+import BusinessLayer.ObserverProduct.AdminProductList;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -178,11 +178,15 @@ public class DataControl {
 	}
 
 	public static void writeNewComponentToFile(String details, int stock) throws FileNotFoundException {
-
+		
 		int nextID = checkNextAvailableId(componentFileName);
-		String lineToAppendToComponentFile =  nextID + ", " + details + "\n";
+		String lineToAppendToComponentFile =  nextID + ",";
 		String [] detailsSplit = details.split(",");
+		for(int i=0;i < detailsSplit.length;i++){
+			lineToAppendToComponentFile += detailsSplit[i].trim() + ",";
+		}
 		String lineToAppendToStockFile = detailsSplit[0] + "," + stock + "\n";
+		lineToAppendToComponentFile += "\n";
 		try {
 			Files.write(Paths.get(componentFileName), lineToAppendToComponentFile.getBytes(), StandardOpenOption.APPEND);
 		}
