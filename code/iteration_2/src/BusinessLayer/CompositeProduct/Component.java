@@ -3,7 +3,7 @@ package BusinessLayer.CompositeProduct;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import BusinessLayer.AdminProductList;
+import BusinessLayer.ObserverProduct.AdminProductList;
 import DataLayer.DataControl;
 
 public abstract class Component implements Part {
